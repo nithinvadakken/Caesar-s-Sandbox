@@ -8,82 +8,84 @@ function draw() {
     background(0);
 
     // Troop class
-    let Troop = function (height, width, health, dmg, range, size, speed) {
-        this.height = height;
-        this.width = width;
-        this.x = window.innerWidth / 2;
-        this.y = window.innerHeight / 2;
+    class Troop {
+        constructor(rows, columns, health, dmg, range, speed) {
+            this.x = window.innerWidth / 2;
+            this.y = window.innerHeight / 2;
 
-        this.health = health;
-        this.range = range;
-        this.dmg = dmg;
-        this.size = size;
-        this.speed = speed;
-    };
+            this.rows = rows;
+            this.columns = columns;
+            this.health = health;
+            this.range = range;
+            this.dmg = dmg;
+            this.size = size;
+            this.speed = speed;
+        };
 
-    Troop.prototype.teleport = function(tx, ty) {
+        teleport = function (tx, ty) {
             this.x = tx;
             this.y = ty;
-    };
+        };
 
-    Troop.prototype.getDistanceToTarget = function(tx, ty) {
+        getDistanceToTarget = function (tx, ty) {
             return Math.sqrt(Math.pow(this.x - tx, 2) + Math.pow(this.y - ty, 2));
-    };
+        };
 
-    Troop.prototype.attack = function(troopArray) {
-        for (i = 0; i < troopArray.length; i++) {
-            if (this.getDistanceToTarget(troopArray[i].x, troopArray[i].y) <= this.range) {
-                Troop.health -= dmg;
+        attack = function (troopArray) {
+            for (i = 0; i < troopArray.length; i++) {
+                if (this.getDistanceToTarget(troopArray[i].x, troopArray[i].y) <= this.range) {
+                    Troop.health -= dmg;
+                }
             }
-        }
-    };
+        };
 
-    Troop.prototype.drawTroop = function(color) {
+        drawTroop = function (color) {
             ctx.fillStyle = color;
             ctx.fillRect(window.innerWidth / 2, window.innerHeight / 2, this.width, this.height);
-    };
+        };
 
-    Troop.prototype.move = function(troopArray) {
+        move = function (troopArray) {
             for (i = 0; i < troopArray.length; i++) {
                 if (this.getDistanceToTarget(troopArray[i].x, troopArray[i].y) <= this.range) {
                     //Move towards that target
                     //Look at old code from first game to get enemy movement
                 }
             }
-    };
+        };
 
-    Troop.prototype.checkBounds = function(tx, ty) {
+        checkBounds = function (tx, ty) {
             if ((this.x <= tx || tx <= this.x + this.width) && (this.y <= ty || ty <= this.y + this.height)) {
                 return true;
             }
-    };
+        };
+    }
 
+    class MeleeSoldier extends Troop {
+        constructor(rows, columns) {
+            super(rows, columns, 300, 10, 10, 60);
+        }
+    }
 
 //----------------------------------------------------------------------------------------------------
 
-//Melee Soldier
-function MeleeSoldier(height, width) {
-        Troop.call(this, height, width, 300, 10, 50);
-}
-
-//----------------------------------------------------------------------------------------------------
 
 // Archer (ranger) Class
-function Archer (height, width) {
-        Troop.call(this, height, width, 150, 50, 35);
-}
+    class Archer extends Troop {
+        constructor(rows, columns) {
+            super(rows, columns, 200, 15, 40, 70);
+        }
+    }
 
 //Player Class
-function Player(id, armyArray){
-    this.id = id;
-    this.armyArray = armyArray;
+    class Player {
+        constructor(id, armyArray) {
+            this.id = id;
+            this.armyArray = armyArray;
+        }
 
-}
+        addArmy = function () {
 
-Player.prototype.addArmy = function(){
-    //allocates  armies for each player
-    //each army should have 15 divisions, with a different number of troops in each division depending
-    //on the troop's size property
+        }
 
-};
+    }
 }
