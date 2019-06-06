@@ -12,8 +12,3 @@ MeleeSoldier.prototype.drawSoldier = function () {
     ctx.fillStyle = "#355afa";
     ctx.fillRect(window.innerWidth/2, window.innerHeight/2, this.width, this.height);
 };
-
-
-ctx.beginPath();
-ctx.arc(95, 50, 40, 0, 2 * Math.PI);
-ctx.stroke();
