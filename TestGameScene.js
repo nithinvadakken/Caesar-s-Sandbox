@@ -24,15 +24,32 @@ Troop.prototype.getDistanceToTarget = function (tx, ty) {
     return Math.sqrt(Math.pow(this.x - tx, 2) + Math.pow(this.y - ty, 2));
 };
 
-Troop.prototype.attack = function (Troop) {
-    if (this.getDistanceToTarget(Troop.x, Troop.y) <= this.range) {
-        Troop.health -= dmg;
+Troop.prototype.attack = function (troopArray) {
+    for (i=0; i<troopArray.length; i++) {
+        if (this.getDistanceToTarget(troopArray[i].x, troopArray[i].y) <= this.range) {
+            Troop.health -= dmg;
+        }
     }
 };
 
 Troop.prototype.drawTroop = function (color) {
     ctx.fillStyle = color;
     ctx.fillRect(window.innerWidth/2, window.innerHeight/2, this.width, this.height);
+};
+
+Troop.prototype.move = function (troopArray) {
+    for (i=0; i<troopArray.length; i++) {
+        if (this.getDistanceToTarget(troopArray[i].x, troopArray[i].y) <= this.range) {
+            //Move towards that target
+            //Look at old code from first game to get enemy movement
+        }
+    }
+};
+
+Troop.prototype.checkBounds = function (tx, ty) {
+    if ((this.x <= tx || tx <= this.x+this.width)&&(this.y <= ty || ty <= this.y+this.height)) {
+        return true;
+    }
 };
 
 //----------------------------------------------------------------------------------------------------
