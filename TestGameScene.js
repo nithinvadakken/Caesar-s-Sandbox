@@ -2,24 +2,16 @@ var canvas = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
 
-class MeleeSoldier {
 
-    height = 0;
-    width = 0;
-
-    constructor(height, width) {
-        this.height = height;
-        this.width = width;
-    }
-
-    drawSoldier() {
-        ctx.fillRect(window.innerWidth/2, window.innerHeight/2, this.width, this.height);
-    }
+function MeleeSoldier(height, width) {
+    this.height = height;
+    this.width = width;
 }
 
-function createSoldiers() {
-
-}
+MeleeSoldier.prototype.drawSoldier = function () {
+    ctx.fillStyle = "#355afa";
+    ctx.fillRect(window.innerWidth/2, window.innerHeight/2, this.width, this.height);
+};
 
 
 ctx.beginPath();
