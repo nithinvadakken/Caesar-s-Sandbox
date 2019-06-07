@@ -90,7 +90,7 @@ function draw() {
             let numOfDivisions = 2;    //divisions being archers, melee, cavalry, etc..
             let armyArray = [rows][columns];
 
-            /*for(let i = 0;i < numOfDivisions;i++){
+            for(let i = 0;i < numOfDivisions;i++){
                 for(let j = 0;j < rows;j++){
                     for(let k = 0;k < columns;k++){
                          if(i === 0)
@@ -102,7 +102,7 @@ function draw() {
                         armyArray[j][k].drawTroop(random(256));
                     }
                 }
-            }*/
+            }
 
             return armyArray;
         };
