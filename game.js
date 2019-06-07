@@ -24,7 +24,7 @@ class Troop {
     }
 
     attack(troopArray) {
-        for (i = 0; i < troopArray.length; i++) {
+        for (var i = 0; i < troopArray.length; i++) {
             if (this.getDistanceToTarget(troopArray[i].x, troopArray[i].y) <= this.range) {
                 Troop.health -= dmg;
             }
@@ -37,7 +37,7 @@ class Troop {
     }
 
     move(troopArray) {
-        for (i = 0; i < troopArray.length; i++) {
+        for (var i = 0; i < troopArray.length; i++) {
             if (this.getDistanceToTarget(troopArray[i].x, troopArray[i].y) <= this.range) {
                 //Move towards that target
                 //Look at old code from first game to get enemy movement
