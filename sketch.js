@@ -9,12 +9,8 @@ function draw() {
 
     // Troop class
     class Troop {
-        constructor(rows, columns, health, dmg, range, speed) {
-            this.x = window.innerWidth / 2;
-            this.y = window.innerHeight / 2;
-
-            this.rows = rows;
-            this.columns = columns;
+        constructor(health, dmg, range, speed) {
+            this.position = createVector(random(width),random(height));
             this.health = health;
             this.range = range;
             this.dmg = dmg;
@@ -22,17 +18,13 @@ function draw() {
             this.speed = speed;
         };
 
-        teleport = function (tx, ty) {
-            this.x = tx;
-            this.y = ty;
-        };
 
         getDistanceToTarget = function (tx, ty) {
             return Math.sqrt(Math.pow(this.x - tx, 2) + Math.pow(this.y - ty, 2));
         };
 
         attack = function (troopArray) {
-            for (i = 0; i < troopArray.length; i++) {
+            for (let i = 0; i < troopArray.length; i++) {
                 if (this.getDistanceToTarget(troopArray[i].x, troopArray[i].y) <= this.range) {
                     Troop.health -= dmg;
                 }
@@ -40,12 +32,13 @@ function draw() {
         };
 
         drawTroop = function (color) {
-            ctx.fillStyle = color;
-            ctx.fillRect(window.innerWidth / 2, window.innerHeight / 2, this.width, this.height);
+            strokeWeight(8);
+            stroke(color);
+            point(this.position.x, this.position.y);
         };
 
         move = function (troopArray) {
-            for (i = 0; i < troopArray.length; i++) {
+            for (let i = 0; i < troopArray.length; i++) {
                 if (this.getDistanceToTarget(troopArray[i].x, troopArray[i].y) <= this.range) {
                     //Move towards that target
                     //Look at old code from first game to get enemy movement
@@ -53,39 +46,72 @@ function draw() {
             }
         };
 
-        checkBounds = function (tx, ty) {
-            if ((this.x <= tx || tx <= this.x + this.width) && (this.y <= ty || ty <= this.y + this.height)) {
-                return true;
+        checkBounds = function () {
+            if (this.position.x > width) {
+                this.position.x = 0;
+            } else if (this.position.x < 0) {
+                this.position.x = width;
             }
-        };
+
+            if (this.position.y > height) {
+                this.position.y = 0;
+            } else if (this.position.y < 0) {
+                this.position.y = height;
+            }
+        }
     }
 
+    //Melee Class
     class MeleeSoldier extends Troop {
-        constructor(rows, columns) {
-            super(rows, columns, 300, 10, 10, 60);
+        constructor() {
+            super(300, 10, 10, 60);
         }
     }
 
-//----------------------------------------------------------------------------------------------------
-
-
-// Archer (ranger) Class
+    // Archer (ranger) Class
     class Archer extends Troop {
-        constructor(rows, columns) {
-            super(rows, columns, 200, 15, 40, 70);
+        constructor() {
+            super(200, 15, 40, 70);
         }
     }
 
-//Player Class
+    //Player Class (should come in handy later for online play)
     class Player {
-        constructor(id, armyArray) {
+        constructor(id) {
             this.id = id;
-            this.armyArray = armyArray;
+            this.armyArray = this.addArmy();
         }
 
         addArmy = function () {
+            //default number of rows and columns of troops
+            var rows = 3;
+            var columns = 21;
 
-        }
+            var numOfDivisions = 2;    //divisions being archers, melee, cavalry, etc..
+            let armyArray = [rows][columns];
+
+            for(let i = 0;i < numOfDivisions;i++){
+                for(let j = 0;j < rows;j++){
+                    for(let k = 0;k < columns;k++){
+                         if(i === 0)
+                            armyArray[j][k].push(new MeleeSoldier());
+
+                         else if(i === 1)
+                            armyArray[j][k].push(new Archer());
+
+                        armyArray[j][k].drawTroop(random(256));
+                    }
+                }
+            }
+
+            return armyArray;
+        };
 
     }
+
+    //-----------------------------------------------------------------------------------------------------------------------------
+
+    let player = new Player(1);
+
+    player.addArmy();
 }
