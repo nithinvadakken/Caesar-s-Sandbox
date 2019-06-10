@@ -4,7 +4,7 @@ function setup() {
 }
 
 // Troop class
-class Troop {
+class GameTroop {
     constructor(health, dmg, range, speed, size) {
         this.position = createVector(random(width),random(height));
         this.health = health;
@@ -58,14 +58,14 @@ class Troop {
 }
 
 //Melee Class
-class MeleeSoldier extends Troop {
+class MeleeSoldier extends GameTroop {
     constructor() {
         super(300, 10, 10, 60, 20);
     }
 }
 
 // Archer (ranger) Class
-class Archer extends Troop {
+class Archer extends GameTroop {
     constructor() {
         super(200, 15, 40, 70, 20);
     }
@@ -73,9 +73,9 @@ class Archer extends Troop {
 
 //Player Class (should come in handy later for online play)
 class Player {
+
     constructor(id) {
         this.id = id;
-        this.armyArray = this.addArmy();
         this.rows = 3;
         this.columns = 21;
     }
@@ -85,12 +85,12 @@ class Player {
 
         let armyArray = [];
 
-        for (var i=0;i<this.rows;i++) {
+        for (let i=0;i<this.rows;i++) {
             armyArray[i] = [];
         }
 
         for (let i=0; i<this.rows; i++) {
-            let tr = new Troop(300, 10, 10, 60, 20);
+            let tr = new MeleeSoldier();
             armyArray[i].push(tr);
         }
 
@@ -98,15 +98,10 @@ class Player {
     }
 
     drawArmy() {
+        let armyArray = this.addArmy();
         for (let i=0; i<this.rows; i++) {
             for (let j=0; j<this.columns; j++) {
-                if (this.rows%2===0) {
-                    fill(250, 118, 222);
-                    ellipse(window.innerWidth/2 + i, window.innerHeight/2 + j, this.armyArray[i][j].size, this.armyArray[i][j].size);
-                } else {
-                    fill(250, 118, 222);
-                    rect(window.innerWidth/2 - i, window.innerHeight/2 - j, this.armyArray[i][j].size, this.armyArray[i][j].size);
-                }
+                armyArray[i][j].drawTroop(255);
             }
         }
     }
