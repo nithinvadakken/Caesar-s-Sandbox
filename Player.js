@@ -1,11 +1,12 @@
 //Player Class (should come in handy later for online play)
 class Player {
 
-    constructor(id) {
+    constructor(id, color) {
         this.id = id;
         this.numTroops = 40;
         this.army = [];
         this.position = createVector(window.innerWidth/2, window.innerHeight/2);
+        this.color = color;
     }
 
     update(){
@@ -39,7 +40,7 @@ class Player {
     drawArmy() {
         let armyArray = this.army;
         for (let i=0; i<armyArray.length; i++) {
-            armyArray[i].drawTroop(color(255,0,0));
+            armyArray[i].drawTroop(this.color);
         }
     }
 
