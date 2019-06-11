@@ -1,13 +1,12 @@
 // Troop class
 class GameTroop {
-    constructor(health, dmg, range, speed, size, color) {
-        this.pos = createVector(random(width),random(height));
+    constructor(x, y, health, dmg, range, speed, size) {
+        this.pos = createVector(x, y);
         this.health = health;
         this.range = range;
         this.dmg = dmg;
         this.size = size;
         this.speed = speed;
-        this.color = color;
     }
 
     getDistanceToTarget (tx, ty) {
@@ -22,14 +21,6 @@ class GameTroop {
         }
     }
 
-    drawTroop() {
-        strokeWeight(8);
-        let clr = this.color;
-        stroke(clr);
-        point(this.pos.x, this.pos.y);
-    }
-
-
     targetMove(tx, ty) {
         let xspeed = (mouseX - x)/2;
         let yspeed = (mouseY - y)/2;
@@ -41,16 +32,30 @@ class GameTroop {
 
 //Melee Class
 class MeleeSoldier extends GameTroop {
-    constructor() {
+    constructor(x, y) {
         //red
-        super(300, 10, 10, 60, 20, color(255,0,0));
+        super(x, y, 300, 10, 10, 60, 4);
+    }
+
+    drawTroop(clr){
+        strokeWeight(8);
+        stroke(clr);
+        ellipse(this.pos.x, this.pos.y, this.size);
     }
 }
 
 // Archer (ranger) Class
 class Archer extends GameTroop {
-    constructor() {
+    constructor(x, y) {
         //yellow
-        super(200, 15, 40, 70, 20, color(255,255,0));
+        super(x, y, 200, 15, 40, 70, 20);
+    }
+
+    drawTroop(clr){
+        strokeWeight(8);
+        stroke(clr);
+        let x = this.pos.x;
+        let y = this.pos.y;
+        triangle(x, y, x+2, y, (x + (x+2))/2, y-2);
     }
 }

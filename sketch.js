@@ -11,7 +11,7 @@ function draw() {
     // put drawing code here
     background(0);
     console.log(player.position.x);
-    translate(width/2-player.position.x, height/2-player.position.y);
+    translate(window.innerWidth/2-player.position.x, window.innerHeight/2-player.position.y);
     player.show();
     player.update();
 }
