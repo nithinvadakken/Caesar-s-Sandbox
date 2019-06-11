@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="author" content="Wayou">
+        <meta name="description" content="hichat | a simple chat application built with node.js and websocket">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>hichat</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="banner">
+                <h1>HiChat :)</h1>
+                <span id="status"></span>
+            </div>
+            <div id="historyMsg">
+            </div>
+            <div class="controls" >
+                <textarea id="messageInput" placeHolder="enter to send"></textarea>
+
+            </div>
+        </div>
+        <div id="loginWrapper">
+            <p id="info">connecting to server...</p>
+            <div id="nickWrapper">
+                <input type="text" placeHolder="nickname" id="nicknameInput" />
+                <input type="text" placeHolder="server" id="server_id" />
+                <input type="button" value="OK" id="loginBtn" />
+            </div>
+        </div>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="game.js"></script>
+        <script>
+    </script>
+    </body>
+</html>
