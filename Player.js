@@ -7,6 +7,7 @@ class Player {
         this.army = [];
         this.position = createVector(window.innerWidth/2, window.innerHeight/2);
         this.color = color;
+        this.enemies = [];
     }
 
     update(){
@@ -15,7 +16,7 @@ class Player {
         vel.sub(this.position);
         this.position.add(vel);
         for (let i=0; i<this.numTroops; i++) {
-            this.army[i].targetMove();
+            this.army[i].autoMove(this.enemies);
         }
     }
 
@@ -51,7 +52,8 @@ class Player {
         this.drawArmy();
     }
 
-    init(){
+    init(enemyTroopArr){
         this.army = this.addArmy();
+        this.enemies = enemyTroopArr;
     }
 }

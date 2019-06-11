@@ -5,8 +5,8 @@ function setup() {
     createCanvas(window.innerWidth, window.innerHeight);
     player = new Player(1, color(255, 0, 0));
     player2 = new Player(2, color(0, 255, 0));
-    player.init();
-    player2.init();
+    player.init(player2.army);
+    player2.init(player.army);
 }
 
 function draw() {

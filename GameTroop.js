@@ -21,9 +21,22 @@ class GameTroop {
         }
     }
 
-    targetMove() {
-        let xspeed = (mouseX - this.pos.x)/100;
-        let yspeed = (mouseY - this.pos.y)/100;
+    autoMove(troopArray) {
+        let ex = 1000000;
+        let ey = 1000000;
+
+        for (let i=0; i<troopArray.length; i++) {
+            if (this.getDistanceToTarget(troopArray[i].pos.x, troopArray[i].pos.y) < this.getDistanceToTarget(ex, ey)) {
+                ex =  troopArray[i].pos.x; 
+                ey = troopArray[i].pos.y;
+                this.targetMove(ex, ey);
+            }
+        }
+    }
+
+    targetMove(tx, ty) {
+        let xspeed = (tx - this.pos.x)/100;
+        let yspeed = (ty - this.pos.y)/100;
 
         this.pos.x += xspeed;
         this.pos.y += yspeed;
