@@ -14,6 +14,9 @@ class Player {
         let vel = createVector(mouseX,mouseY);
         vel.sub(this.position);
         this.position.add(vel);
+        for (let i=0; i<this.numTroops; i++) {
+            this.army[i].targetMove();
+        }
     }
 
     addArmy() {

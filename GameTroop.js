@@ -21,12 +21,12 @@ class GameTroop {
         }
     }
 
-    targetMove(tx, ty) {
-        let xspeed = (mouseX - x)/2;
-        let yspeed = (mouseY - y)/2;
+    targetMove() {
+        let xspeed = (mouseX - this.pos.x)/100;
+        let yspeed = (mouseY - this.pos.y)/100;
 
-        this.x += xspeed;
-        this.y += yspeed;
+        this.pos.x += xspeed;
+        this.pos.y += yspeed;
     }
 }
 
