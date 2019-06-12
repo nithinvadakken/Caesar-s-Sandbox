@@ -9,6 +9,11 @@ function setup() {
     player2.init(player.army);
 }
 
+// function mouseClicked() {
+//     player.update();
+//     player2.update();
+// }
+
 function draw() {
     // put drawing code here
     background(0);
@@ -18,4 +23,6 @@ function draw() {
     player2.show();
     player.update();
     player2.update();
+    player.moveArmy();
+    player2.moveArmy();
 }

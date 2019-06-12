@@ -35,8 +35,8 @@ class GameTroop {
     }
 
     targetMove(tx, ty) {
-        let xspeed = (tx - this.pos.x)/100;
-        let yspeed = (ty - this.pos.y)/100;
+        let xspeed = (tx - this.pos.x)/500;
+        let yspeed = (ty - this.pos.y)/500;
 
         this.pos.x += xspeed;
         this.pos.y += yspeed;
