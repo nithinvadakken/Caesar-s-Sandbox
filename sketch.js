@@ -7,6 +7,8 @@ function setup() {
     player2 = new Player(2, color(0, 255, 0));
     player.init(player2.army);
     player2.init(player.army);
+
+    speedSlider = createSlider(2, 5, 3, 1);
 }
 
 // function mouseClicked() {
@@ -16,6 +18,9 @@ function setup() {
 
 function draw() {
     // put drawing code here
+    if (player.numTroops <= 0 || player2.numTroops <= 0) {
+        window.location.reload();
+    }
     background(0);
     translate(window.innerWidth/2-player.position.x, window.innerHeight/2-player.position.y);
     player.show();
@@ -28,7 +33,7 @@ function draw() {
 
 function mousePressed(){
     for(let i = 0;i < player.army.length;i++){
-        player.clicked(); //not finished
+        // player.clicked(); //not finished
     }
 }
 
