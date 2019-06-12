@@ -42,9 +42,9 @@ class Player {
 
         for (let i=0; i<this.numTroops; i++) {
             if (i%2===0) {
-                armyArray.push(new MeleeSoldier(random(width), random(height), this.id));
+                armyArray.push(new MeleeSoldier(random(width), random(height), this.id, this.color));
             } else {
-                armyArray.push(new Archer(random(width), random(height), this.id));
+                armyArray.push(new Archer(random(width), random(height), this.id, this.color));
             }
         }
 

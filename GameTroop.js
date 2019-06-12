@@ -1,6 +1,6 @@
 // Troop class
 class GameTroop {
-    constructor(x, y, health, dmg, range, speed, size) {
+    constructor(x, y, health, dmg, range, speed, size, color) {
         this.pos = createVector(x, y);
         this.health = health;
         this.range = range;
@@ -15,6 +15,10 @@ class GameTroop {
 
     attack (enemy) {
         enemy.health -= this.dmg;
+        strokeWeight(1);
+        stroke(color(255, 255, 255));
+        line(this.pos.x, this.pos.y, enemy.pos.x, enemy.pos.y);
+        setTimeout(function(){}, 1500);
     }
 
     autoMove(troopArray) {
@@ -45,7 +49,6 @@ class GameTroop {
 //Melee Class
 class MeleeSoldier extends GameTroop {
     constructor(x, y, name) {
-        //red
         super(x, y, 300, 30, 50, 20, 4);
     }
 
