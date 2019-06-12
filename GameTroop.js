@@ -6,27 +6,25 @@ class GameTroop {
         this.range = range;
         this.dmg = dmg;
         this.size = size;
-        this.speed = speed;
+        this.speed = speed*100;
     }
 
     getDistanceToTarget (tx, ty) {
         return Math.sqrt(Math.pow(this.pos.x - tx, 2) + Math.pow(this.pos.y - ty, 2));
     }
 
-    attack (troopArray) {
-        for (let i = 0; i < troopArray.length; i++) {
-            if (this.getDistanceToTarget(troopArray[i].pos.x, troopArray[i].pos.y) <= this.range) {
-                troopArray[i].health -= dmg;
-            }
-        }
+    attack (enemy) {
+        enemy.health -= this.dmg;
     }
 
     autoMove(troopArray) {
         let ex = 1000000;
         let ey = 1000000;
-
+        
         for (let i=0; i<troopArray.length; i++) {
-            if (this.getDistanceToTarget(troopArray[i].pos.x, troopArray[i].pos.y) < this.getDistanceToTarget(ex, ey)) {
+            if (this.getDistanceToTarget(troopArray[i].pos.x, troopArray[i].pos.y) < this.range) {
+                this.attack(troopArray[i]);
+            } else if (this.getDistanceToTarget(troopArray[i].pos.x, troopArray[i].pos.y) < this.getDistanceToTarget(ex, ey)) {
                 ex =  troopArray[i].pos.x; 
                 ey = troopArray[i].pos.y;
                 this.targetMove(ex, ey);
@@ -35,8 +33,9 @@ class GameTroop {
     }
 
     targetMove(tx, ty) {
-        let xspeed = (tx - this.pos.x)/500;
-        let yspeed = (ty - this.pos.y)/500;
+
+        let xspeed = (tx - this.pos.x)/this.speed;
+        let yspeed = (ty - this.pos.y)/this.speed;
 
         this.pos.x += xspeed;
         this.pos.y += yspeed;
@@ -45,9 +44,9 @@ class GameTroop {
 
 //Melee Class
 class MeleeSoldier extends GameTroop {
-    constructor(x, y) {
+    constructor(x, y, name) {
         //red
-        super(x, y, 300, 10, 10, 60, 4);
+        super(x, y, 300, 30, 50, 20, 4);
     }
 
     drawTroop(clr){
@@ -59,9 +58,9 @@ class MeleeSoldier extends GameTroop {
 
 // Archer (ranger) Class
 class Archer extends GameTroop {
-    constructor(x, y) {
+    constructor(x, y, name) {
         //yellow
-        super(x, y, 200, 15, 40, 70, 20);
+        super(x, y, 200, 15, 100, 50, 20);
     }
 
     drawTroop(clr){
