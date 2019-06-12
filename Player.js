@@ -11,16 +11,15 @@ class Player {
     }
 
     update(){
-        console.log(mouseX);
         let vel = createVector(mouseX,mouseY);
         vel.sub(this.position);
         this.position.add(vel);
     }
 
     moveArmy() {
-        for(let i = 0; i < this.numTroops; i++){ 
+        for (let i = this.numTroops - 1; i >= 0; i--) {
             if (this.army[i].health <= 0) {
-                this.army.splice(i, 1); 
+                this.army.splice(i, 1);
                 this.numTroops -= 1;
             }
         }
@@ -41,10 +40,11 @@ class Player {
         let archerY;
 
         for (let i=0; i<this.numTroops; i++) {
+            let space = (this.id === 1)? random(width/2): random(width/2, random(width));
             if (i%2===0) {
-                armyArray.push(new MeleeSoldier(random(width), random(height), this.id, this.color));
+                armyArray.push(new MeleeSoldier(space, random(height), this.id, this.color));
             } else {
-                armyArray.push(new Archer(random(width), random(height), this.id, this.color));
+                armyArray.push(new Archer(space, random(height), this.id, this.color));
             }
         }
 
@@ -65,4 +65,9 @@ class Player {
     init(enemyTroopArr){
         this.enemies = enemyTroopArr;
     }
+
+    clicked(){
+        console.log("Object");
+    }
+
 }

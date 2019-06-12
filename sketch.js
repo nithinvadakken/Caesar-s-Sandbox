@@ -17,7 +17,6 @@ function setup() {
 function draw() {
     // put drawing code here
     background(0);
-    console.log(player.position.x);
     translate(window.innerWidth/2-player.position.x, window.innerHeight/2-player.position.y);
     player.show();
     player2.show();
@@ -26,3 +25,10 @@ function draw() {
     player.moveArmy();
     player2.moveArmy();
 }
+
+function mousePressed(){
+    for(let i = 0;i < player.army.length;i++){
+        player.clicked(); //not finished
+    }
+}
+
