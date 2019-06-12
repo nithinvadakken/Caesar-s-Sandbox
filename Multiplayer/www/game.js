@@ -20,9 +20,10 @@ Game.prototype = {
         });
         this.socket.on('loginSuccess', function(server) {
             this.server= server;
-            document.title = 'hichat | ' + document.getElementById('nicknameInput').value;
+            document.title = 'Caesar\'s Sandbox | ' + document.getElementById('nicknameInput').value;
             document.getElementById('loginWrapper').style.display = 'none';
             document.getElementById('messageInput').focus();
+            document.getElementById('server_name').textContent = "server: "+server;
         });
         this.socket.on('error', function(err) {
             if (document.getElementById('loginWrapper').style.display == 'none') {
@@ -34,7 +35,7 @@ Game.prototype = {
         this.socket.on('system', function(nickName, userCount, type) {
             var msg = nickName + (type == 'login' ? ' joined' : ' left');
             that._displayNewMsg('system ', msg, 'red');
-            document.getElementById('status').textContent = userCount + (userCount > 1 ? ' users' : ' user') + ' online';
+            document.getElementById('status').textContent = userCount + (userCount > 1 ? ' users' : ' user') + ' in this room';
         });
         this.socket.on('newMsg', function(user, msg, color) {
             that._displayNewMsg(user, msg, color,this.server);
@@ -49,7 +50,17 @@ Game.prototype = {
             };
         }, false);
         document.getElementById('nicknameInput').addEventListener('keyup', function(e) {
-            if (e.keyCode == 13) {
+            if (e.keyCode == 13 && parseInt(server)>=0 && parseInt(server)<100) {
+                var nickName = document.getElementById('nicknameInput').value;
+                server = document.getElementById('server_id').value;
+                if (nickName.trim().length != 0) {
+                    that.socket.emit('login', nickName, server);
+                };
+            };
+        }, false);
+
+        document.getElementById('server_id').addEventListener('keyup', function(e) {
+            if (e.keyCode == 13 && parseInt(server)>=0 && parseInt(server)<100) {
                 var nickName = document.getElementById('nicknameInput').value;
                 server = document.getElementById('server_id').value;
                 if (nickName.trim().length != 0) {
@@ -71,8 +82,8 @@ Game.prototype = {
 
         }, false);
     },
-    _displayNewMsg: function(user, msg, color,server) {
-            console.log(msg + " "+user+" "+server);
+    _displayNewMsg: function(user, msg, color) {
+
             var container = document.getElementById('historyMsg'),
                 msgToDisplay = document.createElement('p'),
                 date = new Date().toTimeString().substr(0, 8),
