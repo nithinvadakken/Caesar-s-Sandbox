@@ -11,7 +11,6 @@ class Player {
     }
 
     update(){
-        console.log(mouseX);
         let vel = createVector(mouseX,mouseY);
         vel.sub(this.position);
         this.position.add(vel);
@@ -26,7 +25,7 @@ class Player {
         }
 
         for (let i=0; i<this.numTroops; i++) {
-            this.army[i].autoMove(this.enemies);
+            this.army[i].autoMove(this.enemies, this.army);
         }
     }
 
