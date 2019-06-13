@@ -2,317 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42c01f71-cfcb-425d-94ec-a09735fcd83b" name="Default Changelist" comment="GAME SERVER DONE">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/.bin/mime" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/.bin/mime.cmd" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/array-flatten/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/array-flatten/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/array-flatten/array-flatten.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/array-flatten/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/body-parser/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/body-parser/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/body-parser/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/body-parser/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/body-parser/lib/read.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/body-parser/lib/types/json.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/body-parser/lib/types/raw.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/body-parser/lib/types/text.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/body-parser/lib/types/urlencoded.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/body-parser/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/bytes/History.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/bytes/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/bytes/Readme.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/bytes/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/bytes/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/content-disposition/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/content-disposition/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/content-disposition/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/content-disposition/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/content-disposition/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/content-type/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/content-type/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/content-type/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/content-type/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/content-type/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/cookie-signature/.npmignore" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/cookie-signature/History.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/cookie-signature/Readme.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/cookie-signature/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/cookie-signature/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/debug/.coveralls.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/debug/.eslintrc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/debug/.npmignore" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/debug/.travis.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/debug/Makefile" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/debug/component.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/debug/karma.conf.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/debug/node.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/debug/src/debug.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/debug/src/inspector-log.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/depd/History.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/depd/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/depd/Readme.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/depd/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/depd/lib/browser/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/depd/lib/compat/callsite-tostring.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/depd/lib/compat/event-listener-count.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/depd/lib/compat/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/depd/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/destroy/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/destroy/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/destroy/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/destroy/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/ee-first/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/ee-first/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/ee-first/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/ee-first/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/encodeurl/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/encodeurl/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/encodeurl/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/encodeurl/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/encodeurl/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/engine.io/node_modules/cookie/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/engine.io/node_modules/cookie/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/engine.io/node_modules/cookie/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/engine.io/node_modules/cookie/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/engine.io/node_modules/cookie/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/escape-html/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/escape-html/Readme.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/escape-html/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/escape-html/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/etag/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/etag/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/etag/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/etag/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/etag/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/express/History.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/express/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/express/Readme.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/express/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/express/lib/application.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/express/lib/express.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/express/lib/middleware/init.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/express/lib/middleware/query.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/express/lib/request.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/express/lib/response.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/express/lib/router/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/express/lib/router/layer.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/express/lib/router/route.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/express/lib/utils.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/express/lib/view.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/express/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/finalhandler/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/finalhandler/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/finalhandler/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/finalhandler/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/finalhandler/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/forwarded/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/forwarded/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/forwarded/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/forwarded/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/forwarded/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/fresh/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/fresh/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/fresh/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/fresh/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/fresh/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/http-errors/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/http-errors/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/http-errors/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/http-errors/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/http-errors/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/Changelog.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/encodings/dbcs-codec.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/encodings/dbcs-data.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/encodings/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/encodings/internal.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/encodings/sbcs-codec.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/encodings/sbcs-data-generated.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/encodings/sbcs-data.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/encodings/tables/big5-added.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/encodings/tables/cp936.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/encodings/tables/cp949.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/encodings/tables/cp950.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/encodings/tables/eucjp.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/encodings/tables/gb18030-ranges.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/encodings/tables/gbk-added.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/encodings/tables/shiftjis.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/encodings/utf16.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/encodings/utf7.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/lib/bom-handling.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/lib/extend-node.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/lib/index.d.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/lib/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/lib/streams.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/iconv-lite/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/inherits/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/inherits/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/inherits/inherits.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/inherits/inherits_browser.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/inherits/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/ipaddr.js/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/ipaddr.js/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/ipaddr.js/ipaddr.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/ipaddr.js/lib/ipaddr.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/ipaddr.js/lib/ipaddr.js.d.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/ipaddr.js/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/media-typer/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/media-typer/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/media-typer/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/media-typer/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/media-typer/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/merge-descriptors/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/merge-descriptors/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/merge-descriptors/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/merge-descriptors/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/merge-descriptors/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/methods/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/methods/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/methods/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/methods/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/methods/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/mime/.npmignore" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/mime/CHANGELOG.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/mime/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/mime/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/mime/cli.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/mime/mime.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/mime/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/mime/src/build.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/mime/src/test.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/mime/types.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/on-finished/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/on-finished/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/on-finished/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/on-finished/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/on-finished/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/parseurl/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/parseurl/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/parseurl/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/parseurl/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/parseurl/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/path-to-regexp/History.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/path-to-regexp/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/path-to-regexp/Readme.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/path-to-regexp/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/path-to-regexp/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/proxy-addr/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/proxy-addr/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/proxy-addr/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/proxy-addr/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/proxy-addr/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/qs/.editorconfig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/qs/.eslintignore" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/qs/.eslintrc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/qs/CHANGELOG.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/qs/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/qs/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/qs/dist/qs.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/qs/lib/formats.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/qs/lib/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/qs/lib/parse.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/qs/lib/stringify.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/qs/lib/utils.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/qs/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/qs/test/.eslintrc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/qs/test/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/qs/test/parse.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/qs/test/stringify.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/qs/test/utils.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/range-parser/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/range-parser/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/range-parser/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/range-parser/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/range-parser/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/raw-body/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/raw-body/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/raw-body/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/raw-body/index.d.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/raw-body/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/raw-body/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/safe-buffer/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/safe-buffer/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/safe-buffer/index.d.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/safe-buffer/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/safe-buffer/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/safer-buffer/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/safer-buffer/Porting-Buffer.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/safer-buffer/Readme.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/safer-buffer/dangerous.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/safer-buffer/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/safer-buffer/safer.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/safer-buffer/tests.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/send/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/send/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/send/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/send/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/send/node_modules/ms/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/send/node_modules/ms/license.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/send/node_modules/ms/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/send/node_modules/ms/readme.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/send/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/serve-static/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/serve-static/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/serve-static/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/serve-static/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/serve-static/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/setprototypeof/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/setprototypeof/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/setprototypeof/index.d.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/setprototypeof/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/setprototypeof/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/setprototypeof/test/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/socket.io/node_modules/debug/CHANGELOG.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/socket.io/node_modules/debug/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/socket.io/node_modules/debug/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/socket.io/node_modules/debug/dist/debug.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/socket.io/node_modules/debug/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/socket.io/node_modules/debug/src/browser.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/socket.io/node_modules/debug/src/common.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/socket.io/node_modules/debug/src/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/socket.io/node_modules/debug/src/node.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/socket.io/node_modules/ms/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/socket.io/node_modules/ms/license.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/socket.io/node_modules/ms/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/socket.io/node_modules/ms/readme.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/statuses/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/statuses/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/statuses/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/statuses/codes.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/statuses/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/statuses/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/toidentifier/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/toidentifier/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/toidentifier/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/toidentifier/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/type-is/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/type-is/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/type-is/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/type-is/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/type-is/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/unpipe/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/unpipe/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/unpipe/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/unpipe/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/unpipe/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/utils-merge/.npmignore" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/utils-merge/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/utils-merge/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/utils-merge/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/utils-merge/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/vary/HISTORY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/vary/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/vary/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/vary/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/vary/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/www/GameTroop.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/www/Player.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/www/draw_game_p5.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/www/libraries/p5.dom.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/www/libraries/p5.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Multiplayer/www/libraries/p5.sound.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/GameTroop.js" afterPath="$PROJECT_DIR$/GameTroop.js" />
+      <change beforePath="$PROJECT_DIR$/Multiplayer/server.js" afterPath="$PROJECT_DIR$/Multiplayer/server.js" />
+      <change beforePath="$PROJECT_DIR$/Multiplayer/www/GameTroop.js" afterPath="$PROJECT_DIR$/Multiplayer/www/GameTroop.js" />
+      <change beforePath="$PROJECT_DIR$/Multiplayer/www/Player.js" afterPath="$PROJECT_DIR$/Multiplayer/www/Player.js" />
+      <change beforePath="$PROJECT_DIR$/Multiplayer/www/game.js" afterPath="$PROJECT_DIR$/Multiplayer/www/game.js" />
+      <change beforePath="$PROJECT_DIR$/Multiplayer/www/index.html" afterPath="$PROJECT_DIR$/Multiplayer/www/index.html" />
+      <change beforePath="$PROJECT_DIR$/Multiplayer/www/main.css" afterPath="$PROJECT_DIR$/Multiplayer/www/main.css" />
+      <change beforePath="$PROJECT_DIR$/Player.js" afterPath="$PROJECT_DIR$/Player.js" />
+      <change beforePath="$PROJECT_DIR$/sketch.js" afterPath="$PROJECT_DIR$/sketch.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -326,21 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="HomeScreen.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HomeScreen.html">
+      <file leaf-file-name="HomeScreen.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HomeScreen.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="119">
+              <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sketch.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sketch.js">
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Multiplayer/www/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="23" lean-forward="false" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+            <state relative-caret-position="68">
+              <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -349,8 +48,68 @@
       <file leaf-file-name="GameTroop.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GameTroop.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
-              <caret line="56" column="13" lean-forward="false" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+            <state relative-caret-position="505">
+              <caret line="304" column="1" lean-forward="false" selection-start-line="304" selection-start-column="1" selection-end-line="304" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Multiplayer/www/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="27" column="46" lean-forward="false" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sketch.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sketch.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameTroop.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Multiplayer/www/GameTroop.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2028">
+              <caret line="21" column="18" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Multiplayer/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="267">
+              <caret line="135" column="70" lean-forward="false" selection-start-line="135" selection-start-column="65" selection-end-line="135" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Multiplayer/www/game.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="318">
+              <caret line="174" column="41" lean-forward="true" selection-start-line="174" selection-start-column="41" selection-end-line="174" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Multiplayer/www/Player.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -359,31 +118,9 @@
       <file leaf-file-name="Player.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+            <state relative-caret-position="179">
+              <caret line="67" column="4" lean-forward="false" selection-start-line="67" selection-start-column="4" selection-end-line="67" selection-end-column="4" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Multiplayer/www/Player.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="game.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Multiplayer/www/game.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1598">
-              <caret line="94" column="1" lean-forward="false" selection-start-line="94" selection-start-column="1" selection-end-line="94" selection-end-column="1" />
-              <folding>
-                <marker date="1560377827875" expanded="true" signature="6107:6720" ph="{...}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -392,12 +129,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Troop</find>
-      <find>msg =</find>
-      <find>server</find>
-      <find>send</find>
       <find>newms</find>
-      <find>system</find>
       <find>user</find>
       <find>connect</find>
       <find>console</find>
@@ -409,6 +141,24 @@
       <find>enemy</find>
       <find>status</find>
       <find>!=</find>
+      <find>allies</find>
+      <find>keyPress</find>
+      <find>add_armies</find>
+      <find>while</find>
+      <find>createArmy</find>
+      <find>drawArmy</find>
+      <find>enemies</find>
+      <find>show</find>
+      <find>draw</find>
+      <find>archer</find>
+      <find>alert</find>
+      <find>random</find>
+      <find>40</find>
+      <find>game</find>
+      <find>game_btn</find>
+      <find>system</find>
+      <find>ale</find>
+      <find>tank</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -420,14 +170,16 @@
       <list>
         <option value="$PROJECT_DIR$/game.js" />
         <option value="$PROJECT_DIR$/Multiplayer/index.html" />
-        <option value="$PROJECT_DIR$/Multiplayer/www/game.js" />
-        <option value="$PROJECT_DIR$/Multiplayer/www/index.html" />
-        <option value="$PROJECT_DIR$/Multiplayer/server.js" />
-        <option value="$PROJECT_DIR$/Multiplayer/www/main.css" />
-        <option value="$PROJECT_DIR$/GameTroop.js" />
         <option value="$PROJECT_DIR$/HomeScreen.html" />
         <option value="$PROJECT_DIR$/sketch.js" />
+        <option value="$PROJECT_DIR$/Multiplayer/www/index.html" />
+        <option value="$PROJECT_DIR$/Multiplayer/www/main.css" />
+        <option value="$PROJECT_DIR$/Multiplayer/www/GameTroop.js" />
         <option value="$PROJECT_DIR$/Player.js" />
+        <option value="$PROJECT_DIR$/Multiplayer/server.js" />
+        <option value="$PROJECT_DIR$/Multiplayer/www/Player.js" />
+        <option value="$PROJECT_DIR$/Multiplayer/www/game.js" />
+        <option value="$PROJECT_DIR$/GameTroop.js" />
       </list>
     </option>
   </component>
@@ -447,8 +199,7 @@
     <handled-path value="$PROJECT_DIR$/Multiplayer/node_modules" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="676" />
-    <option name="y" value="-13" />
+    <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -476,6 +227,17 @@
               <item name="Caesar-s-Sandbox" type="b2602c69:ProjectViewProjectNode" />
               <item name="Caesar-s-Sandbox" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Caesar-s-Sandbox" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Caesar-s-Sandbox" type="462c0819:PsiDirectoryNode" />
+              <item name="Multiplayer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Caesar-s-Sandbox" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Caesar-s-Sandbox" type="462c0819:PsiDirectoryNode" />
+              <item name="Multiplayer" type="462c0819:PsiDirectoryNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -497,6 +259,117 @@
       <recent name="C:\Users\wikto\WebstormProjects\Caesar-s-Sandbox\Multiplayer" />
     </key>
   </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/GameTroop.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Player.js</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -509,11 +382,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.sketch.js">
     <configuration name="HomeScreen.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Caesar-s-Sandbox/HomeScreen.html" />
+    <configuration name="sketch.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="sketch.js" working-dir="$PROJECT_DIR$" />
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.HomeScreen.html" />
+      <item index="1" class="java.lang.String" itemvalue="Node.js.sketch.js" />
+    </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.HomeScreen.html" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Node.js.sketch.js" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.HomeScreen.html" />
       </list>
     </recent_temporary>
   </component>
@@ -534,7 +413,8 @@
       <workItem from="1560265669021" duration="165000" />
       <workItem from="1560265841667" duration="4871000" />
       <workItem from="1560272980380" duration="9498000" />
-      <workItem from="1560386751245" duration="1106000" />
+      <workItem from="1560386751245" duration="1853000" />
+      <workItem from="1560391692071" duration="16604000" />
     </task>
     <task id="LOCAL-00001" summary="Default Changelist">
       <created>1560211887068</created>
@@ -564,25 +444,33 @@
       <option name="project" value="LOCAL" />
       <updated>1560386890710</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="GAME SERVER DONE">
+      <created>1560389960757</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1560389960757</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26831000" />
+    <option name="totallyTimeSpent" value="44182000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24920969" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24920969" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.501462" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295979" sideWeight="0.49853802" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.50790304" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.49789253" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.49209693" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -609,14 +497,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="18" lean-forward="false" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Multiplayer/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
@@ -815,20 +695,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore" />
     <entry file="file://$PROJECT_DIR$/game.js" />
-    <entry file="file://$PROJECT_DIR$/HomeScreen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Multiplayer/www/favicon.ico" />
     <entry file="file://$PROJECT_DIR$/Multiplayer/www/scripts/room.js" />
     <entry file="file://$PROJECT_DIR$/Multiplayer/www/index.html" />
@@ -849,75 +715,98 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Multiplayer/libraries/p5.js" />
-    <entry file="file://$PROJECT_DIR$/Multiplayer/server.js">
+    <entry file="file://$PROJECT_DIR$/HomeScreen.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="43" column="54" lean-forward="false" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
+        <state relative-caret-position="119">
+          <caret line="7" column="35" lean-forward="true" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Multiplayer/www/main.css">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Multiplayer/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="34" column="47" lean-forward="false" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameTroop.js">
+    <entry file="file://$PROJECT_DIR$/HomeScreen.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="56" column="13" lean-forward="false" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Multiplayer/www/game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1598">
-          <caret line="94" column="1" lean-forward="false" selection-start-line="94" selection-start-column="1" selection-end-line="94" selection-end-column="1" />
-          <folding>
-            <marker date="1560377827875" expanded="true" signature="6107:6720" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HomeScreen.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sketch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="23" lean-forward="false" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+        <state relative-caret-position="289">
+          <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Multiplayer/www/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Multiplayer/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="27" column="46" lean-forward="false" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+        <state relative-caret-position="179">
+          <caret line="67" column="4" lean-forward="false" selection-start-line="67" selection-start-column="4" selection-end-line="67" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Multiplayer/www/GameTroop.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2028">
+          <caret line="21" column="18" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Multiplayer/www/Player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="274">
+          <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Multiplayer/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="135" column="70" lean-forward="false" selection-start-line="135" selection-start-column="65" selection-end-line="135" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameTroop.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="304" column="1" lean-forward="false" selection-start-line="304" selection-start-column="1" selection-end-line="304" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Multiplayer/www/game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="174" column="41" lean-forward="true" selection-start-line="174" selection-start-column="41" selection-end-line="174" selection-end-column="41" />
           <folding />
         </state>
       </provider>
