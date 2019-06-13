@@ -29,8 +29,6 @@ class Player {
         }
     }
 
-    
-
     addArmy() {
         //default number of rows and columns of troops
 

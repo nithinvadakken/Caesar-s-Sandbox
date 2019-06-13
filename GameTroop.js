@@ -31,30 +31,34 @@ class GameTroop {
 
         let terror = 0;
 
-        if (enemies.length < 10 && allies.length < 10) {
+        if (enemies.length < 20 && allies.length < 20) {
             return false;
         }
 
         for (let i=0; i<enemies.length; i++) {
-            if (this.getDistanceToTarget(enemies[i].pos.x, enemies[i].pos.y) < 100) {
-                if (this.name === "Melee" && enemies[i].name==="Archer") {
-                    terror += 2;
-                } else if (this.name === "Archer" && enemies[i].name==="Tank") {
-                    terror += 1;
-                } else if (this.name === "Melee" && enemies[i].name==="Tank") {
-                    terror += 0.5;
+            if (allies[i] !== undefined && enemies[i] !== undefined) {
+                if (this.getDistanceToTarget(enemies[i].pos.x, enemies[i].pos.y) < 100) {
+                    if (this.name === "Melee" && enemies[i].name==="Archer") {
+                        terror += 2;
+                    } else if (this.name === "Archer" && enemies[i].name==="Tank") {
+                        terror += 1;
+                    } else if (this.name === "Melee" && enemies[i].name==="Tank") {
+                        terror += 0.5;
+                    }
                 }
             }
         }
 
         for (let i=0; i<allies.length; i++) {
-            if (this.getDistanceToTarget(allies[i].pos.x, allies[i].pos.y) < 100) {
-                if (this.name === "Melee" && enemies[i].name==="Archer") {
-                    terror -= 0.5;
-                } else if (this.name === "Archer" && enemies[i].name==="Tank") {
-                    terror -= 1;
-                } else if (this.name === "Melee" && enemies[i].name==="Tank") {
-                    terror -= 2;
+            if (allies[i] !== undefined && enemies[i] !== undefined) {
+                if (this.getDistanceToTarget(allies[i].pos.x, allies[i].pos.y) < 100) {
+                    if (this.name === "Melee" && enemies[i].name==="Archer") {
+                        terror -= 0.5;
+                    } else if (this.name === "Archer" && enemies[i].name==="Tank") {
+                        terror -= 1;
+                    } else if (this.name === "Melee" && enemies[i].name==="Tank") {
+                        terror -= 2;
+                    }
                 }
             }
         }
