@@ -3,15 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="42c01f71-cfcb-425d-94ec-a09735fcd83b" name="Default Changelist" comment="GAME SERVER DONE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/GameTroop.js" afterPath="$PROJECT_DIR$/GameTroop.js" />
-      <change beforePath="$PROJECT_DIR$/Multiplayer/server.js" afterPath="$PROJECT_DIR$/Multiplayer/server.js" />
-      <change beforePath="$PROJECT_DIR$/Multiplayer/www/GameTroop.js" afterPath="$PROJECT_DIR$/Multiplayer/www/GameTroop.js" />
-      <change beforePath="$PROJECT_DIR$/Multiplayer/www/Player.js" afterPath="$PROJECT_DIR$/Multiplayer/www/Player.js" />
-      <change beforePath="$PROJECT_DIR$/Multiplayer/www/game.js" afterPath="$PROJECT_DIR$/Multiplayer/www/game.js" />
-      <change beforePath="$PROJECT_DIR$/Multiplayer/www/index.html" afterPath="$PROJECT_DIR$/Multiplayer/www/index.html" />
-      <change beforePath="$PROJECT_DIR$/Multiplayer/www/main.css" afterPath="$PROJECT_DIR$/Multiplayer/www/main.css" />
-      <change beforePath="$PROJECT_DIR$/Player.js" afterPath="$PROJECT_DIR$/Player.js" />
-      <change beforePath="$PROJECT_DIR$/sketch.js" afterPath="$PROJECT_DIR$/sketch.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -98,8 +89,8 @@
       <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Multiplayer/www/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="174" column="41" lean-forward="true" selection-start-line="174" selection-start-column="41" selection-end-line="174" selection-end-column="41" />
+            <state relative-caret-position="454">
+              <caret line="182" column="0" lean-forward="true" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -109,7 +100,7 @@
         <entry file="file://$PROJECT_DIR$/Multiplayer/www/Player.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="274">
-              <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+              <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -414,7 +405,7 @@
       <workItem from="1560265841667" duration="4871000" />
       <workItem from="1560272980380" duration="9498000" />
       <workItem from="1560386751245" duration="1853000" />
-      <workItem from="1560391692071" duration="16604000" />
+      <workItem from="1560391692071" duration="16659000" />
     </task>
     <task id="LOCAL-00001" summary="Default Changelist">
       <created>1560211887068</created>
@@ -451,11 +442,18 @@
       <option name="project" value="LOCAL" />
       <updated>1560389960757</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="GAME SERVER DONE">
+      <created>1560429363869</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1560429363869</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44182000" />
+    <option name="totallyTimeSpent" value="44237000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -782,7 +780,7 @@
     <entry file="file://$PROJECT_DIR$/Multiplayer/www/Player.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
-          <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -805,8 +803,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Multiplayer/www/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="174" column="41" lean-forward="true" selection-start-line="174" selection-start-column="41" selection-end-line="174" selection-end-column="41" />
+        <state relative-caret-position="454">
+          <caret line="182" column="0" lean-forward="true" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
           <folding />
         </state>
       </provider>
