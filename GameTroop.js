@@ -219,21 +219,13 @@ class GameTroop {
 class MeleeSoldier extends GameTroop {
 
     constructor(x, y, name) {
-
         super(x, y, 300, 30, 40, 10, 7, "Melee");
-
     }
 
-
-
     drawTroop(clr){
-
         strokeWeight(8);
-
         stroke(clr);
-
         ellipse(this.pos.x, this.pos.y, this.size);
-
     }
 
 }
@@ -245,25 +237,15 @@ class MeleeSoldier extends GameTroop {
 class Archer extends GameTroop {
 
     constructor(x, y, name) {
-
         //yellow
-
         super(x, y, 200, 15, 70, 30, 30, "Archer");
-
     }
 
-
-
     drawTroop(clr){
-
         strokeWeight(8);
-
         stroke(clr);
-
         let x = this.pos.x;
-
         let y = this.pos.y;
-
         triangle(x, y, x+2, y, (x + (x+2))/2, y-2);
 
     }
@@ -277,29 +259,18 @@ class Archer extends GameTroop {
 class Tank extends GameTroop {
 
     constructor(x, y) {
-
         //x, y, health, dmg, range, speed, size, name, acc
-
         super(x, y, 1000, 40, 45, 50, 40, "Tank");
 
     }
 
-
-
     drawTroop(clr){
-
         strokeWeight(8);
-
         stroke(clr);
-
         fill(clr);
-
         let x = this.pos.x;
-
         let y = this.pos.y;
-
         rect(x, y, this.size, this.size);
-
     }
 
 }

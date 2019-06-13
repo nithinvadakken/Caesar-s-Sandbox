@@ -3,8 +3,8 @@ class Player {
 
     constructor(id, color) {
         this.id = id;
-        this.numTroops = 0;
-        this.army = [];
+        this.numTroops = 40;
+        this.army = this.addArmy();
         this.position = createVector(window.innerWidth/2, window.innerHeight/2);
         this.color = color;
         this.enemies = [];
@@ -28,27 +28,11 @@ class Player {
             this.army[i].autoMove(this.enemies, this.army);
         }
     }
-    createArmy(meleeX2,meleeY2,archerX2,archerY2,tankX2,tankY2){
-        for(let i = 0; i< meleeX2.length;i++){
-            this.army.push(new MeleeSoldier(meleeX2,meleeY2));
-        }
-        for(let i = 0; i< archerX2.length;i++){
-            this.army.push(new Archer(archerX2,archerY2));
-        }
-        for(let i = 0; i< tankX2.length;i++){
-            this.army.push(new Tank(tankX2,tankY2));
-        }
 
-    }
     addArmy() {
         //default number of rows and columns of troops
 
         let armyArray = [];
-        let meleeX;
-        let meleeY;
-
-        let archerX;
-        let archerY;
 
         for (let i=0; i<this.numTroops-4; i++) {
             if (i%2===0) {
@@ -63,24 +47,6 @@ class Player {
         }
 
         return armyArray;
-    }
-
-    addArmyOnClick(x1,y1,id){
-        this.numTroops++;
-        let armyArray = this.army;
-        let space = (this.id === 1)? random(width/2): random(width/2, random(width));
-        //armyArray.push(new Archer(space, random(height), this.id, this.color));
-        if (id === 0){
-            armyArray.push(new MeleeSoldier(x1, y1, this.id, this.color));
-        }
-        else if (id === 1){
-            armyArray.push(new Archer(x1, y1, this.id, this.color));
-        }
-        else if (id === 2){
-            armyArray.push(new Tank(x1, y1, this.id, this.color));
-        }
-        //armyArray.push(new Archer(x1, y1, this.id, this.color));
-        this.army = armyArray;
     }
 
     drawArmy() {

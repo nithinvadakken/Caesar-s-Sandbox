@@ -4,7 +4,7 @@ function setup() {
     console.log("here");
     player = new Player(0,'green');
 }
-const max = 20;
+const max = 40;
 let current = 0;
 army_edit =false;
 meleeX = [];
@@ -25,7 +25,7 @@ function add_armies(x) {
     which_player =x;
     console.log("here1");
     army_edit = true;
-    createCanvas(window.innerWidth,window.innerHeight-225);
+    createCanvas(window.innerWidth,window.innerHeight);
     background(0);
     translate(window.innerWidth/2-player.position.x, window.innerHeight/2-player.position.y);
 
@@ -33,7 +33,7 @@ function add_armies(x) {
     clear_btn.innerHTML = "CLear";
     document.body.appendChild(clear_btn);
     clear_btn.addEventListener('click', function(){
-        createCanvas(window.innerWidth,window.innerHeight-225);
+        createCanvas(window.innerWidth,window.innerHeight);
         background(0);
         translate(window.innerWidth/2-player.position.x, window.innerHeight/2-player.position.y);
         document.body.appendChild(clear_btn);
