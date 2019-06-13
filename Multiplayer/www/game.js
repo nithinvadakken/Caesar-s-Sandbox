@@ -8,15 +8,15 @@ function setup() {
 let player1;
 let player2;
 let game_started = false;
-function draw_please(id1,id2,name1,name2,troops,color1,color2,meleeX1,meleeY1,archerX1,archerY1,meleeX2,meleeY2,archerX2,archerY2) {
+function draw_please(id1,id2,name1,name2,troops,color1,color2,meleeX1,meleeY1,archerX1,archerY1,meleeX2,meleeY2,archerX2,archerY2,tankX1,tankY1,tankX2,tankY2) {
     console.log("first");
     createCanvas(1000, 700);
     player1 = new Player(id1,color1);
     player2 = new Player(id2,color2);
     background(0);
     translate(window.innerWidth/2-player1.position.x, window.innerHeight/2-player1.position.y);
-    army1 = player1.createArmy(meleeX1,meleeY1,archerX1,archerY1);
-    army2 = player1.createArmy(meleeX2,meleeY2,archerX2,archerY2);
+    army1 = player1.createArmy(meleeX1,meleeY1,archerX1,archerY1,tankX1,tankY1);
+    army2 = player1.createArmy(meleeX2,meleeY2,archerX2,archerY2,tankX2,tankY2);
     player1.name = name1;
     player2.name = name2;
     player1.numTroops = troops;
@@ -143,9 +143,9 @@ Game.prototype = {
             console.log("game started");
             that.socket.emit('start_game');
         }, false);
-        that.socket.on('draw_game', function (id1,id2,name1,name2,troops,color1,color2,meleeX1,meleeY1,archerX1,archerY1,meleeX2,meleeY2,archerX2,archerY2/*id1,numtroops1,army1, color1,enemies1,id2,numtroops2,army2, color2,enemies2*/) {
+        that.socket.on('draw_game', function (id1,id2,name1,name2,troops,color1,color2,meleeX1,meleeY1,archerX1,archerY1,meleeX2,meleeY2,archerX2,archerY2,tankX1,tankY1,tankX2,tankY2/*id1,numtroops1,army1, color1,enemies1,id2,numtroops2,army2, color2,enemies2*/) {
             console.log("drawing started");
-            draw_please(id1,id2,name1,name2,troops,color1,color2,meleeX1,meleeY1,archerX1,archerY1,meleeX2,meleeY2,archerX2,archerY2);
+            draw_please(id1,id2,name1,name2,troops,color1,color2,meleeX1,meleeY1,archerX1,archerY1,meleeX2,meleeY2,archerX2,archerY2,tankX1,tankY1,tankX2,tankY2);
 
         });
     },

@@ -25,12 +25,12 @@ class Player {
         }
 
         for (let i=0; i<this.numTroops; i++) {
-            this.army[i].autoMove(this.enemies);
+            this.army[i].autoMove(this.enemies, this.army);
         }
-        }
+    }
 
 
-    createArmy(meleeX, meleeY, archerX, archerY){
+    createArmy(meleeX, meleeY, archerX, archerY, tankX, tankY){
         let armyArray =[];
         for(let i = 0; i<meleeX.length; i++){
             armyArray.push(new MeleeSoldier(meleeX[i],meleeY[i],this.id,this.color));
@@ -38,31 +38,37 @@ class Player {
         for(let i = 0; i<archerX.length; i++){
             armyArray.push(new Archer(archerX[i],archerY[i],this.id,this.color));
         }
-        return armyArray;
-
-    }
-
-    addArmy() {
-        //default number of rows and columns of troops
-
-        let armyArray = [];
-        let meleeX;
-        let meleeY;
-
-        let archerX;
-        let archerY;
-
-        for (let i=0; i<this.numTroops; i++) {
-            let space = (this.id === 1)? random(width/2): random(width/2, random(width));
-            if (i%2===0) {
-                armyArray.push(new MeleeSoldier(space, random(height), this.id, this.color));
-            } else {
-                armyArray.push(new Archer(space, random(height), this.id, this.color));
-            }
+        for(let i = 0; i<tankX.length; i++){
+            armyArray.push(new Tank(tankX[i],tankX[i],this.id,this.color));
         }
-
         return armyArray;
+
     }
+
+    // addArmy() {
+    //     //default number of rows and columns of troops
+
+    //     let armyArray = [];
+    //     let meleeX;
+    //     let meleeY;
+
+    //     let archerX;
+    //     let archerY;
+
+    //     let tankX;
+    //     let tankY;
+
+    //     for (let i=0; i<this.numTroops; i++) {
+    //         let space = (this.id === 1)? random(width/2): random(width/2, random(width));
+    //         if (i%2===0) {
+    //             armyArray.push(new MeleeSoldier(space, random(height), this.id, this.color));
+    //         } else {
+    //             armyArray.push(new Archer(space, random(height), this.id, this.color));
+    //         }
+    //     }
+
+    //     return armyArray;
+    // }
 
     drawArmy() {
         let armyArray = this.army;

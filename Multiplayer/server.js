@@ -78,7 +78,11 @@ io.sockets.on('connection', function(socket) {
         meleeY2 = [];
         archerX2 = [];
         archerY2 = [];
-        for (let i=0; i<40; i++) {
+        tankX1 = [];
+        tankX2 = [];
+        tankY1 = [];
+        tankY2 = [];
+        for (let i=0; i<36; i++) {
             if (i%2===0) {
                 meleeX1.push(Math.random()*(1000));
                 meleeY1.push(Math.random()*(700));
@@ -92,8 +96,14 @@ io.sockets.on('connection', function(socket) {
 
             }
         }
+        for (let i=0; i<4; i++) {
+            tankX1.push(Math.random()*(1000));
+            tankY1.push(Math.random()*(700));
+            tankX2.push(Math.random()*(1000));
+            tankY2.push(Math.random()*(700));
+        }
         console.log(rooms[socket.server].players_names[0]+"  !  "+rooms[socket.server].players_names[1]);
-        io.sockets.in(socket.server).emit("draw_game", rooms[socket.server].players_ids[0],rooms[socket.server].players_ids[1],rooms[socket.server].players_names[0],rooms[socket.server].players_names[1],40,'blue','red',meleeX1,meleeY1,archerX1,archerY1,meleeX2,meleeY2,archerX2,archerY2 );
+        io.sockets.in(socket.server).emit("draw_game", rooms[socket.server].players_ids[0],rooms[socket.server].players_ids[1],rooms[socket.server].players_names[0],rooms[socket.server].players_names[1],40,'blue','red',meleeX1,meleeY1,archerX1,archerY1,meleeX2,meleeY2,archerX2,archerY2,tankX1,tankX2,tankY1,tankY2);
 
     });
     //user leaves
