@@ -81,6 +81,7 @@ io.sockets.on('connection', function(socket) {
             users.push(nickname);
             socket.emit('loginSuccess', server);
             console.log(socket.server);
+            console.log( "me"+rooms[socket.server].players_ids.indexOf(socket.id));
             io.sockets.in(server).emit('system', nickname, rooms[socket.server].players_ids.length, 'login', rooms[socket.server].players_ids.indexOf(socket.id));
         }
 

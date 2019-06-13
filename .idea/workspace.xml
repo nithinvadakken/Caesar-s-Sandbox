@@ -3,6 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="42c01f71-cfcb-425d-94ec-a09735fcd83b" name="Default Changelist" comment="GAME SERVER DONE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Multiplayer/node_modules/debug/CHANGELOG.md" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/debug/CHANGELOG.md" />
+      <change beforePath="$PROJECT_DIR$/Multiplayer/node_modules/debug/README.md" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/debug/README.md" />
+      <change beforePath="$PROJECT_DIR$/Multiplayer/node_modules/debug/package.json" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/debug/package.json" />
+      <change beforePath="$PROJECT_DIR$/Multiplayer/node_modules/debug/src/browser.js" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/debug/src/browser.js" />
+      <change beforePath="$PROJECT_DIR$/Multiplayer/node_modules/debug/src/index.js" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/debug/src/index.js" />
+      <change beforePath="$PROJECT_DIR$/Multiplayer/node_modules/debug/src/node.js" afterPath="$PROJECT_DIR$/Multiplayer/node_modules/debug/src/node.js" />
+      <change beforePath="$PROJECT_DIR$/Multiplayer/package-lock.json" afterPath="$PROJECT_DIR$/Multiplayer/package-lock.json" />
+      <change beforePath="$PROJECT_DIR$/Multiplayer/package.json" afterPath="$PROJECT_DIR$/Multiplayer/package.json" />
+      <change beforePath="$PROJECT_DIR$/Multiplayer/server.js" afterPath="$PROJECT_DIR$/Multiplayer/server.js" />
+      <change beforePath="$PROJECT_DIR$/Multiplayer/www/game.js" afterPath="$PROJECT_DIR$/Multiplayer/www/game.js" />
+      <change beforePath="$PROJECT_DIR$/libraries/p5.dom.js" afterPath="$PROJECT_DIR$/Multiplayer/www/libraries/p5.dom.js" />
+      <change beforePath="$PROJECT_DIR$/libraries/p5.js" afterPath="$PROJECT_DIR$/Multiplayer/www/libraries/p5.js" />
+      <change beforePath="$PROJECT_DIR$/libraries/p5.sound.js" afterPath="$PROJECT_DIR$/Multiplayer/www/libraries/p5.sound.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,36 +29,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="HomeScreen.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HomeScreen.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Multiplayer/www/main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameTroop.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GameTroop.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="505">
-              <caret line="304" column="1" lean-forward="false" selection-start-line="304" selection-start-column="1" selection-end-line="304" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Multiplayer/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -56,21 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sketch.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sketch.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GameTroop.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Multiplayer/www/GameTroop.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2028">
-              <caret line="21" column="18" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="18" />
+            <state relative-caret-position="2465">
+              <caret line="145" column="27" lean-forward="true" selection-start-line="145" selection-start-column="27" selection-end-line="145" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -79,8 +52,8 @@
       <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Multiplayer/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="135" column="70" lean-forward="false" selection-start-line="135" selection-start-column="65" selection-end-line="135" selection-end-column="70" />
+            <state relative-caret-position="-39">
+              <caret line="142" column="16" lean-forward="false" selection-start-line="142" selection-start-column="16" selection-end-line="142" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -89,8 +62,8 @@
       <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Multiplayer/www/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="182" column="0" lean-forward="true" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
+            <state relative-caret-position="364">
+              <caret line="123" column="37" lean-forward="true" selection-start-line="123" selection-start-column="37" selection-end-line="123" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -99,18 +72,8 @@
       <file leaf-file-name="Player.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Multiplayer/www/Player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
+            <state relative-caret-position="-944">
               <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Player.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="67" column="4" lean-forward="false" selection-start-line="67" selection-start-column="4" selection-end-line="67" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -120,8 +83,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>newms</find>
-      <find>user</find>
       <find>connect</find>
       <find>console</find>
       <find>post</find>
@@ -140,16 +101,18 @@
       <find>drawArmy</find>
       <find>enemies</find>
       <find>show</find>
-      <find>draw</find>
       <find>archer</find>
       <find>alert</find>
-      <find>random</find>
       <find>40</find>
       <find>game</find>
       <find>game_btn</find>
-      <find>system</find>
       <find>ale</find>
+      <find>indexhere</find>
+      <find>max</find>
+      <find>draw</find>
       <find>tank</find>
+      <find>random</find>
+      <find>system</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -167,10 +130,10 @@
         <option value="$PROJECT_DIR$/Multiplayer/www/main.css" />
         <option value="$PROJECT_DIR$/Multiplayer/www/GameTroop.js" />
         <option value="$PROJECT_DIR$/Player.js" />
-        <option value="$PROJECT_DIR$/Multiplayer/server.js" />
         <option value="$PROJECT_DIR$/Multiplayer/www/Player.js" />
-        <option value="$PROJECT_DIR$/Multiplayer/www/game.js" />
         <option value="$PROJECT_DIR$/GameTroop.js" />
+        <option value="$PROJECT_DIR$/Multiplayer/server.js" />
+        <option value="$PROJECT_DIR$/Multiplayer/www/game.js" />
       </list>
     </option>
   </component>
@@ -242,11 +205,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\wikto\WebstormProjects\Caesar-s-Sandbox\Multiplayer\www" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\wikto\WebstormProjects\Caesar-s-Sandbox\Multiplayer" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\wikto\WebstormProjects\Caesar-s-Sandbox\Multiplayer\www" />
       <recent name="C:\Users\wikto\WebstormProjects\Caesar-s-Sandbox\Multiplayer" />
     </key>
   </component>
@@ -405,7 +368,7 @@
       <workItem from="1560265841667" duration="4871000" />
       <workItem from="1560272980380" duration="9498000" />
       <workItem from="1560386751245" duration="1853000" />
-      <workItem from="1560391692071" duration="16659000" />
+      <workItem from="1560391692071" duration="22015000" />
     </task>
     <task id="LOCAL-00001" summary="Default Changelist">
       <created>1560211887068</created>
@@ -449,11 +412,18 @@
       <option name="project" value="LOCAL" />
       <updated>1560429363869</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="GAME SERVER DONE">
+      <created>1560429413973</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1560429413973</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44237000" />
+    <option name="totallyTimeSpent" value="49593000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -704,15 +674,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Multiplayer/.gitignore" />
-    <entry file="file://$PROJECT_DIR$/Multiplayer/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Multiplayer/libraries/p5.js" />
+    <entry file="file://$PROJECT_DIR$/Multiplayer/www/libraries/p5.js" />
     <entry file="file://$PROJECT_DIR$/HomeScreen.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -725,14 +687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HomeScreen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -761,6 +715,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Multiplayer/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HomeScreen.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Player.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
@@ -769,42 +739,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Multiplayer/www/GameTroop.js">
+    <entry file="file://$PROJECT_DIR$/GameTroop.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2028">
-          <caret line="21" column="18" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="18" />
+        <state relative-caret-position="522">
+          <caret line="304" column="1" lean-forward="false" selection-start-line="304" selection-start-column="1" selection-end-line="304" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Multiplayer/www/Player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
+        <state relative-caret-position="-944">
           <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Multiplayer/www/GameTroop.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2465">
+          <caret line="145" column="27" lean-forward="true" selection-start-line="145" selection-start-column="27" selection-end-line="145" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Multiplayer/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="135" column="70" lean-forward="false" selection-start-line="135" selection-start-column="65" selection-end-line="135" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameTroop.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="304" column="1" lean-forward="false" selection-start-line="304" selection-start-column="1" selection-end-line="304" selection-end-column="1" />
+        <state relative-caret-position="-39">
+          <caret line="142" column="16" lean-forward="false" selection-start-line="142" selection-start-column="16" selection-end-line="142" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Multiplayer/www/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="182" column="0" lean-forward="true" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
+        <state relative-caret-position="364">
+          <caret line="123" column="37" lean-forward="true" selection-start-line="123" selection-start-column="37" selection-end-line="123" selection-end-column="37" />
           <folding />
         </state>
       </provider>

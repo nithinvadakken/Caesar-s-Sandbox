@@ -3,9 +3,8 @@ function setup() {
     noLoop();
     console.log("here");
     player = new Player(0,'green');
-
 }
-const max = 5;
+const max = 20;
 let current = 0;
 army_edit =false;
 meleeX = [];
@@ -20,6 +19,7 @@ let clear_btn;
 let submit_btn;
 let finished_army = false;
 let indexhere;
+let created_index = false;
 function add_armies(x) {
     console.log(x);
     which_player =x;
@@ -151,35 +151,35 @@ function draw() {
             player2.update();
             player1.moveArmy();
             player2.moveArmy();
-            // if( player1.name === thisname&& player1.army.length === 0) {
-            //     window.alert(player2.name + " has won!");
-            //     game_started=false;
-            //     console.log("p1: "+player1.name+" p2:"+player2.name+" this id"+indexhere);
-            // }
-            // if( player1.name === thisname && player1.army.length === 0) {
-            //     window.alert(player1.name + " has won!");
-            //     game_started=false;
-            //     console.log("p1: "+player1.name+" p2:"+player2.name+" this id"+indexhere);
-            // }
-            //
-            // if(player2.name ===thisname && player2.army.length === 0){
-            //     window.alert(player1.name+" has won!");
-            //     game_started=false;
-            //     console.log("p1: "+player1.name+" p2:"+player2.name+" this id"+indexhere);
-            // }
-            // if(player2.name === thisname&& player2.army.length === 0){
-            //     window.alert(player2.name+" has won!");
-            //     game_started=false;
-            //     console.log("p1: "+player1.name+" p2:"+player2.name+" this id"+indexhere);
-            // }
-            if(player1.army.length ===0){
-                    window.alert(player2.name+" has won!");
-                    game_started=false;
+            if( indexhere === 1&& player1.army.length === 0) {
+                window.alert(player1.name + " has won!");
+                game_started=false;
+                console.log("p1: "+player1.name+" p2:"+player2.name+" this id "+indexhere);
             }
-            if(player2.army.length ===0) {
-                    window.alert(player2.name+" has won!");
-                    game_started=false;
+            if(indexhere === 0 && player1.army.length === 0) {
+                window.alert(player2.name + " has won!");
+                game_started=false;
+                console.log("p1: "+player1.name+" p2:"+player2.name+" this id "+indexhere);
             }
+
+            if(indexhere ===0 && player2.army.length === 0){
+                window.alert(player2.name+" has won!");
+                game_started=false;
+                console.log("p1: "+player1.name+" p2:"+player2.name+" this id "+indexhere);
+            }
+            if(indexhere === 1&& player2.army.length === 0){
+                window.alert(player1.name+" has won!");
+                game_started=false;
+                console.log("p1: "+player1.name+" p2:"+player2.name+" this id "+indexhere);
+            }
+            // if(player1.army.length ===0){
+            //         window.alert(player2.name+" has won!");
+            //         game_started=false;
+            // }
+            // if(player2.army.length ===0) {
+            //         window.alert(player1.name+" has won!");
+            //         game_started=false;
+            // }
 
             }
 
@@ -226,7 +226,11 @@ Game.prototype = {
         });
         this.socket.on('system', function(nickName, userCount, type, index) {
             thisname = nickName;
+            if(created_index===false){
             indexhere = index;
+            created_index =true;
+                }
+            console.log("index"+indexhere);
             var msg = nickName + (type == 'login' ? ' joined' : ' left');
             that._displayNewMsg('system ', msg, 'red');
             document.getElementById('status').textContent = userCount + (userCount > 1 ? ' users' : ' user') + ' in this room';
