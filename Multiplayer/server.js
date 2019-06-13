@@ -12,12 +12,9 @@ server.listen(/*process.env.PORT */ 3000);//publish to heroku
 //server.listen(process.env.OPENSHIFT_NODEJS_PORT || 3000);//publish to openshift
 //console.log('server started on port'+process.env.PORT || 3000);
 //handle the socket
-Player = require('../Player');
 const amount_of_rooms = 100;
 
  rooms = [];
-
- temp = new Player.constructor(1,'blue');
 
 
  var Room = function () {
@@ -28,6 +25,7 @@ const amount_of_rooms = 100;
      server: 0,
      players_names: [0],
      players_ids: [0],
+
  };
 
  for (i = 0; i<amount_of_rooms; i++){
@@ -41,7 +39,6 @@ const amount_of_rooms = 100;
 io.sockets.on('connection', function(socket) {
     //new user login
     socket.on('login', function(nickname, server) {
-        socket.players_object = new Player.constructor(socket.id,'blue');
         users_id.push(socket.id);
         if (server.trim().length === 0) {
             let x = parseInt(Math.random() * 100);
@@ -53,10 +50,12 @@ io.sockets.on('connection', function(socket) {
             socket.join(server);
         }
         socket.server = server;
+
         rooms[server].players_names.push(nickname);
         rooms[server].players_ids.push(socket.id);
         console.log(rooms[server].players_names);
         console.log(rooms[server].players_ids);
+
 
         if (users.indexOf(nickname) > -1) {
             socket.emit('nickExisted');
@@ -68,6 +67,34 @@ io.sockets.on('connection', function(socket) {
             console.log(socket.server);
             io.sockets.in(server).emit('system', nickname, rooms[socket.server].players_ids.length, 'login');
         }
+
+    });
+    socket.on('start_game',function () {
+        meleeX1 = [];
+        meleeY1 = [];
+        archerX1 = [];
+        archerY1 = [];
+        meleeX2 = [];
+        meleeY2 = [];
+        archerX2 = [];
+        archerY2 = [];
+        for (let i=0; i<40; i++) {
+            if (i%2===0) {
+                meleeX1.push(Math.random()*(1000));
+                meleeY1.push(Math.random()*(700));
+                meleeX2.push(Math.random()*(1000));
+                meleeY2.push(Math.random()*(700));
+            } else {
+                archerX1.push(Math.random()*(1000));
+                archerY1.push(Math.random()*(700));
+                archerX2.push(Math.random()*(1000));
+                archerY2.push(Math.random()*(700));
+
+            }
+        }
+        console.log(rooms[socket.server].players_names[0]+"  !  "+rooms[socket.server].players_names[1]);
+        io.sockets.in(socket.server).emit("draw_game", rooms[socket.server].players_ids[0],rooms[socket.server].players_ids[1],rooms[socket.server].players_names[0],rooms[socket.server].players_names[1],40,'blue','red',meleeX1,meleeY1,archerX1,archerY1,meleeX2,meleeY2,archerX2,archerY2 );
+
     });
     //user leaves
     socket.on('disconnect',function(){
@@ -89,6 +116,7 @@ io.sockets.on('connection', function(socket) {
 
         }
     });
+
     //new message get
     socket.on('postMsg', function(msg, color,server) {
         socket.broadcast.to(server).emit('newMsg', socket.nickname, msg, color);
