@@ -1,0 +1,59 @@
+body {
+    position: relative;
+    background-size: cover;
+    line-height: 1.2;
+    background-color: #060706
+}
+
+.siteHeader {
+    padding: 40px;
+    text-align: center;
+    color: #ffffff;
+    width: auto;
+}
+
+.siteHeader h1 {
+    font-size: 60px;
+    font-family: "Impact", Charcoal, sans-serif;
+    text-decoration: underline overline;
+}
+
+.siteHeader p {
+    font-family: "Courier New", Courier, monospace;
+    color: #ffffff;
+}
+
+.navigateBar {
+    overflow: hidden;
+    background: #151515;
+}
+
+.navigateBar a{
+    float: left;
+    display: block;
+    color: #ff0000;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.navigateBar a:hover {
+    color: #00ff00;
+    background: #222222;
+}
+
+.gameLink {
+    display: block;
+    color: #ff0000;
+    background: #151515;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.gameLink:hover {
+    color: #00ff00;
+    background: #222222;
+}
