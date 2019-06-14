@@ -12,13 +12,21 @@
     "yarn": "^1.16.0"
   },
   "engines": {
-    "node": "0.10.x",
-    "npm": "1.2.x"
+    "node": "10.16.x",
+    "npm": "6.9.x"
   },
   "scripts": {
     "start": "node server.js"
   },
   "devDependencies": {},
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nithinvadakken/Caesar-s-Sandbox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nithinvadakken/Caesar-s-Sandbox/issues"
+  },
+  "homepage": "https://github.com/nithinvadakken/Caesar-s-Sandbox#readme"
 }
