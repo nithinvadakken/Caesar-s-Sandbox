@@ -4,7 +4,8 @@ function setup() {
     console.log("here");
     player = new Player(0,'green');
 }
-const max = 40;
+let game_btn;
+const max = 5;
 let current = 0;
 army_edit =false;
 meleeX = [];
@@ -20,6 +21,7 @@ let submit_btn;
 let finished_army = false;
 let indexhere;
 let created_index = false;
+let game_canceled = false;
 function add_armies(x) {
     console.log(x);
     which_player =x;
@@ -52,7 +54,7 @@ function add_armies(x) {
     document.body.appendChild(submit_btn);
 }
 function keyPressed() {
-    if(army_edit===true) {
+    if(army_edit===true ) {
         if (keyCode === 81) {
             console.log("mouse: "+mouseX +"  window: "+window.innerWidth+"  player:"+which_player);
             if(which_player ===0 && mouseX<window.innerWidth/2 && current<max) {
@@ -112,7 +114,9 @@ function keyPressed() {
         }
     }
 }
-
+function clear_canvas() {
+    clear();
+}
 let player1;
 let player2;
 let thisname;
@@ -211,6 +215,7 @@ Game.prototype = {
             document.getElementById('info').textContent = '!nickname is taken, choose another pls';
         });
         this.socket.on('loginSuccess', function(server) {
+
             this.server= server;
             document.title = 'Caesar\'s Sandbox | ' + document.getElementById('nicknameInput').value;
             document.getElementById('loginWrapper').style.display = 'none';
@@ -224,19 +229,142 @@ Game.prototype = {
                 document.getElementById('info').textContent = '!fail to connect :(';
             }
         });
-        this.socket.on('system', function(nickName, userCount, type, index) {
+        this.socket.on('system', function(nickName, userCount, type, index, game_state) {
+            console.log("u: "+userCount);
             thisname = nickName;
             if(created_index===false){
             indexhere = index;
             created_index =true;
                 }
+                if(game_state===2){
+                    if(indexhere>1){
+                        console.log("where1");
+                        spec_btn = document.createElement("BUTTON");
+                        spec_btn.innerHTML = "Spectate";
+                        document.body.appendChild(spec_btn);
+                        spec_btn.addEventListener('click', function () {
+                            spec_btn.parentNode.removeChild(spec_btn);
+                            var x = document.getElementById("messageInput");
+                            x.parentNode.removeChild(x);
+                            x = document.getElementById("historyMsg");
+                            x.parentNode.removeChild(x);
+                            that.socket.emit("request_spec");
+                            that.socket.on("replay",function (simulation) {
+                                console.log(simulation.length);
+                                draw_please(simulation[0],simulation[1],simulation[2],simulation[3],max,'green','red',simulation[4],simulation[5],simulation[6],simulation[7],simulation[8],simulation[9],simulation[10],simulation[11],simulation[12],simulation[13],simulation[14],simulation[15]);
+                            })
+                        });
+                    }
+                }
+
             console.log("index"+indexhere);
             var msg = nickName + (type == 'login' ? ' joined' : ' left');
             that._displayNewMsg('system ', msg, 'red');
             document.getElementById('status').textContent = userCount + (userCount > 1 ? ' users' : ' user') + ' in this room';
         });
+        this.socket.on("gamer_time", function () {
+            console.log("the f"+indexhere);
+            if(indexhere<2){
+                game_btn = document.createElement("BUTTON");
+                game_btn.innerHTML = "Start Game";
+                var x = document.getElementById("controls");
+                x.appendChild(game_btn);
+                game_btn.addEventListener('click', function () {
+                    console.log("game started");
+                    that.socket.emit('start_game');
+                }, false);
+            }
+        });
         this.socket.on('newMsg', function(user, msg, color) {
             that._displayNewMsg(user, msg, color,this.server);
+        });
+        this.socket.on("start_spec", function () {
+            if(indexhere>1){
+                console.log("here?");
+                spec_btn = document.createElement("BUTTON");
+                spec_btn.innerHTML = "Spectate";
+                document.body.appendChild(spec_btn);
+                spec_btn.addEventListener('click', function () {
+                    spec_btn.parentNode.removeChild(spec_btn);
+                    var x = document.getElementById("messageInput");
+                    x.parentNode.removeChild(x);
+                    x = document.getElementById("historyMsg");
+                    x.parentNode.removeChild(x);
+                that.socket.emit("request_spec");
+                that.socket.on("replay",function (simulation) {
+                    console.log(simulation.length);
+                    draw_please(simulation[0],simulation[1],simulation[2],simulation[3],max,'green','red',simulation[4],simulation[5],simulation[6],simulation[7],simulation[8],simulation[9],simulation[10],simulation[11],simulation[12],simulation[13],simulation[14],simulation[15]);
+                })
+                });
+            }
+        });
+        this.socket.on("cancel_game",function (players_left) {
+            if(indexhere<2) {
+                game_canceled =true;
+                army_edit=false;
+                // var x = document.getElementById("messageInput");
+                // x.parentNode.removeChild(x);
+                // game_btn.parentNode.removeChild(game_btn);
+                // x = document.getElementById("historyMsg");
+                // x.parentNode.removeChild(x);
+                var x = document.getElementById('controls');
+                x.parentNode.removeChild(x);
+                clear_canvas();
+                document.getElementById('server_name').textContent = "server: "+server;
+                var message_input = document.createElement("textarea");
+                message_input.innerHTML = "enter to send";
+                message_input.id = "messageInput";
+                var element = document.getElementById("controls");
+                historyMsg = document.createElement("div");
+                historyMsg.id = 'historyMsg';
+                x = document.getElementById("wrapper");
+                x.appendChild(historyMsg);
+                var c = document.createElement("div");
+                c.class = "controls";
+                c.id = "controls";
+                c.appendChild(message_input);
+                var x = document.getElementById("wrapper");
+                x.appendChild(c);
+                document.getElementById('messageInput').focus();
+                clear_btn.parentNode.removeChild(clear_btn);
+                submit_btn.parentNode.removeChild(submit_btn);
+
+                console.log("p left: "+players_left);
+                if (players_left > 1) {
+
+                    game_btn = document.createElement("BUTTON");
+                    game_btn.innerHTML = "Start Game";
+                    var x = document.getElementById("controls");
+                    x.appendChild(game_btn);
+                    game_btn.addEventListener('click', function () {
+                        console.log("game started");
+                        that.socket.emit('start_game');
+                    }, false);
+                }
+                    document.getElementById('messageInput').addEventListener('keyup', function(e) {
+                        var messageInput = document.getElementById('messageInput'),
+                            msg = messageInput.value,
+                            color = 'blue';
+                        if (e.keyCode == 13 && msg.trim().length != 0) {
+                            messageInput.value = '';
+                            that.socket.emit('postMsg', msg, color,(that.socket.server));
+                            that._displayNewMsg('me', msg, color);
+                        };
+
+                    }, false);
+
+
+                // var x = document.getElementById("messageInput");
+                // x.parentNode.removeChild(x);
+                //game_btn.parentNode.removeChild(game_btn);
+                //x = document.getElementById("historyMsg");
+            }
+
+            else{
+                console.log("nice");
+            }
+
+
         });
         document.getElementById('loginBtn').addEventListener('click', function() {
             var nickName = document.getElementById('nicknameInput').value;
@@ -268,7 +396,6 @@ Game.prototype = {
         }, false);
 
         document.getElementById('messageInput').addEventListener('keyup', function(e) {
-
             var messageInput = document.getElementById('messageInput'),
                 msg = messageInput.value,
                 color = 'blue';
@@ -279,16 +406,8 @@ Game.prototype = {
             };
 
         }, false);
-        if(indexhere>1){
-            var x = document.getElementById("game_btn");
-            x.parentNode.removeChild(x);
-        }
-        else {
-            document.getElementById('game_btn').addEventListener('click', function () {
-                console.log("game started");
-                that.socket.emit('start_game');
-            }, false);
-        }
+
+
 
         // that.socket.on('draw_game', function (id1,id2,name1,name2,troops,color1,color2,meleeX1,meleeY1,archerX1,archerY1,meleeX2,meleeY2,archerX2,archerY2/*id1,numtroops1,army1, color1,enemies1,id2,numtroops2,army2, color2,enemies2*/) {
         //     console.log("drawing started");
@@ -306,10 +425,9 @@ Game.prototype = {
                 console.log("make army "+index);
                 var x = document.getElementById("messageInput");
                 x.parentNode.removeChild(x);
-                x = document.getElementById("game_btn");
-                x.parentNode.removeChild(x);
+                game_btn.parentNode.removeChild(game_btn);
                 x = document.getElementById("historyMsg");
-            x.parentNode.removeChild(x);
+                x.parentNode.removeChild(x);
                add_armies(index);
                 submit_btn.addEventListener('click',function () {
                 clear_btn.parentNode.removeChild(clear_btn);
@@ -325,12 +443,10 @@ Game.prototype = {
         })
     },
     _displayNewMsg: function(user, msg, color) {
-
+            console.log("ahaha");
             var container = document.getElementById('historyMsg'),
                 msgToDisplay = document.createElement('p'),
-                date = new Date().toTimeString().substr(0, 8),
-                //determine whether the msg contains emoji
-                msg = (msg);
+                date = new Date().toTimeString().substr(0, 8);
             msgToDisplay.style.color = color || '#000';
             msgToDisplay.innerHTML = user + '<span class="timespan">(' + date + '): </span>' + msg;
             container.appendChild(msgToDisplay);

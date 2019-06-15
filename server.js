@@ -3,51 +3,54 @@ var express = require('express'),
     server = require('http').createServer(app),
     io = require('socket.io').listen(server),
     users = [];
-    users_id = [];
+users_id = [];
 //specify the html we will use
 app.use('/', express.static(__dirname + '/www'));
 //bind the server to the 80 port
+server.listen(/*process.env.PORT */ 3000);//publish to heroku
 //server.listen(3000);//for local test
-server.listen(process.env.PORT  || 3000);//publish to heroku
 //server.listen(process.env.OPENSHIFT_NODEJS_PORT || 3000);//publish to openshift
 //console.log('server started on port'+process.env.PORT || 3000);
 //handle the socket
 const amount_of_rooms = 100;
 
- rooms = [];
+rooms = [];
 
 
- var Room = function () {
+var Room = function () {
 
- };
+};
 
- Room.prototype = {
-     server: 0,
-     players_names: [0],
-     players_ids: [0],
-     army_submit: [0],
-     meleeX: [],
-     meleeY: [],
-     archerX: [],
-     archerY: [],
-     tankX: [],
-     tankY: []
- };
+Room.prototype = {
+    server: 0,
+    players_names: [0],
+    players_ids: [0],
+    army_submit: [0],
+    meleeX: [],
+    meleeY: [],
+    archerX: [],
+    archerY: [],
+    tankX: [],
+    tankY: [],
+    simulation: 0,
+    game_state: 0,
+};
 
- for (i = 0; i<amount_of_rooms; i++){
-     let x = new Room();
-     x.server = i;
-     x.players_names = [];
-     x.players_ids = [];
-     x.army_submit = [];
-     x.meleeX = [];
-     x.meleeY = [];
-     x.archerX = [];
-     x.archerY = [];
-     x.tankX = [];
-     x.tankY = [];
-     rooms.push(x);
- }
+for (i = 0; i<amount_of_rooms; i++){
+    let x = new Room();
+    x.server = i;
+    x.players_names = [];
+    x.players_ids = [];
+    x.army_submit = [];
+    x.meleeX = [];
+    x.meleeY = [];
+    x.archerX = [];
+    x.archerY = [];
+    x.tankX = [];
+    x.tankY = [];
+    x.simulation = 0;
+    rooms.push(x);
+}
 
 io.sockets.on('connection', function(socket) {
     //new user login
@@ -82,7 +85,10 @@ io.sockets.on('connection', function(socket) {
             socket.emit('loginSuccess', server);
             console.log(socket.server);
             console.log( "me"+rooms[socket.server].players_ids.indexOf(socket.id));
-            io.sockets.in(server).emit('system', nickname, rooms[socket.server].players_ids.length, 'login', rooms[socket.server].players_ids.indexOf(socket.id));
+            io.sockets.in(server).emit('system', nickname, rooms[socket.server].players_ids.length, 'login', rooms[socket.server].players_ids.indexOf(socket.id),rooms[socket.server].game_state);
+            if(rooms[socket.server].players_ids.length===2){
+                io.sockets.in(server).emit("gamer_time");
+            }
         }
 
     });
@@ -118,8 +124,9 @@ io.sockets.on('connection', function(socket) {
         console.log("this "+rooms[socket.server].players_ids.indexOf(socket.id));
         io.to(rooms[socket.server].players_ids[0]).emit("make army", 0);
         io.to(rooms[socket.server].players_ids[1]).emit("make army", 1);
+        rooms[socket.server].game_state=1;
 
-       // io.sockets.in(socket.server).emit("make army",rooms[socket.server].players_ids.indexOf(socket.id));
+        // io.sockets.in(socket.server).emit("make army",rooms[socket.server].players_ids.indexOf(socket.id));
     });
     socket.on("army_submitted", function (meleeX,meleeY,archerX,archerY,tankX,tankY) {
         //console.log(rooms[socket.server].players_ids.indexOf(socket.id));
@@ -136,6 +143,11 @@ io.sockets.on('connection', function(socket) {
             if(rooms[socket.server].army_submit[1]===true) {
                 io.to(rooms[socket.server].players_ids[0]).emit("enemy army", rooms[socket.server].players_ids[0], rooms[socket.server].players_ids[1], rooms[socket.server].players_names[0], rooms[socket.server].players_names[1], rooms[socket.server].meleeX, rooms[socket.server].meleeY, rooms[socket.server].archerX, rooms[socket.server].archerY, rooms[socket.server].tankX, rooms[socket.server].tankY);
                 io.to(rooms[socket.server].players_ids[1]).emit("enemy army", rooms[socket.server].players_ids[0], rooms[socket.server].players_ids[1], rooms[socket.server].players_names[0], rooms[socket.server].players_names[1], meleeX, meleeY, archerX, archerY, tankX, tankY);
+                rooms[socket.server].simulation = [rooms[socket.server].players_ids[0], rooms[socket.server].players_ids[1], rooms[socket.server].players_names[0], rooms[socket.server].players_names[1],rooms[socket.server].meleeX, rooms[socket.server].meleeY, rooms[socket.server].archerX, rooms[socket.server].archerY, rooms[socket.server].tankX, rooms[socket.server].tankY, meleeX, meleeY, archerX, archerY, tankX, tankY];
+                socket.broadcast.to(socket.server).emit("start_spec");//for spectating
+                rooms[socket.server].game_state = 2;
+                console.log("s "+rooms[socket.server].simulation);
+
             }
             else{
                 rooms[socket.server].meleeX = meleeX;
@@ -146,11 +158,15 @@ io.sockets.on('connection', function(socket) {
                 rooms[socket.server].tankY = tankY;
             }
         }
-        if(rooms[socket.server].players_ids.indexOf(socket.id)===1){
+        else if(rooms[socket.server].players_ids.indexOf(socket.id)===1){
 
             if(rooms[socket.server].army_submit[0]===true) {
                 io.to(rooms[socket.server].players_ids[1]).emit("enemy army", rooms[socket.server].players_ids[0], rooms[socket.server].players_ids[1], rooms[socket.server].players_names[0], rooms[socket.server].players_names[1], rooms[socket.server].meleeX, rooms[socket.server].meleeY, rooms[socket.server].archerX, rooms[socket.server].archerY, rooms[socket.server].tankX, rooms[socket.server].tankY);
                 io.to(rooms[socket.server].players_ids[0]).emit("enemy army", rooms[socket.server].players_ids[0], rooms[socket.server].players_ids[1], rooms[socket.server].players_names[0], rooms[socket.server].players_names[1], meleeX, meleeY, archerX, archerY, tankX, tankY);
+                rooms[socket.server].simulation = [rooms[socket.server].players_ids[0], rooms[socket.server].players_ids[1], rooms[socket.server].players_names[0], rooms[socket.server].players_names[1], rooms[socket.server].meleeX, rooms[socket.server].meleeY, rooms[socket.server].archerX, rooms[socket.server].archerY, rooms[socket.server].tankX, rooms[socket.server].tankY,meleeX, meleeY, archerX, archerY, tankX, tankY];
+                socket.broadcast.to(socket.server).emit("start_spec");//for spectating
+                rooms[socket.server].game_state = 2;
+                console.log("s "+rooms[socket.server].simulation);
             }
             else{
                 rooms[socket.server].meleeX = meleeX;
@@ -163,12 +179,23 @@ io.sockets.on('connection', function(socket) {
         }
 
     });
+    socket.on("request_spec", function () {
+        console.log("maybe "+rooms[socket.server].simulation);
+        socket.emit("replay",rooms[socket.server].simulation);
+    });
     //user leaves
     socket.on('disconnect',function(){
         if (socket.nickname != null) {
             console.log(socket.nickname+" disconnected");
             //users.splice(socket.userIndex, 1);
-            io.sockets.in(socket.server).emit('system', socket.nickname, rooms[socket.server].players_ids.length-1, 'logout', rooms[socket.server].players_ids.indexOf(socket.id));
+            if(rooms[socket.server].players_ids.indexOf(socket.id)<2 && rooms[socket.server].game_state===1)
+                io.sockets.in(socket.server).emit("cancel_game", rooms[socket.server].players_ids.length-1);
+
+                io.sockets.in(socket.server).emit('system', socket.nickname, rooms[socket.server].players_ids.length-1, 'logout', rooms[socket.server].players_ids.indexOf(socket.id));
+            // io.sockets.in(socket.server).on("ready",function () {
+            //     console.log("the h is going on");
+            //     io.sockets.in(socket.server).emit('system', socket.nickname, rooms[socket.server].players_ids.length-1, 'logout', rooms[socket.server].players_ids.indexOf(socket.id));
+            // });
             users.splice(users.indexOf(socket.nickname), 1);
             console.log(rooms[socket.server].players_names);
             console.log(rooms[socket.server].players_ids);
@@ -176,6 +203,12 @@ io.sockets.on('connection', function(socket) {
             rooms[socket.server].players_ids.splice(rooms[socket.server].players_ids.indexOf(socket.id),1);
             rooms[socket.server].players_names.splice(rooms[socket.server].players_names.indexOf(socket.nickname),1);
             rooms[socket.server].army_submit.splice(rooms[socket.server].players_names.indexOf(socket.nickname),1);
+            rooms[socket.server].meleeX = [];
+            rooms[socket.server].meleeY = [];
+            rooms[socket.server].archerX = [];
+            rooms[socket.server].archerY = [];
+            rooms[socket.server].tankX = [];
+            rooms[socket.server].tankY = [];
 
             console.log("after");
             console.log(rooms[socket.server].players_names);
