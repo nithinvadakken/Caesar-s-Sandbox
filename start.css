@@ -1,10 +1,16 @@
 body {
+    margin: 0;
+    padding: 0;
     position: relative;
     background-size: cover;
     line-height: 1.2;
     background-color: #060706
 }
 
+
+#container{
+    position:fixed;
+}
 .siteHeader {
     padding: 40px;
     text-align: center;
@@ -13,7 +19,7 @@ body {
 }
 
 .siteHeader h1 {
-    font-size: 60px;
+    font-size: 70px;
     font-family: "Impact", Charcoal, sans-serif;
     text-decoration: underline overline;
 }
@@ -24,18 +30,20 @@ body {
 }
 
 .navigateBar {
+    margin: 0;
+    padding: 0;
+    display: block;
     overflow: hidden;
-    background: #151515;
 }
 
 .navigateBar a{
     float: left;
-    display: block;
     color: #ff0000;
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
     font-family: "Courier New", Courier, monospace;
+    border-right: 1px dotted red;
 }
 
 .navigateBar a:hover {
@@ -45,7 +53,12 @@ body {
 
 .gameLink {
     display: block;
+    position: relative;
     color: #ff0000;
+    margin: auto;
+    margin-top: 5px;
+    width: 15%;
+    border-radius: 18px;
     background: #151515;
     text-align: center;
     padding: 14px 20px;
