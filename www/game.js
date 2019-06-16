@@ -212,7 +212,7 @@ Game.prototype = {
         this.socket = io.connect();
         this.socket.on('connect', function() {
 
-            document.getElementById('info').textContent = 'get yourself a nickname :)';
+            document.getElementById('info').textContent = 'give yourself a nickname :)';
             document.getElementById('nickWrapper').style.display = 'block';
             document.getElementById('nicknameInput').focus();
         });
