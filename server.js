@@ -34,6 +34,7 @@ Room.prototype = {
     tankY: [],
     simulation: 0,
     game_state: 0,
+    private: false,
 };
 
 for (i = 0; i<amount_of_rooms; i++){
@@ -49,47 +50,64 @@ for (i = 0; i<amount_of_rooms; i++){
     x.tankX = [];
     x.tankY = [];
     x.simulation = 0;
+    x.private = false;
     rooms.push(x);
 }
 
 io.sockets.on('connection', function(socket) {
     //new user login
-    socket.on('login', function(nickname, server) {
+    socket.on('login', function(nickname, choice) {
         users_id.push(socket.id);
-        if (server.trim().length === 0) {
-            let x = parseInt(Math.random() * 100);
-            console.log(x);
-            server = x;
-            socket.join(x);
+        if (choice===-2) {
+            console.log("-2");
+            let i = 0;
+          while(/*rooms[i] !== undefined && */rooms[i].players_ids.length>=2 || rooms[i].private===true) {
+              console.log(i);
+              i++;
+          }
+          socket.server = i;
+            console.log(socket.server);
+          socket.join(i);
+        }
+        else if(choice ===-1){
+
+            let i = 0;
+            while(rooms[i].players_ids.length!==0) {
+                console.log(i);
+                i++;
+            }
+            socket.server = i;
+            console.log("server: "+socket.server);
+            socket.join(i);
+            rooms[i].private = true;
         }
         else {
-            socket.join(server);
+            socket.server = choice;
+            console.log(socket.server);
+            socket.join(choice);
         }
-        socket.server = server;
 
         rooms[socket.server].players_names.push(nickname);
         rooms[socket.server].players_ids.push(socket.id);
         rooms[socket.server].army_submit.push(false);
         console.log(rooms[socket.server].army_submit);
 
-        console.log(rooms[server].players_names);
-        console.log(rooms[server].players_ids);
+        console.log(rooms[socket.server].players_names);
+        console.log(rooms[socket.server].players_ids);
 
 
-        if (users.indexOf(nickname) > -1) {
-            socket.emit('nickExisted');
-        } else {
             //socket.userIndex = users.length;
             socket.nickname = nickname;
             users.push(nickname);
-            socket.emit('loginSuccess', server);
+            socket.emit('loginSuccess', socket.server);
             console.log(socket.server);
             console.log( "me"+rooms[socket.server].players_ids.indexOf(socket.id));
-            io.sockets.in(server).emit('system', nickname, rooms[socket.server].players_ids.length, 'login', rooms[socket.server].players_ids.indexOf(socket.id),rooms[socket.server].game_state);
+            console.log("socket server: "+socket.server);
+            io.sockets.in(socket.server).emit('system', nickname, rooms[socket.server].players_ids.length, 'login', rooms[socket.server].players_ids.indexOf(socket.id),rooms[socket.server].game_state, rooms[socket.server].server);
             if(rooms[socket.server].players_ids.length===2){
-                io.sockets.in(server).emit("gamer_time");
+                io.sockets.in(socket.server).emit("gamer_time");
             }
-        }
+
 
     });
     socket.on('start_game',function () {
@@ -183,6 +201,12 @@ io.sockets.on('connection', function(socket) {
         socket.emit("replay",rooms[socket.server].simulation);
     });
     //user leaves
+
+    socket.on("request index", function () {
+        console.log(socket.nickname+" has requested their index");
+        io.to(socket.id).emit("update_index", rooms[socket.server].players_ids.indexOf(socket.id), rooms[socket.server].players_ids.length);
+    });
+
     socket.on('disconnect',function(){
         if (socket.nickname != null) {
             console.log(socket.nickname+" disconnected");
@@ -196,14 +220,20 @@ io.sockets.on('connection', function(socket) {
             //     console.log("the h is going on");
             //     io.sockets.in(socket.server).emit('system', socket.nickname, rooms[socket.server].players_ids.length-1, 'logout', rooms[socket.server].players_ids.indexOf(socket.id));
             // });
-            io.sockets.in(socket.server).emit("update_index", rooms[socket.server].players_ids.indexOf(socket.id));
+            rooms[socket.server].players_ids.splice(rooms[socket.server].players_ids.indexOf(socket.id),1);
+            console.log(socket.server);
+            // io.sockets.in(socket.server).emit("update_index", rooms[socket.server].players_ids.indexOf(socket.id), rooms[socket.server].players_ids.length);
+            io.sockets.in(socket.server).emit("new index ready");
             users.splice(users.indexOf(socket.nickname), 1);
             console.log(rooms[socket.server].players_names);
             console.log(rooms[socket.server].players_ids);
 
+            if(rooms[socket.server].players_names.length-1 === 0){
+                rooms[socket.server].private = false;
+            }
+
             rooms[socket.server].army_submit[0] = false;
             rooms[socket.server].army_submit[1] = false;
-            rooms[socket.server].players_ids.splice(rooms[socket.server].players_ids.indexOf(socket.id),1);
             rooms[socket.server].players_names.splice(rooms[socket.server].players_names.indexOf(socket.nickname),1);
             rooms[socket.server].army_submit.splice(rooms[socket.server].players_names.indexOf(socket.nickname),1);
             rooms[socket.server].meleeX = [];

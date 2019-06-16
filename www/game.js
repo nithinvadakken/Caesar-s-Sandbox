@@ -25,6 +25,8 @@ let game_canceled = false;
 let spec_mode = false;
 let submited = false;
 let stop_sim = false;
+let custom_room_clicked = false;
+let spec_btn_made = false;
 function add_armies(x) {
     console.log(x);
     which_player =x;
@@ -148,7 +150,7 @@ function draw_please(id1,id2,name1,name2,troops,color1,color2,meleeX1,meleeY1,ar
 }
 
 function draw() {
-        if(game_started===true && game_canceled === false) {
+        if(game_started===true ) {
             if((indexhere<2||spec_mode === true && stop_sim === false)) {
                 console.log("loop");
                 background(0);
@@ -197,6 +199,7 @@ function draw() {
 
 
 }
+let server;
 var game;
 window.onload = function() {
     game = new Game();
@@ -216,11 +219,8 @@ Game.prototype = {
             document.getElementById('nickWrapper').style.display = 'block';
             document.getElementById('nicknameInput').focus();
         });
-        this.socket.on('nickExisted', function() {
-            document.getElementById('info').textContent = '!nickname is taken, choose another pls';
-        });
         this.socket.on('loginSuccess', function(server) {
-
+            console.log("loginSuc sever changed to "+server);
             this.server= server;
             document.title = 'Caesar\'s Sandbox | ' + document.getElementById('nicknameInput').value;
             document.getElementById('loginWrapper').style.display = 'none';
@@ -234,7 +234,10 @@ Game.prototype = {
                 document.getElementById('info').textContent = '!fail to connect :(';
             }
         });
-        this.socket.on('system', function(nickName, userCount, type, index, game_state) {
+        this.socket.on('system', function(nickName, userCount, type, index, game_state,server1) {
+            console.log("system server changed "+server);
+            if(server1 !== undefined)
+            server = server1;
             console.log("u: "+userCount);
             thisname = nickName;
             if(created_index===false){
@@ -245,10 +248,14 @@ Game.prototype = {
                 if(game_state===2){
                     if(indexhere>1){
                         console.log("where1");
+                        if(spec_btn_made === false){
                         spec_btn = document.createElement("BUTTON");
                         spec_btn.innerHTML = "Spectate";
                         document.body.appendChild(spec_btn);
+                        spec_btn_made = true;
+                        }
                         spec_btn.addEventListener('click', function () {
+
                             spec_mode = true;
                             spec_btn.parentNode.removeChild(spec_btn);
                             var x = document.getElementById("messageInput");
@@ -269,11 +276,16 @@ Game.prototype = {
             that._displayNewMsg('system ', msg, 'red');
             document.getElementById('status').textContent = userCount + (userCount > 1 ? ' users' : ' user') + ' in this room';
         });
-        this.socket.on("update_index", function (newindex) {
+        this.socket.on("new index ready", function () {
+           that.socket.emit("request index");
+        });
+        this.socket.on("update_index", function (newindex, newlength) {
             console.log("update index");
             let past_index = indexhere;
             indexhere=newindex;
+            console.log("old index: "+past_index+"  new index: "+indexhere+"  len:"+newlength);
             if(indexhere<2&&past_index>=2){
+                console.log("update index game btn");
                 game_btn = document.createElement("BUTTON");
                 game_btn.innerHTML = "Start Game";
                 var x = document.getElementById("controls");
@@ -283,6 +295,10 @@ Game.prototype = {
                     console.log("game started");
                     that.socket.emit('start_game');
                 }, false);
+            }
+            if(newlength<2){
+                console.log("new length");
+                game_btn.parentNode.removeChild(game_btn);
             }
         });
         this.socket.on("gamer_time", function () {
@@ -306,9 +322,12 @@ Game.prototype = {
         this.socket.on("start_spec", function () {
             if(indexhere>1){
                 console.log("here?");
+                if(spec_btn_made === false){
                 spec_btn = document.createElement("BUTTON");
                 spec_btn.innerHTML = "Spectate";
                 document.body.appendChild(spec_btn);
+                spec_btn_made = true;
+                    }
                 spec_btn.addEventListener('click', function () {
                     spec_mode = true;
                     spec_btn.parentNode.removeChild(spec_btn);
@@ -344,10 +363,11 @@ Game.prototype = {
             var x = document.getElementById("wrapper");
             x.appendChild(c);
             document.getElementById('messageInput').focus();
-            if(game_state ===1 ) {
+            if(game_state ===1 && submited===false) {
                 clear_btn.parentNode.removeChild(clear_btn);
                 submit_btn.parentNode.removeChild(submit_btn);
             }
+            submited = false;
 
         }
         this.socket.on("cancel_game",function (players_left, game_state) {
@@ -360,7 +380,6 @@ Game.prototype = {
                 archerY = [];
                 tankX= [];
                 tankY= [];
-                game_canceled =true;
                 army_edit=false;
                 game_started = false;
                 // var x = document.getElementById("messageInput");
@@ -391,7 +410,6 @@ Game.prototype = {
                             that.socket.emit('postMsg', msg, color,(that.socket.server));
                             that._displayNewMsg('me', msg, color);
                         };
-
                     }, false);
 
 
@@ -414,38 +432,68 @@ Game.prototype = {
                 else if(game_state===2){
                     spec_btn.parentNode.removeChild(spec_btn);
                 }
+                spec_btn_made = false;
             }
 
 
         });
-        document.getElementById('loginBtn').addEventListener('click', function() {
+        document.getElementById('random_room').addEventListener('click', function() {
             var nickName = document.getElementById('nicknameInput').value;
-            server = document.getElementById('server_id').value;
             if (nickName.trim().length != 0) {
-                that.socket.emit('login', nickName,server);
+                that.socket.emit('login', nickName,-2);
             } else {
                 document.getElementById('nicknameInput').focus();
             };
         }, false);
-        document.getElementById('nicknameInput').addEventListener('keyup', function(e) {
-            if (e.keyCode == 13 && parseInt(server)>=0 && parseInt(server)<100) {
-                var nickName = document.getElementById('nicknameInput').value;
-                server = document.getElementById('server_id').value;
-                if (nickName.trim().length != 0) {
-                    that.socket.emit('login', nickName, server);
-                };
+        document.getElementById('create_custom_room').addEventListener('click', function() {
+            var nickName = document.getElementById('nicknameInput').value;
+            if (nickName.trim().length != 0) {
+                that.socket.emit('login', nickName,-1);
+            } else {
+                document.getElementById('nicknameInput').focus();
             };
         }, false);
+        document.getElementById('join_custom_room').addEventListener('click', function() {
+            console.log("join cust room clicked");
+            if(custom_room_clicked=== false){
+            var nickName = document.getElementById('nicknameInput').value;
+            var server_id = document.createElement('input');
+            server_id.placeholder = "enter the server code";
+            document.getElementById("nickWrapper").appendChild(server_id);
+            custom_room_clicked = true;
+                }
+            server_id.addEventListener('keyup', function (e) {
+                console.log("typed server id isNaN:"+isNaN(server_id.value) + " id:"+server_id.value);
+                if (e.keyCode == 13 && !isNaN(server_id.value) && parseInt(server_id.value)>=0 && parseInt(server_id.value)<100) {
+                    server = server_id.value;
+                    if (nickName.trim().length != 0) {
+                        console.log("what is going on");
+                        that.socket.emit('login', nickName,server);
+                    } else {
+                        document.getElementById('nicknameInput').focus();
+                    };
+                }
+            });
+        }, false);
+        // document.getElementById('nicknameInput').addEventListener('keyup', function(e) {
+        //     if (e.keyCode == 13 && parseInt(server)>=0 && parseInt(server)<100) {
+        //         var nickName = document.getElementById('nicknameInput').value;
+        //         server = document.getElementById('server_id').value;
+        //         if (nickName.trim().length != 0) {
+        //             that.socket.emit('login', nickName, server);
+        //         };
+        //     };
+        // }, false);
 
-        document.getElementById('server_id').addEventListener('keyup', function(e) {
-            if (e.keyCode == 13 && parseInt(server)>=0 && parseInt(server)<100) {
-                var nickName = document.getElementById('nicknameInput').value;
-                server = document.getElementById('server_id').value;
-                if (nickName.trim().length != 0) {
-                    that.socket.emit('login', nickName, server);
-                };
-            };
-        }, false);
+        // document.getElementById('server_id').addEventListener('keyup', function(e) {
+        //     if (e.keyCode == 13 && parseInt(server)>=0 && parseInt(server)<100) {
+        //         var nickName = document.getElementById('nicknameInput').value;
+        //         server = document.getElementById('server_id').value;
+        //         if (nickName.trim().length != 0) {
+        //             that.socket.emit('login', nickName, server);
+        //         };
+        //     };
+        // }, false);
 
         document.getElementById('messageInput').addEventListener('keyup', function(e) {
             var messageInput = document.getElementById('messageInput'),
