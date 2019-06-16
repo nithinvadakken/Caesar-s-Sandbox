@@ -147,7 +147,6 @@ io.sockets.on('connection', function(socket) {
                 socket.broadcast.to(socket.server).emit("start_spec");//for spectating
                 rooms[socket.server].game_state = 2;
                 console.log("s "+rooms[socket.server].simulation);
-
             }
             else{
                 rooms[socket.server].meleeX = meleeX;
@@ -188,18 +187,22 @@ io.sockets.on('connection', function(socket) {
         if (socket.nickname != null) {
             console.log(socket.nickname+" disconnected");
             //users.splice(socket.userIndex, 1);
-            if(rooms[socket.server].players_ids.indexOf(socket.id)<2 && rooms[socket.server].game_state===1)
-                io.sockets.in(socket.server).emit("cancel_game", rooms[socket.server].players_ids.length-1);
-
+            if(rooms[socket.server].players_ids.indexOf(socket.id)<2 && (rooms[socket.server].game_state===1||rooms[socket.server].game_state===2)){
+                io.sockets.in(socket.server).emit("cancel_game", rooms[socket.server].players_ids.length-1,rooms[socket.server].game_state);
+                rooms[socket.server].game_state=0;
+                }
                 io.sockets.in(socket.server).emit('system', socket.nickname, rooms[socket.server].players_ids.length-1, 'logout', rooms[socket.server].players_ids.indexOf(socket.id));
             // io.sockets.in(socket.server).on("ready",function () {
             //     console.log("the h is going on");
             //     io.sockets.in(socket.server).emit('system', socket.nickname, rooms[socket.server].players_ids.length-1, 'logout', rooms[socket.server].players_ids.indexOf(socket.id));
             // });
+            io.sockets.in(socket.server).emit("update_index", rooms[socket.server].players_ids.indexOf(socket.id));
             users.splice(users.indexOf(socket.nickname), 1);
             console.log(rooms[socket.server].players_names);
             console.log(rooms[socket.server].players_ids);
 
+            rooms[socket.server].army_submit[0] = false;
+            rooms[socket.server].army_submit[1] = false;
             rooms[socket.server].players_ids.splice(rooms[socket.server].players_ids.indexOf(socket.id),1);
             rooms[socket.server].players_names.splice(rooms[socket.server].players_names.indexOf(socket.nickname),1);
             rooms[socket.server].army_submit.splice(rooms[socket.server].players_names.indexOf(socket.nickname),1);

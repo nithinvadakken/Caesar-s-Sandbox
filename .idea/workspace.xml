@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42c01f71-cfcb-425d-94ec-a09735fcd83b" name="Default Changelist" comment="psuh">
+    <list default="true" id="42c01f71-cfcb-425d-94ec-a09735fcd83b" name="Default Changelist" comment="disconnect finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
       <change beforePath="$PROJECT_DIR$/www/game.js" afterPath="$PROJECT_DIR$/www/game.js" />
-      <change beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -52,8 +51,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="12" />
+            <state relative-caret-position="216">
+              <caret line="32" column="63" lean-forward="false" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -62,8 +61,8 @@
       <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="192" column="0" lean-forward="true" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+            <state relative-caret-position="219">
+              <caret line="123" column="81" lean-forward="true" selection-start-line="123" selection-start-column="7" selection-end-line="123" selection-end-column="81" />
               <folding />
             </state>
           </provider>
@@ -72,8 +71,8 @@
       <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="353" column="30" lean-forward="false" selection-start-line="353" selection-start-column="30" selection-end-line="353" selection-end-column="30" />
+            <state relative-caret-position="359">
+              <caret line="410" column="22" lean-forward="false" selection-start-line="410" selection-start-column="22" selection-end-line="410" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -113,16 +112,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>drawArmy</find>
-      <find>enemies</find>
-      <find>show</find>
-      <find>archer</find>
-      <find>alert</find>
-      <find>40</find>
-      <find>ale</find>
-      <find>draw</find>
-      <find>tank</find>
-      <find>indexhere</find>
       <find>clear</find>
       <find>system</find>
       <find>,</find>
@@ -138,11 +127,21 @@
       <find>make</find>
       <find>game</find>
       <find>cancel_game</find>
-      <find>game_btn</find>
       <find>left</find>
       <find>messageInput</find>
       <find>users</find>
       <find>spec</find>
+      <find>start game</find>
+      <find>game_state</find>
+      <find>draw_please</find>
+      <find>game_btn</find>
+      <find>s</find>
+      <find>spec_</find>
+      <find>submit_btn</find>
+      <find>army_submitted</find>
+      <find>enter</find>
+      <find>console</find>
+      <find>enter to send</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -20293,7 +20292,7 @@
       <workItem from="1560265841667" duration="4871000" />
       <workItem from="1560272980380" duration="9498000" />
       <workItem from="1560386751245" duration="1853000" />
-      <workItem from="1560391692071" duration="39921000" />
+      <workItem from="1560391692071" duration="46709000" />
     </task>
     <task id="LOCAL-00001" summary="Default Changelist">
       <created>1560211887068</created>
@@ -20351,17 +20350,23 @@
       <option name="project" value="LOCAL" />
       <updated>1560443465764</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="disconnect finished">
+      <created>1560638845390</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1560638845390</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67499000" />
+    <option name="totallyTimeSpent" value="74287000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24920969" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24920969" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.51211804" order="7" side_tool="true" content_ui="tabs" />
@@ -20391,7 +20396,8 @@
     <MESSAGE value="added camera movement." />
     <MESSAGE value="GAME SERVER DONE" />
     <MESSAGE value="psuh" />
-    <option name="LAST_COMMIT_MESSAGE" value="psuh" />
+    <MESSAGE value="disconnect finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="disconnect finished" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -20639,14 +20645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/GameTroop.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -20687,7 +20685,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/Player.js">
+    <entry file="file://$PROJECT_DIR$/www/GameTroop.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -20697,24 +20695,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="12" />
+        <state relative-caret-position="216">
+          <caret line="32" column="63" lean-forward="false" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="192" column="0" lean-forward="true" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+        <state relative-caret-position="219">
+          <caret line="123" column="81" lean-forward="true" selection-start-line="123" selection-start-column="7" selection-end-line="123" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/Player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="353" column="30" lean-forward="false" selection-start-line="353" selection-start-column="30" selection-end-line="353" selection-end-column="30" />
+        <state relative-caret-position="359">
+          <caret line="410" column="22" lean-forward="false" selection-start-line="410" selection-start-column="22" selection-end-line="410" selection-end-column="22" />
           <folding />
         </state>
       </provider>

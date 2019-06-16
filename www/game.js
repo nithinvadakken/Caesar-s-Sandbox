@@ -22,6 +22,9 @@ let finished_army = false;
 let indexhere;
 let created_index = false;
 let game_canceled = false;
+let spec_mode = false;
+let submited = false;
+let stop_sim = false;
 function add_armies(x) {
     console.log(x);
     which_player =x;
@@ -145,36 +148,38 @@ function draw_please(id1,id2,name1,name2,troops,color1,color2,meleeX1,meleeY1,ar
 }
 
 function draw() {
-        if(game_started===true) {
-            console.log("loop");
-            background(0);
-            translate(window.innerWidth / 2 - player1.position.x, window.innerHeight / 2 - player1.position.y);
-            player1.show();
-            player2.show();
-            player1.update();
-            player2.update();
-            player1.moveArmy();
-            player2.moveArmy();
-            if( indexhere === 1&& player1.army.length === 0) {
-                window.alert(player1.name + " has won!");
-                game_started=false;
-                console.log("p1: "+player1.name+" p2:"+player2.name+" this id "+indexhere);
-            }
-            if(indexhere === 0 && player1.army.length === 0) {
-                window.alert(player2.name + " has won!");
-                game_started=false;
-                console.log("p1: "+player1.name+" p2:"+player2.name+" this id "+indexhere);
-            }
+        if(game_started===true && game_canceled === false) {
+            if((indexhere<2||spec_mode === true && stop_sim === false)) {
+                console.log("loop");
+                background(0);
+                translate(window.innerWidth / 2 - player1.position.x, window.innerHeight / 2 - player1.position.y);
+                player1.show();
+                player2.show();
+                player1.update();
+                player2.update();
+                player1.moveArmy();
+                player2.moveArmy();
+                if (indexhere === 1 && player1.army.length === 0) {
+                    window.alert(player1.name + " has won!");
+                    game_started = false;
+                    console.log("p1: " + player1.name + " p2:" + player2.name + " this id " + indexhere);
+                }
+                if (indexhere === 0 && player1.army.length === 0) {
+                    window.alert(player2.name + " has won!");
+                    game_started = false;
+                    console.log("p1: " + player1.name + " p2:" + player2.name + " this id " + indexhere);
+                }
 
-            if(indexhere ===0 && player2.army.length === 0){
-                window.alert(player2.name+" has won!");
-                game_started=false;
-                console.log("p1: "+player1.name+" p2:"+player2.name+" this id "+indexhere);
-            }
-            if(indexhere === 1&& player2.army.length === 0){
-                window.alert(player1.name+" has won!");
-                game_started=false;
-                console.log("p1: "+player1.name+" p2:"+player2.name+" this id "+indexhere);
+                if (indexhere === 0 && player2.army.length === 0) {
+                    window.alert(player2.name + " has won!");
+                    game_started = false;
+                    console.log("p1: " + player1.name + " p2:" + player2.name + " this id " + indexhere);
+                }
+                if (indexhere === 1 && player2.army.length === 0) {
+                    window.alert(player1.name + " has won!");
+                    game_started = false;
+                    console.log("p1: " + player1.name + " p2:" + player2.name + " this id " + indexhere);
+                }
             }
             // if(player1.army.length ===0){
             //         window.alert(player2.name+" has won!");
@@ -234,6 +239,7 @@ Game.prototype = {
             thisname = nickName;
             if(created_index===false){
             indexhere = index;
+            past_index = index;
             created_index =true;
                 }
                 if(game_state===2){
@@ -243,6 +249,7 @@ Game.prototype = {
                         spec_btn.innerHTML = "Spectate";
                         document.body.appendChild(spec_btn);
                         spec_btn.addEventListener('click', function () {
+                            spec_mode = true;
                             spec_btn.parentNode.removeChild(spec_btn);
                             var x = document.getElementById("messageInput");
                             x.parentNode.removeChild(x);
@@ -262,14 +269,32 @@ Game.prototype = {
             that._displayNewMsg('system ', msg, 'red');
             document.getElementById('status').textContent = userCount + (userCount > 1 ? ' users' : ' user') + ' in this room';
         });
+        this.socket.on("update_index", function (newindex) {
+            console.log("update index");
+            let past_index = indexhere;
+            indexhere=newindex;
+            if(indexhere<2&&past_index>=2){
+                game_btn = document.createElement("BUTTON");
+                game_btn.innerHTML = "Start Game";
+                var x = document.getElementById("controls");
+                x.appendChild(game_btn);
+                game_btn.addEventListener('click', function () {
+                    game_canceled = false;
+                    console.log("game started");
+                    that.socket.emit('start_game');
+                }, false);
+            }
+        });
         this.socket.on("gamer_time", function () {
             console.log("the f"+indexhere);
+            console.log("gamer time");
             if(indexhere<2){
                 game_btn = document.createElement("BUTTON");
                 game_btn.innerHTML = "Start Game";
                 var x = document.getElementById("controls");
                 x.appendChild(game_btn);
                 game_btn.addEventListener('click', function () {
+                    game_canceled=false;
                     console.log("game started");
                     that.socket.emit('start_game');
                 }, false);
@@ -285,6 +310,7 @@ Game.prototype = {
                 spec_btn.innerHTML = "Spectate";
                 document.body.appendChild(spec_btn);
                 spec_btn.addEventListener('click', function () {
+                    spec_mode = true;
                     spec_btn.parentNode.removeChild(spec_btn);
                     var x = document.getElementById("messageInput");
                     x.parentNode.removeChild(x);
@@ -298,45 +324,60 @@ Game.prototype = {
                 });
             }
         });
-        this.socket.on("cancel_game",function (players_left) {
+        function return_to_chat_place(game_state) {
+            var x = document.getElementById('controls');
+            x.parentNode.removeChild(x);
+            clear_canvas();
+            document.getElementById('server_name').textContent = "server: "+server;
+            var message_input = document.createElement("textarea");
+            message_input.placeholder = "enter to send";
+            message_input.id = "messageInput";
+            var element = document.getElementById("controls");
+            historyMsg = document.createElement("div");
+            historyMsg.id = 'historyMsg';
+            x = document.getElementById("wrapper");
+            x.appendChild(historyMsg);
+            var c = document.createElement("div");
+            c.class = "controls";
+            c.id = "controls";
+            c.appendChild(message_input);
+            var x = document.getElementById("wrapper");
+            x.appendChild(c);
+            document.getElementById('messageInput').focus();
+            if(game_state ===1 ) {
+                clear_btn.parentNode.removeChild(clear_btn);
+                submit_btn.parentNode.removeChild(submit_btn);
+            }
+
+        }
+        this.socket.on("cancel_game",function (players_left, game_state) {
             if(indexhere<2) {
+                player.army = [];
+                current = 0;
+                meleeX = [];
+                meleeY = [];
+                archerX = [];
+                archerY = [];
+                tankX= [];
+                tankY= [];
                 game_canceled =true;
                 army_edit=false;
+                game_started = false;
                 // var x = document.getElementById("messageInput");
                 // x.parentNode.removeChild(x);
                 // game_btn.parentNode.removeChild(game_btn);
                 // x = document.getElementById("historyMsg");
                 // x.parentNode.removeChild(x);
-                var x = document.getElementById('controls');
-                x.parentNode.removeChild(x);
-                clear_canvas();
-                document.getElementById('server_name').textContent = "server: "+server;
-                var message_input = document.createElement("textarea");
-                message_input.innerHTML = "enter to send";
-                message_input.id = "messageInput";
-                var element = document.getElementById("controls");
-                historyMsg = document.createElement("div");
-                historyMsg.id = 'historyMsg';
-                x = document.getElementById("wrapper");
-                x.appendChild(historyMsg);
-                var c = document.createElement("div");
-                c.class = "controls";
-                c.id = "controls";
-                c.appendChild(message_input);
-                var x = document.getElementById("wrapper");
-                x.appendChild(c);
-                document.getElementById('messageInput').focus();
-                clear_btn.parentNode.removeChild(clear_btn);
-                submit_btn.parentNode.removeChild(submit_btn);
-
+                return_to_chat_place(game_state);
                 console.log("p left: "+players_left);
                 if (players_left > 1) {
-
+                    console.log("cancel game");
                     game_btn = document.createElement("BUTTON");
                     game_btn.innerHTML = "Start Game";
                     var x = document.getElementById("controls");
                     x.appendChild(game_btn);
                     game_btn.addEventListener('click', function () {
+                        game_canceled = false;
                         console.log("game started");
                         that.socket.emit('start_game');
                     }, false);
@@ -362,6 +403,17 @@ Game.prototype = {
 
             else{
                 console.log("nice");
+                if(spec_mode === true ){
+                    return_to_chat_place(-1);
+                    console.log("spec mode");
+                    spec_mode = false;
+                    game_started = false;
+                    //stop_sim=true;
+                     clear_canvas();
+                }
+                else if(game_state===2){
+                    spec_btn.parentNode.removeChild(spec_btn);
+                }
             }
 
 
@@ -430,6 +482,7 @@ Game.prototype = {
                 x.parentNode.removeChild(x);
                add_armies(index);
                 submit_btn.addEventListener('click',function () {
+                    submited = true;
                 clear_btn.parentNode.removeChild(clear_btn);
                 submit_btn.parentNode.removeChild(submit_btn);
                 finished_army = true;
