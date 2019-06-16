@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42c01f71-cfcb-425d-94ec-a09735fcd83b" name="Default Changelist" comment="music">
+    <list default="true" id="42c01f71-cfcb-425d-94ec-a09735fcd83b" name="Default Changelist" comment="disconnect 100% working over 30 cases tested">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
-      <change beforePath="$PROJECT_DIR$/www/game.js" afterPath="$PROJECT_DIR$/www/game.js" />
-      <change beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -52,7 +49,7 @@
       <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
+            <state relative-caret-position="1870">
               <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
               <folding />
             </state>
@@ -62,8 +59,8 @@
       <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="238" column="37" lean-forward="false" selection-start-line="238" selection-start-column="37" selection-end-line="238" selection-end-column="37" />
+            <state relative-caret-position="332">
+              <caret line="233" column="58" lean-forward="false" selection-start-line="233" selection-start-column="58" selection-end-line="233" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -167,6 +164,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -183,7 +181,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -246,7 +243,8 @@
       <workItem from="1560272980380" duration="9498000" />
       <workItem from="1560386751245" duration="1853000" />
       <workItem from="1560391692071" duration="39921000" />
-      <workItem from="1560648799657" duration="8910000" />
+      <workItem from="1560648799657" duration="9072000" />
+      <workItem from="1560702331896" duration="9000" />
     </task>
     <task id="LOCAL-00001" summary="Default Changelist">
       <created>1560211887068</created>
@@ -311,11 +309,18 @@
       <option name="project" value="LOCAL" />
       <updated>1560639748606</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="disconnect 100% working over 30 cases tested">
+      <created>1560696437217</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1560696437217</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77103000" />
+    <option name="totallyTimeSpent" value="77274000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -352,7 +357,8 @@
     <MESSAGE value="GAME SERVER DONE" />
     <MESSAGE value="psuh" />
     <MESSAGE value="music" />
-    <option name="LAST_COMMIT_MESSAGE" value="music" />
+    <MESSAGE value="disconnect 100% working over 30 cases tested" />
+    <option name="LAST_COMMIT_MESSAGE" value="disconnect 100% working over 30 cases tested" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -418,7 +424,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -426,7 +431,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="537">
           <caret line="28" column="48" lean-forward="true" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -450,7 +454,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -472,7 +475,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
+        <state relative-caret-position="1870">
           <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
           <folding />
         </state>
@@ -480,8 +483,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="238" column="37" lean-forward="false" selection-start-line="238" selection-start-column="37" selection-end-line="238" selection-end-column="37" />
+        <state relative-caret-position="332">
+          <caret line="233" column="58" lean-forward="false" selection-start-line="233" selection-start-column="58" selection-end-line="233" selection-end-column="58" />
           <folding />
         </state>
       </provider>
