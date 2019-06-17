@@ -9,8 +9,9 @@ body {
 
 
 #container{
-    position:fixed;
+    position:absolute;
 }
+
 .siteHeader {
     padding: 40px;
     text-align: center;
@@ -18,6 +19,9 @@ body {
     width: auto;
 }
 
+#message{
+    display: block;
+}
 .siteHeader h1 {
     font-size: 70px;
     font-family: "Impact", Charcoal, sans-serif;
@@ -57,11 +61,11 @@ body {
     color: #ff0000;
     margin: auto;
     margin-top: 5px;
-    width: 15%;
+    width: 140px;
     border-radius: 18px;
     background: #151515;
     text-align: center;
-    padding: 14px 20px;
+    padding: 14px 20px 14px 20px;
     text-decoration: none;
     font-family: "Courier New", Courier, monospace;
 }

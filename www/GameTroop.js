@@ -8,7 +8,7 @@ class GameTroop {
         this.range = range;
         this.dmg = dmg;
         this.size = size;
-        this.speed = speed*100;
+        this.speed = speed*135;
         this.name = name;
         this.killCount = 0;
         this.level = 1;
