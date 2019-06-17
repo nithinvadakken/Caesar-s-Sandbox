@@ -6,7 +6,7 @@ class GameTroop {
         this.range = range;
         this.dmg = dmg;
         this.size = size;
-        this.speed = speed*100;
+        this.speed = speed*135;
         this.name = name;
         this.accuracy = accuracy; //number from 0 to 10
         console.log("Troop Creation: " + this.name);
@@ -39,11 +39,11 @@ class GameTroop {
             if (typeof(allies[i]) !== undefined && typeof( enemies[i]) !== undefined) {
                 if (this.getDistanceToTarget(enemies[i].pos.x, enemies[i].pos.y) < 100) {
                     if (this.name === "Melee" && enemies[i].name==="Archer") {
-                        terror += 2;
+                        terror += 3;
                     } else if (this.name === "Archer" && enemies[i].name==="Tank") {
-                        terror += 1;
+                        terror += 2;
                     } else if (this.name === "Melee" && enemies[i].name==="Tank") {
-                        terror += 0.5;
+                        terror += 1.5;
                     }
                 }
             }
@@ -53,11 +53,11 @@ class GameTroop {
             if (allies[i] !== undefined && enemies[i] !== undefined) {
                 if (this.getDistanceToTarget(allies[i].pos.x, allies[i].pos.y) < 100) {
                     if (this.name === "Melee" && enemies[i].name==="Archer") {
-                        terror -= 0.5;
+                        terror -= 1.5;
                     } else if (this.name === "Archer" && enemies[i].name==="Tank") {
-                        terror -= 1;
-                    } else if (this.name === "Melee" && enemies[i].name==="Tank") {
                         terror -= 2;
+                    } else if (this.name === "Melee" && enemies[i].name==="Tank") {
+                        terror -= 3;
                     }
                 }
             }

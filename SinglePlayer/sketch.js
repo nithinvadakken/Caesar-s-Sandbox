@@ -1,6 +1,6 @@
 let player;
 let start = false;
-
+let btn;
 
 function setup() {
     // put setup code here
@@ -17,7 +17,6 @@ function setup() {
 
 function draw() {
     background(0);
-
     if (keyIsDown(82)) {
         window.location.reload();
     }
@@ -33,5 +32,4 @@ function draw() {
     player2.update();
     player.moveArmy();
     player2.moveArmy();
-
 }

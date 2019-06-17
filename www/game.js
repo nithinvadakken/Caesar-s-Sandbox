@@ -37,7 +37,7 @@ function add_armies(x) {
     translate(window.innerWidth/2-player.position.x, window.innerHeight/2-player.position.y);
 
     clear_btn = document.createElement("BUTTON");
-    clear_btn.innerHTML = "CLear";
+    clear_btn.innerHTML = "Clear";
     document.body.appendChild(clear_btn);
     clear_btn.addEventListener('click', function(){
         createCanvas(window.innerWidth,window.innerHeight);
