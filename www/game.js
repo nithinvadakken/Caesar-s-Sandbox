@@ -173,12 +173,12 @@ function draw() {
                 }
 
                 if (indexhere === 0 && player2.army.length === 0) {
-                    window.alert(player2.name + " has won!");
+                    window.alert(player1.name + " has won!");
                     game_started = false;
                     console.log("p1: " + player1.name + " p2:" + player2.name + " this id " + indexhere);
                 }
                 if (indexhere === 1 && player2.army.length === 0) {
-                    window.alert(player1.name + " has won!");
+                    window.alert(player2.name + " has won!");
                     game_started = false;
                     console.log("p1: " + player1.name + " p2:" + player2.name + " this id " + indexhere);
                 }
