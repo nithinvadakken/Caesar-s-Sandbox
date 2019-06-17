@@ -9,8 +9,10 @@ class GameTroop {
         this.range = range;
         this.dmg = dmg;
         this.size = size;
-        this.speed = speed*135;
+        this.speed = speed*75;
         this.name = name;
+        this.killCount = 0;
+        this.level = 1;
     }
 
     getDistanceToTarget (tx, ty) {

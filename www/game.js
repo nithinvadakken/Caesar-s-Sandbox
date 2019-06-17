@@ -5,7 +5,7 @@ function setup() {
     player = new Player(0,'green');
 }
 let game_btn;
-const max = 5;
+const max = 20;
 let current = 0;
 army_edit =false;
 meleeX = [];
