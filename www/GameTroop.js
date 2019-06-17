@@ -106,7 +106,7 @@ class GameTroop {
 
 
 
-        if (terror <= 0) {
+        if (terror <= 5) {
 
             return false;
 
