@@ -3,7 +3,7 @@ class Player {
 
     constructor(id, color) {
         this.id = id;
-        this.numTroops = 40;
+        this.numTroops = 50;
         this.army = this.addArmy();
         this.position = createVector(window.innerWidth/2, window.innerHeight/2);
         this.color = color;
@@ -34,16 +34,16 @@ class Player {
 
         let armyArray = [];
 
-        for (let i=0; i<this.numTroops-4; i++) {
-            if (i%2===0) {
-                armyArray.push(new MeleeSoldier(random(width), random(height)));
+        for (let i=0; i<this.numTroops; i++) {
+            let newx = random(width);
+            let newy = random(height);
+            if (i%10===0) {
+                armyArray.push(new Tank(newx, newy));
+            } else if (i%3===0) {
+                armyArray.push(new Archer(newx, newy));
             } else {
-                armyArray.push(new Archer(random(width), random(height)));
-            }
-        }
-
-        for (let i=0; i<4; i++) {
-            armyArray.push(new Tank(random(width), random(height)));
+                armyArray.push(new MeleeSoldier(newx, newy));
+            } 
         }
 
         return armyArray;

@@ -1,6 +1,6 @@
 // Troop class
 
-class GameTroop {
+class GameTroopServer {
 
     constructor(x, y, health, dmg, range, speed, size, name) {
         this.pos = createVector(x, y);
@@ -19,8 +19,6 @@ class GameTroop {
     }
 
     attack (enemy) {
-        stroke(color(255, 255, 255));
-        strokeWeight(1);
         enemy.health -= this.dmg + this.dmg*(this.level/2);
         if (enemy.health <= 0) {
             this.killCount+=1;
@@ -30,7 +28,6 @@ class GameTroop {
                 this.size += 5;
             }
         }
-        line(this.pos.x, this.pos.y, enemy.pos.x, enemy.pos.y);
         setTimeout(function(){}, 300000);
     }
 
@@ -127,18 +124,11 @@ class GameTroop {
 }
 
 //Melee Class
-class MeleeSoldier extends GameTroop {
+class MeleeSoldierServer extends GameTroopClient {
 
     constructor(x, y, name) {
         //x, y, health, dmg, range, speed, size, name
         super(x, y, 300, 70, 40, 10, 7, "Melee");
-    }
-
-    drawTroop(clr){
-        strokeWeight(8);
-        stroke(clr);
-        fill(clr);
-        ellipse(this.pos.x, this.pos.y, this.size);
     }
 
     checkBounds(tx, ty) {
@@ -154,20 +144,11 @@ class MeleeSoldier extends GameTroop {
 
 // Archer (ranger) Class
 
-class Archer extends GameTroop {
+class ArcherServer extends GameTroopClient {
 
     constructor(x, y, name) {
         //x, y, health, dmg, range, speed, size, name
         super(x, y, 200, 10, 70, 30, 20, "Archer");
-    }
-
-    drawTroop(clr){
-        strokeWeight(8);
-        stroke(clr);
-        fill(clr);
-        let x = this.pos.x;
-        let y = this.pos.y;
-        triangle(x, y, x+this.size/3, y, x+this.size/3/2, y-this.size/3);
     }
 
     checkBounds(tx, ty) {
@@ -180,20 +161,11 @@ class Archer extends GameTroop {
 }
 
 // Tank Class
-class Tank extends GameTroop {
+class TankServer extends GameTroopClient {
 
     constructor(x, y) {
         //x, y, health, dmg, range, speed, size, name, acc
         super(x, y, 1000, 40, 60, 50, 40, "Tank");
-    }
-
-    drawTroop(clr){
-        strokeWeight(8);
-        stroke(clr);
-        fill(clr);
-        let x = this.pos.x;
-        let y = this.pos.y;
-        rect(x, y, this.size, this.size);
     }
 
     checkBounds(tx, ty) {
