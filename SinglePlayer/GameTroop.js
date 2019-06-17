@@ -9,8 +9,10 @@ class GameTroop {
         this.range = range;
         this.dmg = dmg;
         this.size = size;
-        this.speed = speed*135;
+        this.speed = speed*75;
         this.name = name;
+        this.killCount = 0;
+        this.level = 1;
     }
 
     getDistanceToTarget (tx, ty) {
@@ -103,7 +105,8 @@ class GameTroop {
         }
 
 
-        if (terror <= 0) {
+
+        if (terror <= 5) {
 
             return false;
 
@@ -226,8 +229,8 @@ class MeleeSoldier extends GameTroop {
     drawHealth(){
         let percent = this.health/300;
         strokeWeight(2);
-        stroke(color(50, 214, 229));
-        fill(color(50, 214, 229));
+        stroke(color(0,0,255));
+        fill(color(0,0,255));
         rect(this.pos.x-(this.size/2), this.pos.y + this.size, percent*this.size, 2);
     }
 }
@@ -256,8 +259,8 @@ class Archer extends GameTroop {
     drawHealth(){
         let percent = this.health/200;
         strokeWeight(2);
-        stroke(color(50, 214, 229));
-        fill(color(50, 214, 229));
+        stroke(color(0,0,255));
+        fill(color(0,0,255));
         rect(this.pos.x, this.pos.y + this.size - 15, percent*this.size, 2);
     }
 
@@ -287,8 +290,8 @@ class Tank extends GameTroop {
     drawHealth(){
         let percent = this.health/1000;
         strokeWeight(2);
-        stroke(color(50, 214, 229));
-        fill(color(50, 214, 229));
+        stroke(color(0,0,255));
+        fill(color(0,0,255));
         rect(this.pos.x, this.pos.y + this.size + 10, percent*this.size, 2);
     }
 }

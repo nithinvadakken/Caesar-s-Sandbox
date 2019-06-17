@@ -93,6 +93,7 @@ class Player {
         let armyArray = this.army;
         for (let i=0; i<armyArray.length; i++) {
             armyArray[i].drawTroop(this.color);
+            armyArray[i].drawHealth();
         }
     }
 
