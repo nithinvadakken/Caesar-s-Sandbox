@@ -222,7 +222,7 @@ class MeleeSoldier extends GameTroop {
         strokeWeight(2);
         stroke(color(0,0,255));
         fill(color(0,0,255));
-        rect(this.pos.x - this.size, this.pos.y + this.size, percent*this.size, 2);
+        rect(this.pos.x-(this.size/2), this.pos.y + this.size, percent*this.size, 2);
     }
 }
 
@@ -252,7 +252,7 @@ class Archer extends GameTroop {
         strokeWeight(2);
         stroke(color(0,0,255));
         fill(color(0,0,255));
-        rect(this.pos.x, this.pos.y + this.size - 20, percent*this.size, 2);
+        rect(this.pos.x, this.pos.y + this.size - 15, percent*this.size, 2);
     }
 
 }
