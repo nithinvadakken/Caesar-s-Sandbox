@@ -27,7 +27,8 @@ class GameTroop {
             if (this.killCount >= this.level*2  ) {
                 this.killCount = 0;
                 this.level += 1;
-                this.size += 5;
+                this.size *= 1.25;
+                this.health += 50;
             }
         }
         line(this.pos.x, this.pos.y, enemy.pos.x, enemy.pos.y);
@@ -158,7 +159,7 @@ class Archer extends GameTroop {
 
     constructor(x, y, name) {
         //x, y, health, dmg, range, speed, size, name
-        super(x, y, 200, 10, 70, 30, 20, "Archer");
+        super(x, y, 200, 10, 70, 30, 10, "Archer");
     }
 
     drawTroop(clr){

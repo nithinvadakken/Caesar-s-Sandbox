@@ -1,6 +1,8 @@
 // Troop class
+
 class GameTroop {
-    constructor(x, y, health, dmg, range, speed, size, name, accuracy) {
+
+    constructor(x, y, health, dmg, range, speed, size, name) {
         this.pos = createVector(x, y);
         this.health = health;
         this.range = range;
@@ -8,8 +10,8 @@ class GameTroop {
         this.size = size;
         this.speed = speed*100;
         this.name = name;
-        this.accuracy = accuracy; //number from 0 to 10
-        console.log("Troop Creation: " + this.name);
+        this.killCount = 0;
+        this.level = 1;
     }
 
     getDistanceToTarget (tx, ty) {
@@ -19,49 +21,52 @@ class GameTroop {
     attack (enemy) {
         stroke(color(255, 255, 255));
         strokeWeight(1);
-        if (random(10) < this.accuracy) {
-            enemy.health -= this.dmg;
-            line(this.pos.x, this.pos.y, enemy.pos.x, enemy.pos.y);
-
+        enemy.health -= this.dmg + this.dmg*(this.level/2);
+        if (enemy.health <= 0) {
+            this.killCount+=1;
+            if (this.killCount >= this.level*2  ) {
+                this.killCount = 0;
+                this.level += 1;
+                this.size *= 1.25;
+                this.health += 50;
+            }
         }
-        setTimeout(function(){}, 3000);
+        line(this.pos.x, this.pos.y, enemy.pos.x, enemy.pos.y);
+        setTimeout(function(){}, 300000);
     }
 
     movement_heuristic(enemies, allies) {
-
         let terror = 0;
 
-        if (enemies.length < 20 && allies.length < 20) {
+        if (enemies.length < 10 && allies.length < 10) {
             return false;
         }
 
         for (let i=0; i<enemies.length; i++) {
-            if (typeof(allies[i]) !== undefined && typeof( enemies[i]) !== undefined) {
-                if (this.getDistanceToTarget(enemies[i].pos.x, enemies[i].pos.y) < 100) {
-                    if (this.name === "Melee" && enemies[i].name==="Archer") {
-                        terror += 2;
-                    } else if (this.name === "Archer" && enemies[i].name==="Tank") {
-                        terror += 1;
-                    } else if (this.name === "Melee" && enemies[i].name==="Tank") {
-                        terror += 0.5;
-                    }
+            if (this.getDistanceToTarget(enemies[i].pos.x, enemies[i].pos.y) < 100) {
+                if (this.name === "Melee" && enemies[i].name==="Archer") {
+                    terror += 2*enemies[i].level;
+                } else if (this.name === "Archer" && enemies[i].name==="Tank") {
+                    terror += 1*enemies[i].level;
+                } else if (this.name === "Melee" && enemies[i].name==="Tank") {
+                    terror += 0.5*enemies[i].level;
                 }
             }
         }
 
         for (let i=0; i<allies.length; i++) {
-            if (allies[i] !== undefined && enemies[i] !== undefined) {
-                if (this.getDistanceToTarget(allies[i].pos.x, allies[i].pos.y) < 100) {
-                    if (this.name === "Melee" && enemies[i].name==="Archer") {
-                        terror -= 0.5;
-                    } else if (this.name === "Archer" && enemies[i].name==="Tank") {
-                        terror -= 1;
-                    } else if (this.name === "Melee" && enemies[i].name==="Tank") {
-                        terror -= 2;
-                    }
+            if (this.getDistanceToTarget(allies[i].pos.x, allies[i].pos.y) < 100) {
+                if (this.name === "Melee" && allies[i].name==="Archer") {
+                    terror -= 0.5*allies[i].level;
+                } else if (this.name === "Archer" && allies[i].name==="Tank") {
+                    terror -= 1*allies[i].level;
+                } else if (this.name === "Melee" && allies[i].name==="Tank") {
+                    terror -= 2*allies[i].level;
                 }
             }
         }
+
+        terror -= this.level;
 
         if (terror <= 0) {
             return false;
@@ -84,7 +89,13 @@ class GameTroop {
             } else if (this.getDistanceToTarget(enemies[i].pos.x, enemies[i].pos.y) < this.getDistanceToTarget(ex, ey)) {
                 ex =  enemies[i].pos.x;
                 ey = enemies[i].pos.y;
-                this.targetMove(ex, ey, terror);
+                let canMove = 0;
+                if (!this.checkBounds(ex, ey)) {
+                    canMove = true;
+                }
+                if (canMove) {
+                    this.targetMove(ex, ey, terror);
+                }
             }
         }
     }
@@ -118,9 +129,10 @@ class GameTroop {
 
 //Melee Class
 class MeleeSoldier extends GameTroop {
-    //x, y, health, dmg, range, speed, size, name, acc
-    constructor(x, y) {
-        super(x, y, 300, 30, 30, 10, 4, "Melee", 10);
+
+    constructor(x, y, name) {
+        //x, y, health, dmg, range, speed, size, name
+        super(x, y, 300, 70, 40, 10, 7, "Melee");
     }
 
     drawTroop(clr){
@@ -129,14 +141,25 @@ class MeleeSoldier extends GameTroop {
         fill(clr);
         ellipse(this.pos.x, this.pos.y, this.size);
     }
+
+    checkBounds(tx, ty) {
+        if (this.getDistanceToTarget(tx, ty) <= this.size/2) {
+            return true;
+        }
+        return false;
+    }
+
 }
 
+
+
 // Archer (ranger) Class
+
 class Archer extends GameTroop {
-    //x, y, health, dmg, range, speed, size, name, acc
-    constructor(x, y) {
-        //yellow
-        super(x, y, 200, 15, 60, 50, 20, "Archer", 5);
+
+    constructor(x, y, name) {
+        //x, y, health, dmg, range, speed, size, name
+        super(x, y, 200, 10, 70, 30, 10, "Archer");
     }
 
     drawTroop(clr){
@@ -145,15 +168,24 @@ class Archer extends GameTroop {
         fill(clr);
         let x = this.pos.x;
         let y = this.pos.y;
-        triangle(x, y, x+2, y, (x + (x+2))/2, y-2);
+        triangle(x, y, x+this.size/3, y, x+this.size/3/2, y-this.size/3);
     }
+
+    checkBounds(tx, ty) {
+        if (this.getDistanceToTarget(tx, ty) <= this.size/2) {
+            return true;
+        }
+        return false;
+    }
+
 }
 
 // Tank Class
 class Tank extends GameTroop {
+
     constructor(x, y) {
         //x, y, health, dmg, range, speed, size, name, acc
-        super(x, y, 1000, 40, 45, 20, 30, "Tank", 6);
+        super(x, y, 1000, 40, 60, 50, 40, "Tank");
     }
 
     drawTroop(clr){
@@ -164,4 +196,14 @@ class Tank extends GameTroop {
         let y = this.pos.y;
         rect(x, y, this.size, this.size);
     }
+
+    checkBounds(tx, ty) {
+        if (tx >= this.x || tx <= this.x+this.size) {
+            return true;
+        } if (ty >= this.y || ty <= this.y+this.size) {
+            return true;
+        }
+        return false;
+    }
+
 }

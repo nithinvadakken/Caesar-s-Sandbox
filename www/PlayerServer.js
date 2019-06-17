@@ -13,9 +13,10 @@ class Player {
     }
 
     update(){
-        let vel = createVector(mouseX,mouseY);
-        vel.sub(this.position);
-        this.position.add(vel);
+        vx = this.x - mx;
+        vy = this.y - my;
+        this.x += vx;
+        this.y += vy; //idk if this math is right
     }
 
     moveArmy() {
@@ -29,26 +30,6 @@ class Player {
         for (let i=0; i<this.army.length; i++) {
             this.army[i].autoMove(this.enemies, this.army);
         }
-    }
-
-    addArmy() {
-        //default number of rows and columns of troops
-
-        let armyArray = [];
-
-        for (let i=0; i<this.numTroops-4; i++) {
-            if (i%2===0) {
-                armyArray.push(new MeleeSoldier(random(width), random(height)));
-            } else {
-                armyArray.push(new Archer(random(width), random(height)));
-            }
-        }
-
-        for (let i=0; i<4; i++) {
-            armyArray.push(new Tank(random(width), random(height)));
-        }
-
-        return armyArray;
     }
 
     createArmy(meleeX2,meleeY2,archerX2,archerY2,tankX2,tankY2){

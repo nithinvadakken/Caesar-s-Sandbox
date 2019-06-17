@@ -3,7 +3,8 @@
 class GameTroopServer {
 
     constructor(x, y, health, dmg, range, speed, size, name) {
-        this.pos = createVector(x, y);
+        this.x = x;
+        this.y = y;
         this.health = health;
         this.range = range;
         this.dmg = dmg;
@@ -15,7 +16,7 @@ class GameTroopServer {
     }
 
     getDistanceToTarget (tx, ty) {
-        return Math.sqrt(Math.pow(this.pos.x - tx, 2) + Math.pow(this.pos.y - ty, 2));
+        return Math.sqrt(Math.pow(this.x - tx, 2) + Math.pow(this.y - ty, 2));
     }
 
     attack (enemy) {
@@ -97,28 +98,28 @@ class GameTroopServer {
     }
 
     targetMove(tx, ty, terror) {
-        let xspeed = (tx - this.pos.x)/this.speed;
-        let yspeed = (ty - this.pos.y)/this.speed;
+        let xspeed = (tx - this.x)/this.speed;
+        let yspeed = (ty - this.y)/this.speed;
 
         if (terror) {
-            xspeed = (this.pos.x - tx)/this.speed;
-            yspeed = (this.pos.y - ty)/this.speed;
+            xspeed = (this.x - tx)/this.speed;
+            yspeed = (this.y - ty)/this.speed;
         }
 
-        if (this.pos.x + xspeed < 0) {
-            this.pos.x = 0;
-        } else if (this.pos.x + xspeed > window.innerWidth) {
-            this.pos.x = window.innerWidth;
+        if (this.x + xspeed < 0) {
+            this.x = 0;
+        } else if (this.x + xspeed > window.innerWidth) {
+            this.x = window.innerWidth;
         } else {
-            this.pos.x += xspeed;
+            this.x += xspeed;
         }
 
-        if (this.pos.y + yspeed < 0) {
-            this.pos.y = 0;
-        } else if (this.pos.y + yspeed > window.innerHeight) {
-            this.pos.y = window.innerHeight;
+        if (this.y + yspeed < 0) {
+            this.y = 0;
+        } else if (this.y + yspeed > window.innerHeight) {
+            this.y = window.innerHeight;
         } else {
-            this.pos.y += yspeed;
+            this.y += yspeed;
         }
     }
 }
