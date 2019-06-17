@@ -227,7 +227,7 @@ class MeleeSoldier extends GameTroop {
     }
 
     drawHealth(){
-        let percent = this.health/300;
+        let percent = this.health/800;
         strokeWeight(2);
         stroke(color(0,0,255));
         fill(color(0,0,255));
@@ -288,7 +288,7 @@ class Tank extends GameTroop {
     }
 
     drawHealth(){
-        let percent = this.health/1000;
+        let percent = this.health/5000;
         strokeWeight(2);
         stroke(color(0,0,255));
         fill(color(0,0,255));
