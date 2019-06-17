@@ -5,7 +5,7 @@ function setup() {
     player = new Player(0,'green');
 }
 let game_btn;
-const max = 20;
+const max = 30;
 let current = 0;
 army_edit =false;
 meleeX = [];
@@ -128,7 +128,7 @@ let thisname;
 function draw_please(id1,id2,name1,name2,troops,color1,color2,meleeX1,meleeY1,archerX1,archerY1,tankX1,tankY1,meleeX2,meleeY2,archerX2,archerY2,tankX2,tankY2) {
     console.log("tank "+tankX2);
     console.log("first");
-    createCanvas(window.innerWidth,window.innerHeight-225);
+    createCanvas(window.innerWidth,window.innerHeight);
     player1 = new Player(id1,color1);
     player2 = new Player(id2,color2);
     background(0);
