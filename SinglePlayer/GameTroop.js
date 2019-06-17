@@ -24,9 +24,16 @@ class GameTroop {
         stroke(color(255, 255, 255));
 
         strokeWeight(1);
-
-        enemy.health -= this.dmg;
-
+        enemy.health -= this.dmg + this.dmg*(this.level/2);
+        if (enemy.health <= 0) {
+            this.killCount+=1;
+            if (this.killCount >= this.level*2  ) {
+                this.killCount = 0;
+                this.level += 1;
+                this.size *= 1.25;
+                this.health += 50;
+            }
+        }
         line(this.pos.x, this.pos.y, enemy.pos.x, enemy.pos.y);
 
         setTimeout(function(){}, 3000);
@@ -232,8 +239,8 @@ class MeleeSoldier extends GameTroop {
 class Archer extends GameTroop {
 
     constructor(x, y, name) {
-        //yellow
-        super(x, y, 200, 15, 70, 30, 30, "Archer");
+        //x, y, health, dmg, range, speed, size, name
+        super(x, y, 200, 10, 70, 30, 10, "Archer");
     }
 
     drawTroop(clr){
