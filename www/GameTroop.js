@@ -129,6 +129,14 @@ class MeleeSoldier extends GameTroop {
         fill(clr);
         ellipse(this.pos.x, this.pos.y, this.size);
     }
+
+    drawHealth(){
+        let percent = this.health/300;
+        strokeWeight(2);
+        stroke(color(0,0,255));
+        fill(color(0,0,255));
+        rect(this.pos.x-(this.size/2), this.pos.y + this.size, percent*this.size, 2);
+    }
 }
 
 // Archer (ranger) Class
@@ -145,7 +153,15 @@ class Archer extends GameTroop {
         fill(clr);
         let x = this.pos.x;
         let y = this.pos.y;
-        triangle(x, y, x+2, y, (x + (x+2))/2, y-2);
+        triangle(x, y, x+this.size, y, (x + (x+this.size))/2, y-this.size);
+    }
+
+    drawHealth(){
+        let percent = this.health/200;
+        strokeWeight(2);
+        stroke(color(0,0,255));
+        fill(color(0,0,255));
+        rect(this.pos.x, this.pos.y + this.size - 15, percent*this.size, 2);
     }
 }
 
@@ -163,5 +179,13 @@ class Tank extends GameTroop {
         let x = this.pos.x;
         let y = this.pos.y;
         rect(x, y, this.size, this.size);
+    }
+
+    drawHealth(){
+        let percent = this.health/1000;
+        strokeWeight(2);
+        stroke(color(0,0,255));
+        fill(color(0,0,255));
+        rect(this.pos.x, this.pos.y + this.size + 10, percent*this.size, 2);
     }
 }

@@ -96,7 +96,6 @@ class GameTroop {
         }
 
 
-
         if (terror <= 0) {
 
             return false;
@@ -220,8 +219,8 @@ class MeleeSoldier extends GameTroop {
     drawHealth(){
         let percent = this.health/300;
         strokeWeight(2);
-        stroke(color(0,0,255));
-        fill(color(0,0,255));
+        stroke(color(50, 214, 229));
+        fill(color(50, 214, 229));
         rect(this.pos.x-(this.size/2), this.pos.y + this.size, percent*this.size, 2);
     }
 }
@@ -250,8 +249,8 @@ class Archer extends GameTroop {
     drawHealth(){
         let percent = this.health/200;
         strokeWeight(2);
-        stroke(color(0,0,255));
-        fill(color(0,0,255));
+        stroke(color(50, 214, 229));
+        fill(color(50, 214, 229));
         rect(this.pos.x, this.pos.y + this.size - 15, percent*this.size, 2);
     }
 
@@ -281,8 +280,8 @@ class Tank extends GameTroop {
     drawHealth(){
         let percent = this.health/1000;
         strokeWeight(2);
-        stroke(color(0,0,255));
-        fill(color(0,0,255));
+        stroke(color(50, 214, 229));
+        fill(color(50, 214, 229));
         rect(this.pos.x, this.pos.y + this.size + 10, percent*this.size, 2);
     }
 }
