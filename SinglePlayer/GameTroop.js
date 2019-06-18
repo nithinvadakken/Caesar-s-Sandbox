@@ -235,6 +235,8 @@ class MeleeSoldier extends GameTroop {
     }
 }
 
+
+
 // Archer (ranger) Class
 
 class Archer extends GameTroop {
@@ -251,6 +253,7 @@ class Archer extends GameTroop {
         let x = this.pos.x;
         let y = this.pos.y;
         triangle(x, y, x + this.size, y, (x + (x+this.size))/2, y-this.size);
+
     }
 
     drawHealth(){
@@ -258,7 +261,7 @@ class Archer extends GameTroop {
         strokeWeight(2);
         stroke(color(0,0,255));
         fill(color(0,0,255));
-        rect(this.pos.x, this.pos.y + this.size, percent*this.size, 2);
+        rect(this.pos.x, this.pos.y + this.size - 15, percent*this.size, 2);
     }
 
 }

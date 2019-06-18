@@ -7,47 +7,37 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Caesar's Sandbox</title>
-        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-        <link rel="manifest" href="site.webmanifest">
         <link rel="stylesheet" href="main.css">
-        <link type="text/css"  rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection"/>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
 
     </head>
     <body>
         <div id ="wrapper" class="wrapper">
             <div class="banner">
-                <h1 id="Title">Caesar's Sandbox</h1>
+                <h1><a href="../index.html">Caesar's Sandbox</a href></h1>
                 <span id="status"></span>
                 <span id="server_name"></span>
-            </div>
+            </div> 
             <div id="historyMsg">
             </div>
             <div id = "controls" class="controls" >
                 <textarea id="messageInput" placeHolder="enter to send"></textarea>
             </div>
-
         </div>
         <div id="loginWrapper">
             <p id="info">connecting to server...</p>
             <div id="nickWrapper">
-                <a class="waves-effect waves-light btn" id="random_room">Join Random Room</a>
-                <a class="waves-effect waves-light btn" id="create_custom_room">Create Custom Room</a>
-                <a class="waves-effect waves-light btn" id="join_custom_room">Join Custom Room</a>
-                <div class="input-field inline" style="color: #000;">
-                    <input type="text" placeholder="Enter a nickname." id="nicknameInput">
-                    <label for="nicknameInput"></label>
-                </div>
-
+                <input type="text" placeHolder="nickname" id="nicknameInput" />
+                <input type="button" value="Join Random Room" id="random_room" />
+                <input type="button" value="Create Custom Room" id="create_custom_room" />
+                <input type="button" value="Join Custom Room" id="join_custom_room" />
                 <!--<input type="text" placeHolder="server(between 0 and 99)" id="server_id" />-->
                 <!--<input type="button" value="OK" id="loginBtn" />-->
             </div>
         </div>
+
         <script src="libraries/p5.js"></script>
         <script src="libraries/p5.dom.js"></script>
         <script src="libraries/p5.sound.js"></script>
