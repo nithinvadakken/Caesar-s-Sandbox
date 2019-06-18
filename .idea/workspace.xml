@@ -1,9 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42c01f71-cfcb-425d-94ec-a09735fcd83b" name="Default Changelist" comment="health bars">
+    <list default="true" id="42c01f71-cfcb-425d-94ec-a09735fcd83b" name="Default Changelist" comment="chase">
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/CHANGELOG.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/Gruntfile.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/LICENSE" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/README.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/dist/css/materialize.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/dist/css/materialize.min.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/dist/js/materialize.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/dist/js/materialize.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/extras/noUiSlider/nouislider.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/extras/noUiSlider/nouislider.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/extras/noUiSlider/nouislider.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/anime.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/autocomplete.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/buttons.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/cards.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/carousel.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/cash.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/characterCounter.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/chips.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/collapsible.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/component.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/datepicker.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/dropdown.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/forms.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/global.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/materialbox.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/modal.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/parallax.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/pushpin.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/range.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/scrollspy.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/select.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/sidenav.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/slider.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/tabs.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/tapTarget.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/timepicker.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/toasts.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/tooltip.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/waves.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/package.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_badges.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_buttons.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_cards.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_carousel.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_chips.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_collapsible.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_color-classes.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_color-variables.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_datepicker.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_dropdown.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_global.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_grid.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_icons-material-design.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_materialbox.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_modal.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_navbar.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_normalize.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_preloader.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_pulse.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_sidenav.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_slider.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_table_of_contents.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_tabs.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_tapTarget.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_timepicker.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_toast.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_tooltip.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_transitions.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_typography.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_variables.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_waves.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/forms/_checkboxes.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/forms/_file-input.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/forms/_forms.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/forms/_input-fields.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/forms/_radio-buttons.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/forms/_range.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/forms/_select.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/forms/_switches.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/materialize.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/www/android-chrome-192x192.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/www/android-chrome-512x512.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/www/apple-touch-icon.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/www/favicon-16x16.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/www/favicon-32x32.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/www/favicon.ico" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/www/materialize/LICENSE" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/www/materialize/README.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/www/materialize/css/materialize.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/www/materialize/css/materialize.min.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/www/materialize/js/materialize.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/www/materialize/js/materialize.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/www/site.webmanifest" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/www/game.js" afterPath="$PROJECT_DIR$/www/game.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,11 +123,9 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="891">
-              <caret line="27" column="18" lean-forward="false" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="-715">
+              <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -42,8 +133,8 @@
       <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="165">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -52,8 +143,8 @@
       <file leaf-file-name="game.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2013">
-              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+            <state relative-caret-position="1980">
+              <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -65,7 +156,7 @@
             <state relative-caret-position="479">
               <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
               <folding>
-                <marker date="1560869768630" expanded="true" signature="471:476" ph="{...}" />
+                <marker date="1560871103803" expanded="true" signature="471:476" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -438,7 +529,7 @@
       <workItem from="1560391692071" duration="39921000" />
       <workItem from="1560648799657" duration="9072000" />
       <workItem from="1560702331896" duration="9000" />
-      <workItem from="1560773773747" duration="14638000" />
+      <workItem from="1560773773747" duration="14857000" />
     </task>
     <task id="LOCAL-00001" summary="Default Changelist">
       <created>1560211887068</created>
@@ -531,20 +622,27 @@
       <option name="project" value="LOCAL" />
       <updated>1560870244528</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="health bars">
+      <created>1560871062346</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1560871062346</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95614000" />
+    <option name="totallyTimeSpent" value="95833000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-13" y="-13" width="2762" height="1770" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24890351" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295979" sideWeight="0.49853802" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289387" sideWeight="0.51211804" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295979" sideWeight="0.501462" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.49789253" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.487882" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -574,7 +672,8 @@
     <MESSAGE value="music" />
     <MESSAGE value="disconnect 100% working over 30 cases tested" />
     <MESSAGE value="health bars" />
-    <option name="LAST_COMMIT_MESSAGE" value="health bars" />
+    <MESSAGE value="chase" />
+    <option name="LAST_COMMIT_MESSAGE" value="chase" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -809,23 +908,23 @@
         <state relative-caret-position="479">
           <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
           <folding>
-            <marker date="1560869768630" expanded="true" signature="471:476" ph="{...}" />
+            <marker date="1560871103803" expanded="true" signature="471:476" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="165">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2013">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+        <state relative-caret-position="1980">
+          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -840,11 +939,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="891">
-          <caret line="27" column="18" lean-forward="false" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="-715">
+          <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
