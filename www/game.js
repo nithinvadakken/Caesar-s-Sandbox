@@ -3,6 +3,7 @@ function setup() {
     noLoop();
     console.log("here");
     player = new Player(0,'green');
+
 }
 let game_btn;
 const max = 30;
