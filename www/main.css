@@ -1,10 +1,8 @@
 html, body {
-    margin: 5px;
+    margin: 0;
     background-color: #efefef;
     font-family: sans-serif;
-    overflow: auto;
 }
-
 #loginWrapper {
     position: fixed;
     top: 0;
@@ -20,17 +18,6 @@ html, body {
 #nickWrapper {
     display: none;
 }
-
-.input-field {
-    color: #000;
-}
-
-.input-field-inline input[type=text]:focus {
-    border-bottom: 1px solid #000;
-    box-shadow: 0 1px 0 0 #000;
-}
-
-
 .banner {
     height: 80px;
     width: 100%;
@@ -52,23 +39,6 @@ html, body {
 }
 #historyMsg img {
     max-width: 99%;
-}
-
-#create_custom_room{
-    background-color: gray;
-}
-
-#join_custom_room{
-    background-color: gray;
-}
-
-#random_room{
-    background-color: gray;
-}
-
-#info {
-    color: black;
-    font-family: Algerian;
 }
 .timespan {
     color: #ddd;
@@ -129,11 +99,4 @@ html, body {
 }
 footer {
     text-align: center;
-}
-
-#Title{
-    font-size: 50px;
-    font-family: Algerian, Charcoal, sans-serif;
-    text-decoration: underline overline;
-    color: black;
 }
