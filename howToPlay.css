@@ -12,25 +12,33 @@ body {
     position:absolute;
 }
 
-.siteHeader {
+.siteContent {
     padding: 40px;
     text-align: center;
     color: #ffffff;
     width: auto;
+    line-height: 2;
 }
 
-.siteHeader h1 {
+.siteContent h1 {
     font-size: 70px;
     font-family: "Impact", Charcoal, sans-serif;
     text-decoration: underline overline;
+    text-align: center;
 }
 
-.siteHeader a {
+.siteContent a {
     color: #ffffff;
     text-decoration: none;
+    text-align: center;
 }
 
-.siteHeader p {
+.siteContent p {
+    font-family: "Courier New", Courier, monospace;
+    color: #ffffff;
+}
+
+.siteContent span {
     font-family: "Courier New", Courier, monospace;
     color: #ffffff;
 }
