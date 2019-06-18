@@ -59,6 +59,7 @@ function add_armies(x) {
     submit_btn.innerHTML = "Submit";
     document.body.appendChild(submit_btn);
 }
+
 function keyPressed() {
     if(army_edit===true ) {
         if (keyCode === 81) {
