@@ -216,7 +216,7 @@ class GameTroop {
 class MeleeSoldier extends GameTroop {
 
     constructor(x, y, name) {
-        super(x, y, 800, 30, 40, 10, 7, "Melee");
+        super(x, y, 1000, 30, 40, 10, 7, "Melee");
     }
 
     drawTroop(clr){
@@ -243,7 +243,7 @@ class Archer extends GameTroop {
 
     constructor(x, y, name) {
         //x, y, health, dmg, range, speed, size, name
-        super(x, y, 200, 10, 70, 30, 10, "Archer");
+        super(x, y, 100, 1, 70, 30, 10, "Archer");
     }
 
     drawTroop(clr){
@@ -274,7 +274,7 @@ class Tank extends GameTroop {
 
     constructor(x, y) {
         //x, y, health, dmg, range, speed, size, name
-        super(x, y, 5000, 50, 45, 50, 35, "Tank");
+        super(x, y, 10000, 50, 45, 50, 35, "Tank");
 
     }
 
