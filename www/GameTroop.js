@@ -243,7 +243,7 @@ class Archer extends GameTroop {
 
     constructor(x, y, name) {
         //x, y, health, dmg, range, speed, size, name
-        super(x, y, 100, 1, 70, 30, 10, "Archer");
+        super(x, y, 100, 4, 70, 30, 10, "Archer");
     }
 
     drawTroop(clr){
