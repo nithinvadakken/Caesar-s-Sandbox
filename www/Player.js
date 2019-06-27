@@ -65,7 +65,7 @@ class Player {
             console.log("made archer x:"+archerX2+"  y:"+archerY2);
         }
         for(let i = 0; i< tankX2.length;i++){
-            console.log(tankX2);
+                                console.log(tankX2);
             temp.push(new Tank(tankX2[i],tankY2[i]));
         }
         return temp;

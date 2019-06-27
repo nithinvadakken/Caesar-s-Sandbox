@@ -2,101 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42c01f71-cfcb-425d-94ec-a09735fcd83b" name="Default Changelist" comment="chase">
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/CHANGELOG.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/Gruntfile.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/dist/css/materialize.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/dist/css/materialize.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/dist/js/materialize.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/dist/js/materialize.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/extras/noUiSlider/nouislider.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/extras/noUiSlider/nouislider.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/extras/noUiSlider/nouislider.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/anime.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/autocomplete.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/buttons.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/cards.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/carousel.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/cash.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/characterCounter.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/chips.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/collapsible.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/component.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/datepicker.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/dropdown.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/forms.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/global.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/materialbox.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/modal.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/parallax.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/pushpin.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/range.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/scrollspy.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/select.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/sidenav.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/slider.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/tabs.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/tapTarget.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/timepicker.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/toasts.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/tooltip.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/js/waves.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_badges.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_buttons.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_cards.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_carousel.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_chips.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_collapsible.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_color-classes.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_color-variables.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_datepicker.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_dropdown.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_global.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_grid.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_icons-material-design.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_materialbox.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_modal.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_navbar.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_normalize.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_preloader.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_pulse.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_sidenav.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_slider.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_table_of_contents.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_tabs.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_tapTarget.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_timepicker.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_toast.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_tooltip.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_transitions.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_typography.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_variables.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/_waves.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/forms/_checkboxes.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/forms/_file-input.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/forms/_forms.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/forms/_input-fields.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/forms/_radio-buttons.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/forms/_range.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/forms/_select.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/components/forms/_switches.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/node_modules/materialize-css/sass/materialize.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/www/android-chrome-192x192.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/www/android-chrome-512x512.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/www/apple-touch-icon.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/www/favicon-16x16.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/www/favicon-32x32.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/www/favicon.ico" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/www/materialize/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/www/materialize/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/www/materialize/css/materialize.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/www/materialize/css/materialize.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/www/materialize/js/materialize.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/www/materialize/js/materialize.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/www/site.webmanifest" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
+      <change beforePath="$PROJECT_DIR$/www/GameTroopServer.js" afterPath="$PROJECT_DIR$/www/GameTroopServer.js" />
+      <change beforePath="$PROJECT_DIR$/www/Player.js" afterPath="$PROJECT_DIR$/www/Player.js" />
+      <change beforePath="$PROJECT_DIR$/www/PlayerServer.js" afterPath="$PROJECT_DIR$/www/PlayerServer.js" />
+      <change beforePath="$PROJECT_DIR$/www/game.js" afterPath="$PROJECT_DIR$/www/game.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -110,31 +21,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="233">
+              <caret line="321" column="24" lean-forward="false" selection-start-line="321" selection-start-column="24" selection-end-line="321" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/www/index.html">
+      <file leaf-file-name="GameTroopServer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/GameTroopServer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-715">
-              <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+            <state relative-caret-position="78">
+              <caret line="152" column="5" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="185" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/main.css">
+      <file leaf-file-name="PlayerServer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/PlayerServer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="247">
+              <caret line="86" column="62" lean-forward="false" selection-start-line="86" selection-start-column="59" selection-end-line="86" selection-end-column="62" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameTroopClient.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/GameTroopClient.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/Player.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="43" lean-forward="false" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -143,58 +76,15 @@
       <file leaf-file-name="game.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1980">
-              <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state relative-caret-position="535">
+              <caret line="557" column="70" lean-forward="false" selection-start-line="557" selection-start-column="67" selection-end-line="557" selection-end-column="70" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="start.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/start.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-              <folding>
-                <marker date="1560871103803" expanded="true" signature="471:476" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="favicon-16x16.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/favicon-16x16.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="favicon.ico" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/favicon.ico">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameTroop.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/GameTroop.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="908">
-              <caret line="254" column="73" lean-forward="false" selection-start-line="254" selection-start-column="73" selection-end-line="254" selection-end-column="73" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="favicon-32x32.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/favicon-32x32.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="site.webmanifest" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/site.webmanifest">
+      <file leaf-file-name="PlayerClient.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/PlayerClient.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -207,26 +97,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>gamer_time</find>
-      <find>historyMsg</find>
-      <find>var x = doc</find>
-      <find>make</find>
-      <find>game</find>
-      <find>left</find>
-      <find>messageInput</find>
-      <find>users</find>
-      <find>spec</find>
-      <find>nicke</find>
-      <find>game_btn</find>
-      <find>here</find>
-      <find>spec_btn</find>
-      <find>spec_</find>
-      <find>&amp;&amp;</find>
-      <find>submitted</find>
-      <find>submited</find>
-      <find>server</find>
-      <find>server=</find>
-      <find>server =</find>
       <find>cancel_game</find>
       <find>system</find>
       <find>update</find>
@@ -237,6 +107,26 @@
       <find>Start</find>
       <find>nic</find>
       <find>Users</find>
+      <find>game_state</find>
+      <find>spec</find>
+      <find>2</find>
+      <find>enemies</find>
+      <find>game_ready</find>
+      <find>numtroops</find>
+      <find>meleeX</find>
+      <find>updat</find>
+      <find>melee</find>
+      <find>meleesol</find>
+      <find>equal</find>
+      <find>game_read</find>
+      <find>made</find>
+      <find>archer</find>
+      <find>&quot;s</find>
+      <find>army_</find>
+      <find>console.</find>
+      <find>console</find>
+      <find>console.log(t</find>
+      <find>pos</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -265,10 +155,14 @@
         <option value="$PROJECT_DIR$/SinglePlayer/GameTroop.js" />
         <option value="$PROJECT_DIR$/start.css" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/www/main.css" />
-        <option value="$PROJECT_DIR$/www/game.js" />
         <option value="$PROJECT_DIR$/www/index.html" />
+        <option value="$PROJECT_DIR$/PlayerServer.js" />
+        <option value="$PROJECT_DIR$/www/GameTroopServer.js" />
+        <option value="$PROJECT_DIR$/www/game.js" />
+        <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/www/Player.js" />
+        <option value="$PROJECT_DIR$/www/PlayerServer.js" />
       </list>
     </option>
   </component>
@@ -308,7 +202,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -321,32 +214,12 @@
               <item name="Caesar-s-Sandbox" type="462c0819:PsiDirectoryNode" />
               <item name="www" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Caesar-s-Sandbox" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Caesar-s-Sandbox" type="462c0819:PsiDirectoryNode" />
-              <item name="www" type="462c0819:PsiDirectoryNode" />
-              <item name="materialize" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Caesar-s-Sandbox" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Caesar-s-Sandbox" type="462c0819:PsiDirectoryNode" />
-              <item name="www" type="462c0819:PsiDirectoryNode" />
-              <item name="materialize" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Caesar-s-Sandbox" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Caesar-s-Sandbox" type="462c0819:PsiDirectoryNode" />
-              <item name="www" type="462c0819:PsiDirectoryNode" />
-              <item name="materialize" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="materialize.css" type="620a8d5e:NestingTreeNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -355,132 +228,16 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Marvi\WebstormProjects\Caesar-s-Sandbox\www\materialize" />
-      <recent name="C:\Users\Marvi\WebstormProjects\Caesar-s-Sandbox\www" />
-      <recent name="C:\Users\Marvi\WebstormProjects\Caesar-s-Sandbox" />
-      <recent name="C:\Users\wikto\WebstormProjects\Caesar-s-Sandbox\Multiplayer\www" />
-      <recent name="C:\Users\wikto\WebstormProjects\Caesar-s-Sandbox\Multiplayer" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\wikto\WebstormProjects\Caesar-s-Sandbox\Multiplayer" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/README.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/index.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/node_modules/ip-address/.DS_Store</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/start.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/www/index.html</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/howToPlay.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/howToPlay.html</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\wikto\WebstormProjects\Caesar-s-Sandbox\www" />
+      <recent name="C:\Users\wikto\WebstormProjects\Caesar-s-Sandbox" />
+      <recent name="C:\Users\Marvi\WebstormProjects\Caesar-s-Sandbox\www\materialize" />
+      <recent name="C:\Users\Marvi\WebstormProjects\Caesar-s-Sandbox\www" />
+      <recent name="C:\Users\Marvi\WebstormProjects\Caesar-s-Sandbox" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -530,6 +287,9 @@
       <workItem from="1560648799657" duration="9072000" />
       <workItem from="1560702331896" duration="9000" />
       <workItem from="1560773773747" duration="14857000" />
+      <workItem from="1561559976592" duration="2353000" />
+      <workItem from="1561562650414" duration="3050000" />
+      <workItem from="1561652882926" duration="2336000" />
     </task>
     <task id="LOCAL-00001" summary="Default Changelist">
       <created>1560211887068</created>
@@ -633,23 +393,24 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95833000" />
+    <option name="totallyTimeSpent" value="103572000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-13" y="-13" width="2762" height="1770" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24890351" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24868283" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295979" sideWeight="0.49853802" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295979" sideWeight="0.501462" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.49789253" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.501462" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.49789253" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.487882" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295979" sideWeight="0.49853802" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -680,10 +441,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Multiplayer/www/scripts/room.js" />
-    <entry file="file://$PROJECT_DIR$/Multiplayer/www/index.html" />
-    <entry file="file://$PROJECT_DIR$/Multiplayer/node_modules/ms/index.js" />
-    <entry file="file://$PROJECT_DIR$/Multiplayer/.gitignore" />
     <entry file="file://$PROJECT_DIR$/Multiplayer/www/libraries/p5.js" />
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
@@ -749,47 +506,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="858">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/GameTroopClient.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/PlayerServer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1645">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/PlayerClient.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/Player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2800">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -797,7 +513,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -805,7 +520,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -821,7 +535,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-495">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -829,7 +542,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -837,7 +549,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="8" column="49" lean-forward="false" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -845,7 +556,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -853,13 +563,51 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1452">
           <caret line="44" column="14" lean-forward="false" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/site.webmanifest">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/GameTroop.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4318">
+          <caret line="254" column="73" lean-forward="false" selection-start-line="254" selection-start-column="73" selection-end-line="254" selection-end-column="73" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/android-chrome-512x512.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
+    <entry file="file://$PROJECT_DIR$/start.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/android-chrome-192x192.png">
@@ -867,12 +615,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/apple-touch-icon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/favicon-16x16.png">
+    <entry file="file://$PROJECT_DIR$/www/android-chrome-512x512.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -882,12 +625,26 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/favicon-32x32.png">
+    <entry file="file://$PROJECT_DIR$/www/apple-touch-icon.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/site.webmanifest">
+    <entry file="file://$PROJECT_DIR$/desktop.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/howToPlay.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/howToPlay.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -895,52 +652,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/GameTroop.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="908">
-          <caret line="254" column="73" lean-forward="false" selection-start-line="254" selection-start-column="73" selection-end-line="254" selection-end-column="73" />
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/www/favicon-16x16.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/start.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-          <folding>
-            <marker date="1560871103803" expanded="true" signature="471:476" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/www/favicon-32x32.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1980">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state relative-caret-position="535">
+          <caret line="557" column="70" lean-forward="false" selection-start-line="557" selection-start-column="67" selection-end-line="557" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="233">
+          <caret line="321" column="24" lean-forward="false" selection-start-line="321" selection-start-column="24" selection-end-line="321" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/index.html">
+    <entry file="file://$PROJECT_DIR$/www/PlayerClient.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-715">
-          <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/Player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="43" lean-forward="false" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/GameTroopServer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="152" column="5" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="185" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/PlayerServer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="86" column="62" lean-forward="false" selection-start-line="86" selection-start-column="59" selection-end-line="86" selection-end-column="62" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/GameTroopClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="16" />
           <folding />
         </state>
       </provider>

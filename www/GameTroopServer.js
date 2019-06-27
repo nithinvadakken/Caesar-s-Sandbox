@@ -125,7 +125,7 @@ class GameTroopServer {
 }
 
 //Melee Class
-class MeleeSoldierServer extends GameTroopClient {
+class MeleeSoldierServer extends GameTroopServer {
 
     constructor(x, y, name) {
         //x, y, health, dmg, range, speed, size, name
@@ -145,7 +145,7 @@ class MeleeSoldierServer extends GameTroopClient {
 
 // Archer (ranger) Class
 
-class ArcherServer extends GameTroopClient {
+class ArcherServer extends GameTroopServer {
 
     constructor(x, y, name) {
         //x, y, health, dmg, range, speed, size, name
@@ -162,7 +162,7 @@ class ArcherServer extends GameTroopClient {
 }
 
 // Tank Class
-class TankServer extends GameTroopClient {
+class TankServer extends GameTroopServer {
 
     constructor(x, y) {
         //x, y, health, dmg, range, speed, size, name, acc
@@ -179,3 +179,8 @@ class TankServer extends GameTroopClient {
     }
 
 }
+module.exports = {
+  tank: TankServer,
+  archer: ArcherServer,
+    melee: MeleeSoldierServer,
+};

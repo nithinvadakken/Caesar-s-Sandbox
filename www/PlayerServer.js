@@ -1,15 +1,205 @@
 //Player Class (should come in handy later for online play)
-class Player {
+// Troop class
 
+class GameTroopServer {
+
+    constructor(x, y, health, dmg, range, speed, size, name) {
+        this.x = x;
+        this.y = y;
+        this.health = health;
+        this.range = range;
+        this.dmg = dmg;
+        this.size = size;
+        this.speed = speed*100;
+        this.name = name;
+        this.killCount = 0;
+        this.level = 1;
+    }
+
+    getDistanceToTarget (tx, ty) {
+        return Math.sqrt(Math.pow(this.x - tx, 2) + Math.pow(this.y - ty, 2));
+    }
+
+    attack (enemy) {
+        enemy.health -= this.dmg + this.dmg*(this.level/2);
+        if (enemy.health <= 0) {
+            this.killCount+=1;
+            if (this.killCount >= this.level*2  ) {
+                this.killCount = 0;
+                this.level += 1;
+                this.size += 5;
+            }
+        }
+        setTimeout(function(){}, 300000);
+    }
+
+    movement_heuristic(enemies, allies) {
+        let terror = 0;
+
+        if (enemies.length < 10 && allies.length < 10) {
+            return false;
+        }
+
+        for (let i=0; i<enemies.length; i++) {
+            if (this.getDistanceToTarget(enemies[i].pos.x, enemies[i].pos.y) < 100) {
+                if (this.name === "Melee" && enemies[i].name==="Archer") {
+                    terror += 2*enemies[i].level;
+                } else if (this.name === "Archer" && enemies[i].name==="Tank") {
+                    terror += 1*enemies[i].level;
+                } else if (this.name === "Melee" && enemies[i].name==="Tank") {
+                    terror += 0.5*enemies[i].level;
+                }
+            }
+        }
+
+        for (let i=0; i<allies.length; i++) {
+            if (this.getDistanceToTarget(allies[i].pos.x, allies[i].pos.y) < 100) {
+                if (this.name === "Melee" && allies[i].name==="Archer") {
+                    terror -= 0.5*allies[i].level;
+                } else if (this.name === "Archer" && allies[i].name==="Tank") {
+                    terror -= 1*allies[i].level;
+                } else if (this.name === "Melee" && allies[i].name==="Tank") {
+                    terror -= 2*allies[i].level;
+                }
+            }
+        }
+
+        terror -= this.level;
+
+        if (terror <= 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    autoMove(enemies, allies) {
+        let ex = 1000000;
+        let ey = 1000000;
+
+        for (let i=0; i<enemies.length; i++) {
+
+            let terror = this.movement_heuristic(enemies, allies);
+
+            if (this.getDistanceToTarget(enemies[i].pos.x, enemies[i].pos.y) < this.range) {
+                this.attack(enemies[i]);
+                break;
+            } else if (this.getDistanceToTarget(enemies[i].pos.x, enemies[i].pos.y) < this.getDistanceToTarget(ex, ey)) {
+                ex =  enemies[i].pos.x;
+                ey = enemies[i].pos.y;
+                let canMove = 0;
+                if (!this.checkBounds(ex, ey)) {
+                    canMove = true;
+                }
+                if (canMove) {
+                    this.targetMove(ex, ey, terror);
+                }
+            }
+        }
+    }
+
+    targetMove(tx, ty, terror) {
+        let xspeed = (tx - this.x)/this.speed;
+        let yspeed = (ty - this.y)/this.speed;
+
+        if (terror) {
+            xspeed = (this.x - tx)/this.speed;
+            yspeed = (this.y - ty)/this.speed;
+        }
+
+        if (this.x + xspeed < 0) {
+            this.x = 0;
+        } else if (this.x + xspeed > window.innerWidth) {
+            this.x = window.innerWidth;
+        } else {
+            this.x += xspeed;
+        }
+
+        if (this.y + yspeed < 0) {
+            this.y = 0;
+        } else if (this.y + yspeed > window.innerHeight) {
+            this.y = window.innerHeight;
+        } else {
+            this.y += yspeed;
+        }
+    }
+}
+
+//Melee Class
+class MeleeSoldierServer extends GameTroopServer {
+
+    constructor(x, y, name) {
+        //x, y, health, dmg, range, speed, size, name
+        super(x, y, 300, 70, 40, 10, 7, "Melee");
+    }
+
+    checkBounds(tx, ty) {
+        if (this.getDistanceToTarget(tx, ty) <= this.size/2) {
+            return true;
+        }
+        return false;
+    }
+
+}
+
+
+
+// Archer (ranger) Class
+
+class ArcherServer extends GameTroopServer {
+
+    constructor(x, y, name) {
+        //x, y, health, dmg, range, speed, size, name
+        super(x, y, 200, 10, 70, 30, 20, "Archer");
+    }
+
+    checkBounds(tx, ty) {
+        if (this.getDistanceToTarget(tx, ty) <= this.size/2) {
+            return true;
+        }
+        return false;
+    }
+
+}
+
+// Tank Class
+class TankServer extends GameTroopServer {
+
+    constructor(x, y) {
+        //x, y, health, dmg, range, speed, size, name, acc
+        super(x, y, 1000, 40, 60, 50, 40, "Tank");
+    }
+
+    checkBounds(tx, ty) {
+        if (tx >= this.x || tx <= this.x + this.size) {
+            return true;
+        }
+        if (ty >= this.y || ty <= this.y + this.size) {
+            return true;
+        }
+        return false;
+    }
+
+}
+class PlayerServer {
     constructor(id, color) {
         this.id = id;
         this.numTroops = 0;
         this.army = [];
-        this.position = createVector(window.innerWidth/2, window.innerHeight/2);
-        this.x = window.innerWidth/2;
-        this.y = window.innerHeight/2;
         this.color = color;
         this.enemies = [];
+        this.meleeX1 = [];
+        this.meleeY1 = [];
+        this.archerX1 = [];
+        this.archerY1 = [];
+        this.tankX1 = [];
+        this.tankY1 = [];
+        this.meleeX2 = [];
+        this.meleeY2 = [];
+        this.archerX2 = [];
+        this.archerY2 = [];
+        this.tankX2 = [];
+        this.tankY2 = [];
     }
 
     update(){
@@ -23,28 +213,74 @@ class Player {
         for(let i = 0; i < this.army.length; i++){
             if (this.army[i].health <= 0) {
                 this.army.splice(i, 1);
-                this.numTroops -= 1;
+            }
+        }
+        for(let i = 0; i < this.enemies.length; i++){
+            if (this.enemies[i].health <= 0) {
+                this.enemies.splice(i, 1);
             }
         }
 
         for (let i=0; i<this.army.length; i++) {
             this.army[i].autoMove(this.enemies, this.army);
+            this.meleeX1 = [];
+            this.meleeY1 = [];
+            this.archerX1 = [];
+            this.archerY1 = [];
+            this.tankX1 = [];
+            this.tankY1 = [];
+            for(let x = 0; x<this.army.length; x++){
+                if(this.army[x].name === ("Melee")){
+                    this.meleeX1.push(this.army[x].x);
+                    this.meleeY1.push(this.army[x].y);
+                }
+                if(this.army[x].name ===("Tank")){
+                    this.tankX1.push(this.army[x].x);
+                    this.tankY1.push(this.army[x].y);
+                }
+                if(this.army[x].name === ("Archer")){
+                    this.archerX1.push(this.army[x].x);
+                    this.archerY1.push(this.army[x].y);
+                }
+
+            }
+            this.meleeX2 = [];
+            this.meleeY2 = [];
+            this.archerX2 = [];
+            this.archerY2 = [];
+            this.tankX2 = [];
+            this.tankY2 = [];
+            for(let x = 0; x<this.enemies.length; x++){
+                if(this.enemies[x].name === ("Melee")){
+                    this.meleeX2.push(this.enemies[x].x);
+                    this.meleeY2.push(this.enemies[x].y);
+                }
+                if(this.enemies[x].name === ("Tank")){
+                    this.tankX2.push(this.enemies[x].x);
+                    this.tankY2.push(this.enemies[x].y);
+                }
+                if(this.enemies[x].name === ("Archer")){
+                    this.archerX2.push(this.enemies[x].x);
+                    this.archerY2.push(this.enemies[x].y);
+                }
+
+            }
         }
     }
 
     createArmy(meleeX2,meleeY2,archerX2,archerY2,tankX2,tankY2){
         let temp = [];
         for(let i = 0; i< meleeX2.length;i++){
-            temp.push(new MeleeSoldier(meleeX2[i],meleeY2[i]));
+            temp.push(new MeleeSoldierServer(meleeX2[i],meleeY2[i]));
 
         }
         for(let i = 0; i< archerX2.length;i++){
-            temp.push(new Archer(archerX2[i],archerY2[i]));
+            temp.push(new ArcherServer(archerX2[i],archerY2[i]));
             console.log("made archer x:"+archerX2+"  y:"+archerY2);
         }
         for(let i = 0; i< tankX2.length;i++){
             console.log(tankX2);
-            temp.push(new Tank(tankX2[i],tankY2[i]));
+            temp.push(new TankServer(tankX2[i],tankY2[i]));
         }
         return temp;
     }
@@ -54,13 +290,13 @@ class Player {
         let armyArray = this.army;
         //armyArray.push(new Archer(space, random(height), this.id, this.color));
         if (id === 0){
-            armyArray.push(new MeleeSoldier(x1, y1, this.id, this.color));
+            armyArray.push(new MeleeSoldierServer(x1, y1, this.id, this.color));
         }
         else if (id === 1){
-            armyArray.push(new Archer(x1, y1, this.id, this.color));
+            armyArray.push(new ArcherServer(x1, y1, this.id, this.color));
         }
         else if (id === 2){
-            armyArray.push(new Tank(x1, y1, this.id, this.color));
+            armyArray.push(new TankServer(x1, y1, this.id, this.color));
         }
         //armyArray.push(new Archer(x1, y1, this.id, this.color));
         this.army = armyArray;
@@ -70,3 +306,4 @@ class Player {
         this.enemies = enemyTroopArr;
     }
 }
+module.exports = PlayerServer;
