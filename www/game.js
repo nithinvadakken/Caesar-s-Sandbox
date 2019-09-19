@@ -1,19 +1,21 @@
 let player;
+
 function setup() {
     noLoop();
     console.log("here");
-    player = new Player(0,'green');
+    player = new Player(0, 'green');
 }
+
 let game_btn;
 const max = 30;
 let current = 0;
-army_edit =false;
+army_edit = false;
 meleeX = [];
 meleeY = [];
 archerX = [];
 archerY = [];
-tankX= [];
-tankY= [];
+tankX = [];
+tankY = [];
 let game_started = false;
 let which_player;
 let clear_btn;
@@ -27,22 +29,23 @@ let submited = false;
 let stop_sim = false;
 let custom_room_clicked = false;
 let spec_btn_made = false;
+
 function add_armies(x) {
     console.log(x);
-    which_player =x;
+    which_player = x;
     console.log("here1");
     army_edit = true;
-    createCanvas(window.innerWidth,window.innerHeight);
+    createCanvas(window.innerWidth, window.innerHeight);
     background(0);
-    translate(window.innerWidth/2-player.position.x, window.innerHeight/2-player.position.y);
+    translate(window.innerWidth / 2 - player.position.x, window.innerHeight / 2 - player.position.y);
 
     clear_btn = document.createElement("BUTTON");
     clear_btn.innerHTML = "Clear";
     document.body.appendChild(clear_btn);
-    clear_btn.addEventListener('click', function(){
-        createCanvas(window.innerWidth,window.innerHeight);
+    clear_btn.addEventListener('click', function () {
+        createCanvas(window.innerWidth, window.innerHeight);
         background(0);
-        translate(window.innerWidth/2-player.position.x, window.innerHeight/2-player.position.y);
+        translate(window.innerWidth / 2 - player.position.x, window.innerHeight / 2 - player.position.y);
         document.body.appendChild(clear_btn);
         document.body.appendChild(submit_btn);
         player.army = [];
@@ -51,8 +54,8 @@ function add_armies(x) {
         meleeY = [];
         archerX = [];
         archerY = [];
-        tankX= [];
-        tankY= [];
+        tankX = [];
+        tankY = [];
     });
     submit_btn = document.createElement("BUTTON");
     submit_btn.innerHTML = "Submit";
@@ -60,10 +63,10 @@ function add_armies(x) {
 }
 
 function keyPressed() {
-    if(army_edit===true ) {
+    if (army_edit === true) {
         if (keyCode === 81) {
-            console.log("mouse: "+mouseX +"  window: "+window.innerWidth+"  player:"+which_player);
-            if(which_player ===0 && mouseX<window.innerWidth/2 && current<max) {
+            console.log("mouse: " + mouseX + "  window: " + window.innerWidth + "  player:" + which_player);
+            if (which_player === 0 && mouseX < window.innerWidth / 2 && current < max) {
                 player.addArmyOnClick(mouseX, mouseY, 0);
                 meleeX.push(mouseX);
                 meleeY.push(mouseY);
@@ -71,7 +74,7 @@ function keyPressed() {
                 console.log("melee");
                 current++;
             }
-            if(which_player ===1 && mouseX> window.innerWidth/2 && current<max) {
+            if (which_player === 1 && mouseX > window.innerWidth / 2 && current < max) {
                 player.addArmyOnClick(mouseX, mouseY, 0);
                 meleeX.push(mouseX);
                 meleeY.push(mouseY);
@@ -80,9 +83,8 @@ function keyPressed() {
                 current++;
             }
 
-        }
-        else if (keyCode === 87) {
-            if (which_player === 0 && mouseX < window.innerWidth / 2 && current<max) {
+        } else if (keyCode === 87) {
+            if (which_player === 0 && mouseX < window.innerWidth / 2 && current < max) {
                 player.addArmyOnClick(mouseX, mouseY, 1);
                 archerX.push(mouseX);
                 archerY.push(mouseY);
@@ -90,7 +92,7 @@ function keyPressed() {
                 console.log("archer");
                 current++;
             }
-            if (which_player === 1 && mouseX > window.innerWidth / 2 && current<max) {
+            if (which_player === 1 && mouseX > window.innerWidth / 2 && current < max) {
                 player.addArmyOnClick(mouseX, mouseY, 1);
                 archerX.push(mouseX);
                 archerY.push(mouseY);
@@ -99,9 +101,8 @@ function keyPressed() {
                 current++;
             }
 
-        }
-        else if (keyCode === 69) {
-            if (which_player === 0 && mouseX < window.innerWidth / 2 && current<max) {
+        } else if (keyCode === 69) {
+            if (which_player === 0 && mouseX < window.innerWidth / 2 && current < max) {
                 player.addArmyOnClick(mouseX, mouseY, 2);
                 tankX.push(mouseX);
                 tankY.push(mouseY);
@@ -109,7 +110,7 @@ function keyPressed() {
                 console.log("tank");
                 current++;
             }
-            if (which_player === 1 && mouseX > window.innerWidth / 2 && current<max) {
+            if (which_player === 1 && mouseX > window.innerWidth / 2 && current < max) {
                 player.addArmyOnClick(mouseX, mouseY, 2);
                 tankX.push(mouseX);
                 tankY.push(mouseY);
@@ -120,24 +121,27 @@ function keyPressed() {
         }
     }
 }
+
 function clear_canvas() {
     clear();
 }
+
 let player1;
 let player2;
 let thisname;
-function draw_please(id1,id2,name1,name2,troops,color1,color2,meleeX1,meleeY1,archerX1,archerY1,tankX1,tankY1,meleeX2,meleeY2,archerX2,archerY2,tankX2,tankY2) {
-    console.log("tank "+tankX2);
+
+function draw_please(id1, id2, name1, name2, troops, color1, color2, meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2) {
+    console.log("tank " + tankX2);
     console.log("first");
-    createCanvas(window.innerWidth,window.innerHeight);
-    player1 = new Player(id1,color1);
-    player2 = new Player(id2,color2);
+    createCanvas(window.innerWidth, window.innerHeight);
+    player1 = new Player(id1, color1);
+    player2 = new Player(id2, color2);
     background(0);
-    translate(window.innerWidth/2-player1.position.x, window.innerHeight/2-player1.position.y);
-    army1 = player1.createArmy(meleeX1,meleeY1,archerX1,archerY1,tankX1,tankY1);
-    army2 = player1.createArmy(meleeX2,meleeY2,archerX2,archerY2,tankX2,tankY2);
-    console.log("army1 "+ army1);
-    console.log("army2 "+army2);
+    translate(window.innerWidth / 2 - player1.position.x, window.innerHeight / 2 - player1.position.y);
+    army1 = player1.createArmy(meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1);
+    army2 = player1.createArmy(meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2);
+    console.log("army1 " + army1);
+    console.log("army2 " + army2);
     player1.name = name1;
     player2.name = name2;
     player1.numTroops = troops;
@@ -148,7 +152,9 @@ function draw_please(id1,id2,name1,name2,troops,color1,color2,meleeX1,meleeY1,ar
     player2.enemies = army1;
     player1.show();
     player2.show();
+    return
 }
+
 //
 // function draw() {
 //         if(game_started===true ) {
@@ -202,16 +208,16 @@ function draw_please(id1,id2,name1,name2,troops,color1,color2,meleeX1,meleeY1,ar
 // }
 let server;
 var game;
-window.onload = function() {
+window.onload = function () {
     game = new Game();
     game.init();
 };
-var Game = function() {
+var Game = function () {
     this.socket = null;
 };
 Game.prototype = {
     server: 0,
-    init: function() {
+    init: function () {
         var that = this;
         this.socket = io.connect();
         this.socket.on('connect', function () {
@@ -318,6 +324,7 @@ Game.prototype = {
             }
         });
         this.socket.on('newMsg', function (user, msg, color) {
+            console.log("IDFK");
             that._displayNewMsg(user, msg, color, this.server);
         });
         this.socket.on("start_spec", function () {
@@ -408,7 +415,7 @@ Game.prototype = {
                     var messageInput = document.getElementById('messageInput'),
                         msg = messageInput.value,
                         color = 'blue';
-                    if (e.keyCode == 13 && msg.trim().length != 0) {
+                    if (e.keyCode === 13 && msg.trim().length !== 0) {
                         messageInput.value = '';
                         that.socket.emit('postMsg', msg, color, (that.socket.server));
                         that._displayNewMsg('me', msg, color);
@@ -421,9 +428,7 @@ Game.prototype = {
                 // x.parentNode.removeChild(x);
                 //game_btn.parentNode.removeChild(game_btn);
                 //x = document.getElementById("historyMsg");
-            }
-
-            else {
+            } else {
                 console.log("nice");
                 if (spec_mode === true) {
                     return_to_chat_place(-1);
@@ -432,8 +437,7 @@ Game.prototype = {
                     game_started = false;
                     //stop_sim=true;
                     clear_canvas();
-                }
-                else if (game_state === 2) {
+                } else if (game_state === 2) {
                     spec_btn.parentNode.removeChild(spec_btn);
                 }
                 spec_btn_made = false;
@@ -470,7 +474,7 @@ Game.prototype = {
             }
             server_id.addEventListener('keyup', function (e) {
                 console.log("typed server id isNaN:" + isNaN(server_id.value) + " id:" + server_id.value);
-                if (e.keyCode == 13 && !isNaN(server_id.value) && parseInt(server_id.value) >= 0 && parseInt(server_id.value) < 100) {
+                if (e.keyCode == 13 && !isNaN(server_id.value) && parseInt(server_id.value) >= 0) {
                     server = server_id.value;
                     if (nickName.trim().length != 0) {
                         console.log("what is going on");
@@ -549,32 +553,46 @@ Game.prototype = {
             });
 
         });
-        that.socket.on("game_ready", function(index){
-            if(index <2){
-                requestAnimationFrame(function () {
+        that.socket.on("game_ready", function (index) {
+            var i = 0;
+            window.requestAnimationFrame(function () {
+                console.log(i);
+                i++
+            });
+            console.log("start1")
+            let keep_drawing = true;
+            if (index < 2) {
+                console.log("start2")
+                draw_loop();
+                function draw_loop() {
                     that.socket.emit("request_update");
-                    that.socket.on("updated_draw", function (meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2,index, name1,name2) {
+                    console.log("start3")
+                    that.socket.on("updated_draw", function (meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2, index, name1, name2) {
                         console.log("drawing...");
-                        draw_please(0,1,name1,name2,max, 'green', 'red', meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2);
+                        draw_please(0, 1, name1, name2, max, 'green', 'red', meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2);
+                       if(keep_drawing===true)
+                        window.requestAnimationFrame(draw_loop())
                     })
-                });
-            }
-            else {
+                    that.socket.on("game_ended", function () {
+                        keep_drawing = false;
+                    })
+                }
+            } else {
                 //spec_btn
             }
         });
 
     }
     ,
-    _displayNewMsg: function(user, msg, color) {
-            console.log("ahaha");
-            var container = document.getElementById('historyMsg'),
-                msgToDisplay = document.createElement('p'),
-                date = new Date().toTimeString().substr(0, 8);
-            msgToDisplay.style.color = color || '#000';
-            msgToDisplay.innerHTML = user + '<span class="timespan">(' + date + '): </span>' + msg;
-            container.appendChild(msgToDisplay);
-            container.scrollTop = container.scrollHeight;
-        }
+    _displayNewMsg: function (user, msg, color) {
+        console.log("ahaha");
+        var container = document.getElementById('historyMsg'),
+            msgToDisplay = document.createElement('p'),
+            date = new Date().toTimeString().substr(0, 8);
+        msgToDisplay.style.color = color || '#000';
+        msgToDisplay.innerHTML = user + '<span class="timespan">(' + date + '): </span>' + msg;
+        container.appendChild(msgToDisplay);
+        container.scrollTop = container.scrollHeight;
+    }
 
 };

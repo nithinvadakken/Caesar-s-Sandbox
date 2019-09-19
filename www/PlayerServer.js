@@ -20,6 +20,112 @@ class GameTroopServer {
         return Math.sqrt(Math.pow(this.x - tx, 2) + Math.pow(this.y - ty, 2));
     }
 
+//     attack (enemy) {
+//         enemy.health -= this.dmg + this.dmg*(this.level/2);
+//         if (enemy.health <= 0) {
+//             this.killCount+=1;
+//             if (this.killCount >= this.level*2  ) {
+//                 this.killCount = 0;
+//                 this.level += 1;
+//                 this.size += 5;
+//             }
+//         }
+//         setTimeout(function(){}, 300000);
+//     }
+//
+//     movement_heuristic(enemies, allies) {
+//         let terror = 0;
+//
+//         if (enemies.length < 10 && allies.length < 10) {
+//             return false;
+//         }
+//
+//         for (let i=0; i<enemies.length; i++) {
+//             if (this.getDistanceToTarget(enemies[i].x, enemies[i].y) < 100) {//TODO
+//                 if (this.name === "Melee" && enemies[i].name==="Archer") {
+//                     terror += 2*enemies[i].level;
+//                 } else if (this.name === "Archer" && enemies[i].name==="Tank") {
+//                     terror += 1*enemies[i].level;
+//                 } else if (this.name === "Melee" && enemies[i].name==="Tank") {
+//                     terror += 0.5*enemies[i].level;
+//                 }
+//             }
+//         }
+//
+//         for (let i=0; i<allies.length; i++) {
+//             if (this.getDistanceToTarget(allies[i].x, allies[i].y) < 100) {
+//                 if (this.name === "Melee" && allies[i].name==="Archer") {
+//                     terror -= 0.5*allies[i].level;
+//                 } else if (this.name === "Archer" && allies[i].name==="Tank") {
+//                     terror -= 1*allies[i].level;
+//                 } else if (this.name === "Melee" && allies[i].name==="Tank") {
+//                     terror -= 2*allies[i].level;
+//                 }
+//             }
+//         }
+//
+//         terror -= this.level;
+//
+//         if (terror <= 0) {
+//             return false;
+//         } else {
+//             return true;
+//         }
+//     }
+//
+//     autoMove(enemies, allies) {
+//         let ex = 1000000;
+//         let ey = 1000000;
+//
+//         for (let i=0; i<enemies.length; i++) {
+//
+//             let terror = this.movement_heuristic(enemies, allies);
+//
+//             if (this.getDistanceToTarget(enemies[i].x, enemies[i].y) < this.range) {
+//                 this.attack(enemies[i]);
+//                 break;
+//             } else if (this.getDistanceToTarget(enemies[i].x, enemies[i].y) < this.getDistanceToTarget(ex, ey)) {
+//                 ex =  enemies[i].x;
+//                 ey = enemies[i].y;
+//                 let canMove = 0;
+//                 if (!this.checkBounds(ex, ey)) {
+//                     canMove = true;
+//                 }
+//                 if (canMove) {
+//                     this.targetMove(ex, ey, terror);
+//                 }
+//             }
+//         }
+//     }
+//
+//     targetMove(tx, ty, terror) {
+//         let xspeed = (tx - this.x)/this.speed;
+//         let yspeed = (ty - this.y)/this.speed;
+//
+//         if (terror) {
+//             xspeed = (this.x - tx)/this.speed;
+//             yspeed = (this.y - ty)/this.speed;
+//         }
+//
+//         if (this.x + xspeed < 0) {
+//             this.x = 0;
+//         // } else if (this.x + xspeed > window.innerWidth) {
+//         //     this.x = window.innerWidth;
+//         } else {
+//             this.x += xspeed;
+//         }
+//
+//         if (this.y + yspeed < 0) {
+//             this.y = 0;
+//         // } else if (this.y + yspeed > window.innerHeight) {
+//         //     this.y = window.innerHeight;
+//         } else {
+//             this.y += yspeed;
+//         }
+//     }
+// }
+
+
     attack (enemy) {
         enemy.health -= this.dmg + this.dmg*(this.level/2);
         if (enemy.health <= 0) {
@@ -27,101 +133,180 @@ class GameTroopServer {
             if (this.killCount >= this.level*2  ) {
                 this.killCount = 0;
                 this.level += 1;
-                this.size += 5;
+                this.size *= 1.25;
+                this.health += 50;
             }
         }
-        setTimeout(function(){}, 300000);
+        // line(this.x, this.y, enemy.x, enemy.y);// TODO DO THIS ON CLIET
+
+        setTimeout(function(){}, 3000);
+
     }
+
+
 
     movement_heuristic(enemies, allies) {
+
         let terror = 0;
 
+
+
         if (enemies.length < 10 && allies.length < 10) {
+
             return false;
+
         }
 
+
+
         for (let i=0; i<enemies.length; i++) {
-            if (this.getDistanceToTarget(enemies[i].pos.x, enemies[i].pos.y) < 100) {
+
+            if (this.getDistanceToTarget(enemies[i].x, enemies[i].y) < 100) {
+
                 if (this.name === "Melee" && enemies[i].name==="Archer") {
-                    terror += 2*enemies[i].level;
+
+                    terror += 3;
+
                 } else if (this.name === "Archer" && enemies[i].name==="Tank") {
-                    terror += 1*enemies[i].level;
+
+                    terror += 2;
+
                 } else if (this.name === "Melee" && enemies[i].name==="Tank") {
-                    terror += 0.5*enemies[i].level;
+
+                    terror += 1.5;
+
                 }
+
             }
+
         }
+
+
 
         for (let i=0; i<allies.length; i++) {
-            if (this.getDistanceToTarget(allies[i].pos.x, allies[i].pos.y) < 100) {
+
+            if (this.getDistanceToTarget(allies[i].x, allies[i].y) < 100) {
+
                 if (this.name === "Melee" && allies[i].name==="Archer") {
-                    terror -= 0.5*allies[i].level;
+
+                    terror -= 1.5;
+
                 } else if (this.name === "Archer" && allies[i].name==="Tank") {
-                    terror -= 1*allies[i].level;
+
+                    terror -= 2;
+
                 } else if (this.name === "Melee" && allies[i].name==="Tank") {
-                    terror -= 2*allies[i].level;
+
+                    terror -= 3;
+
                 }
+
             }
+
         }
 
-        terror -= this.level;
 
-        if (terror <= 0) {
+
+        if (terror <= 5) {
+
             return false;
+
         } else {
+
             return true;
+
         }
+
     }
 
+
+
     autoMove(enemies, allies) {
+
         let ex = 1000000;
+
         let ey = 1000000;
 
+
+
         for (let i=0; i<enemies.length; i++) {
+
+
 
             let terror = this.movement_heuristic(enemies, allies);
 
-            if (this.getDistanceToTarget(enemies[i].pos.x, enemies[i].pos.y) < this.range) {
+
+
+            if (this.getDistanceToTarget(enemies[i].x, enemies[i].y) < this.range) {
+
                 this.attack(enemies[i]);
+
                 break;
-            } else if (this.getDistanceToTarget(enemies[i].pos.x, enemies[i].pos.y) < this.getDistanceToTarget(ex, ey)) {
-                ex =  enemies[i].pos.x;
-                ey = enemies[i].pos.y;
-                let canMove = 0;
-                if (!this.checkBounds(ex, ey)) {
-                    canMove = true;
-                }
-                if (canMove) {
-                    this.targetMove(ex, ey, terror);
-                }
+
+            } else if (this.getDistanceToTarget(enemies[i].x, enemies[i].y) < this.getDistanceToTarget(ex, ey)) {
+
+                ex =  enemies[i].x;
+
+                ey = enemies[i].y;
+
+                this.targetMove(ex, ey, terror);
+
             }
+
         }
+
     }
 
+
+
     targetMove(tx, ty, terror) {
+
         let xspeed = (tx - this.x)/this.speed;
+
         let yspeed = (ty - this.y)/this.speed;
 
+
+
         if (terror) {
+
             xspeed = (this.x - tx)/this.speed;
+
             yspeed = (this.y - ty)/this.speed;
+
         }
+
+
 
         if (this.x + xspeed < 0) {
+
             this.x = 0;
-        } else if (this.x + xspeed > window.innerWidth) {
-            this.x = window.innerWidth;
-        } else {
+
+        // } else if (this.x + xspeed > window.innerWidth) {
+        //
+        //     this.x = window.innerWidth;
+        //
+         } else {
+
             this.x += xspeed;
+
         }
 
+
+
         if (this.y + yspeed < 0) {
+
             this.y = 0;
-        } else if (this.y + yspeed > window.innerHeight) {
-            this.y = window.innerHeight;
+
+        //} else if (this.pos.y + yspeed > window.innerHeight) {
+        //
+        //    this.pos.y = window.innerHeight;
+
         } else {
+
             this.y += yspeed;
+
         }
+
     }
 }
 
@@ -213,12 +398,12 @@ class PlayerServer {
         for(let i = 0; i < this.army.length; i++){
             if (this.army[i].health <= 0) {
                 this.army.splice(i, 1);
+                this.numTroops -= 1;
             }
         }
-        for(let i = 0; i < this.enemies.length; i++){
-            if (this.enemies[i].health <= 0) {
-                this.enemies.splice(i, 1);
-            }
+
+        for (let i=0; i<this.army.length; i++) {
+            this.army[i].autoMove(this.enemies, this.army);
         }
 
         for (let i=0; i<this.army.length; i++) {
@@ -276,10 +461,9 @@ class PlayerServer {
         }
         for(let i = 0; i< archerX2.length;i++){
             temp.push(new ArcherServer(archerX2[i],archerY2[i]));
-            console.log("made archer x:"+archerX2+"  y:"+archerY2);
         }
         for(let i = 0; i< tankX2.length;i++){
-            console.log(tankX2);
+
             temp.push(new TankServer(tankX2[i],tankY2[i]));
         }
         return temp;
