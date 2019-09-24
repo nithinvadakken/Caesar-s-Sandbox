@@ -1,8 +1,9 @@
+
 let player;
 
 function setup() {
     noLoop();
-    console.log("here");
+    //console.log("here");
     player = new Player(0, 'green');
 }
 
@@ -33,7 +34,7 @@ let spec_btn_made = false;
 function add_armies(x) {
     console.log(x);
     which_player = x;
-    console.log("here1");
+    //console.log("here1");
     army_edit = true;
     createCanvas(window.innerWidth, window.innerHeight);
     background(0);
@@ -130,9 +131,9 @@ let player1;
 let player2;
 let thisname;
 
-function draw_please(id1, id2, name1, name2, troops, color1, color2, meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2) {
-    console.log("tank " + tankX2);
-    console.log("first");
+function draw_please(id1, id2, name1, name2, troops, color1, color2, meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2, linex,liney,lineEx,lineEy) {
+    //console.log("tank " + tankX2);
+   // console.log("first");
     createCanvas(window.innerWidth, window.innerHeight);
     player1 = new Player(id1, color1);
     player2 = new Player(id2, color2);
@@ -140,8 +141,8 @@ function draw_please(id1, id2, name1, name2, troops, color1, color2, meleeX1, me
     translate(window.innerWidth / 2 - player1.position.x, window.innerHeight / 2 - player1.position.y);
     army1 = player1.createArmy(meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1);
     army2 = player1.createArmy(meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2);
-    console.log("army1 " + army1);
-    console.log("army2 " + army2);
+    //console.log("army1 " + army1);
+    //console.log("army2 " + army2);
     player1.name = name1;
     player2.name = name2;
     player1.numTroops = troops;
@@ -152,7 +153,14 @@ function draw_please(id1, id2, name1, name2, troops, color1, color2, meleeX1, me
     player2.enemies = army1;
     player1.show();
     player2.show();
-    return
+    if(linex !==null) {
+        for (let i = 0; i < linex.length; i++) {
+            console.log("drawing line: "+linex[i]);
+            stroke(color(255, 255, 255));
+            strokeWeight(1);
+            line(parseInt(linex[i]), parseInt(liney[i]), parseInt(lineEx[i]), parseInt(lineEy[i]));
+        }
+    }
 }
 
 //
@@ -226,9 +234,10 @@ Game.prototype = {
             document.getElementById('nickWrapper').style.display = 'block';
             document.getElementById('nicknameInput').focus();
         });
-        this.socket.on('loginSuccess', function (server) {
+        this.socket.on('loginSuccess', function (server, room) {
             console.log("loginSuc sever changed to " + server);
             this.server = server;
+            this.room = room;
             document.title = 'Caesar\'s Sandbox | ' + document.getElementById('nicknameInput').value;
             document.getElementById('loginWrapper').style.display = 'none';
             document.getElementById('messageInput').focus();
@@ -554,24 +563,20 @@ Game.prototype = {
 
         });
         that.socket.on("game_ready", function (index) {
-            var i = 0;
-            window.requestAnimationFrame(function () {
-                console.log(i);
-                i++
-            });
-            console.log("start1")
+           // console.log("start1")
             let keep_drawing = true;
             if (index < 2) {
-                console.log("start2")
+                //console.log("start2")
                 draw_loop();
                 function draw_loop() {
                     that.socket.emit("request_update");
-                    console.log("start3")
-                    that.socket.on("updated_draw", function (meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2, index, name1, name2) {
-                        console.log("drawing...");
-                        draw_please(0, 1, name1, name2, max, 'green', 'red', meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2);
-                       if(keep_drawing===true)
-                        window.requestAnimationFrame(draw_loop())
+                    //console.log("start3")
+                    that.socket.on("updated_draw", function (meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2, index, name1, name2, linex,liney,lineEx,lineEy) {
+                        console.log("drawing... " +linex.length);
+
+                        draw_please(0, 1, name1, name2, max, 'green', 'red', meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2,linex,liney,lineEx,lineEy);
+                        if(keep_drawing===true)
+                            window.requestAnimationFrame(draw_loop())
                     })
                     that.socket.on("game_ended", function () {
                         keep_drawing = false;

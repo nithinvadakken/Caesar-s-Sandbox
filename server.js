@@ -40,11 +40,16 @@ Room.prototype = {
     archerY2: [],
     tankX2: [],
     tankY2: [],
+    attack_linex: [],
+    attack_liney: [],
+    attack_lineEx: [],
+    attack_lineEy: [],
     simulation: 0,
     game_state: 0,
     loop: 0,
     player: 0,
-    private: false
+    private: false,
+
 };
 
 // for (i = 0; i<amount_of_rooms; i++) {
@@ -87,6 +92,10 @@ function create_room(server) {
     x.archerY2 = [];
     x.tankX2 = [];
     x.tankY2 = [];
+    x.attack_linex= [];
+    x.attack_liney= [];
+    x.attack_lineEx= [];
+    x.attack_lineEy= [];
     x.simulation = 0;
     x.private = false;
     rooms.push(x);
@@ -97,20 +106,25 @@ function    updateGame(room) {
     //     if(rooms[i].game_state === 2)
     //rooms[i].moveArmy();
     rooms[room].loop = setInterval(function () {
+        rooms[room].player1 = new Player();
+        rooms[room].player2 = new Player();
         if(rooms[room].game_state !== 2){
             io.to(rooms[room].server).emit('game_ended');
             console.log("game stop");
             clearInterval(rooms[room].loop);
         }
         else {
-            console.log("updating...");
-            console.log("a1: "+rooms[room].archerX1);
-            console.log("a2: "+rooms[room].archerX2);
+            rooms[room].player1.attack_linex=[];
+            rooms[room].player1.attack_liney=[];
+            rooms[room].player1.attack_lineEx = [];
+            rooms[room].player1.attack_lineEy = [];
 
-            rooms[room].player1 = new Player();
-            rooms[room].player1.army = rooms[room].player1.createArmy( rooms[room].meleeX1,  rooms[room].meleeY1,  rooms[room].archerX1,  rooms[room].archerY1,  rooms[room].tankX1,  rooms[room].tankY1);
+            //console.log("updating...");
+            // console.log("a1: "+rooms[room].archerX1);
+            // console.log("a2: "+rooms[room].archerX2);
+
+            rooms[room].player1.army = rooms[room].player1.createArmy( rooms[ room].meleeX1,  rooms[room].meleeY1,  rooms[room].archerX1,  rooms[room].archerY1,  rooms[room].tankX1,  rooms[room].tankY1);
             rooms[room].player1.enemies = rooms[room].player1.createArmy( rooms[room].meleeX2,  rooms[room].meleeY2,  rooms[room].archerX2,  rooms[room].archerY2,  rooms[room].tankX2,  rooms[room].tankY2);
-            rooms[room].player2 = new Player();
             rooms[room].player2.army =  rooms[room].player1.enemies;
             rooms[room].player2.enemies =  rooms[room].player1.army;
             rooms[room].player1.moveArmy();
@@ -129,6 +143,11 @@ function    updateGame(room) {
             rooms[room].archerY2 = rooms[room].player2.archerY1;
             rooms[room].tankX2 = rooms[room].player2.tankX1;
             rooms[room].tankY2 = rooms[room].player2.tankY1;
+
+            rooms[room].attack_linex= rooms[room].player1.attack_linex;
+            rooms[room].attack_liney=rooms[room].player1.attack_liney;
+            rooms[room].attack_lineEx =rooms[room].player1.attack_lineEx;
+            rooms[room].attack_lineEy =  rooms[room].player1.attack_lineEy;
         }
     }, 1000/60 );
 }
@@ -261,6 +280,11 @@ io.sockets.on('connection', function(socket) {
         console.log(rooms[socket.room].players_names);
         console.log(rooms[socket.room].players_ids);
 
+        rooms[socket.room].attack_linex= [];
+        rooms[socket.room].attack_liney= [];
+        rooms[socket.room].attack_lineEx= [];
+        rooms[socket.room].attack_lineEy= [];
+
 
         //socket.userIndex = users.length;
         socket.nickname = nickname;
@@ -387,8 +411,11 @@ io.sockets.on('connection', function(socket) {
 
     });
     socket.on("request_update", function () {
-        console.log("update request");
-        socket.emit("updated_draw",rooms[socket.room].meleeX1, rooms[socket.room].meleeY1, rooms[socket.room].archerX1, rooms[socket.room].archerY1, rooms[socket.room].tankX1, rooms[socket.room].tankY1, rooms[socket.room].meleeX2, rooms[socket.room].meleeY2, rooms[socket.room].archerX2, rooms[socket.room].archerY2, rooms[socket.room].tankX2, rooms[socket.room].tankY2,rooms[socket.room].players_ids.indexOf(socket.id),rooms[socket.room].players_names[0],rooms[socket.room].players_names[1]);
+        //console.log("update request");
+        socket.emit("updated_draw",rooms[socket.room].meleeX1, rooms[socket.room].meleeY1, rooms[socket.room].archerX1, rooms[socket.room].archerY1, rooms[socket.room].tankX1, rooms[socket.room].tankY1, rooms[socket.room].meleeX2, rooms[socket.room].meleeY2, rooms[socket.room].archerX2, rooms[socket.room].archerY2, rooms[socket.room].tankX2, rooms[socket.room].tankY2,rooms[socket.room].players_ids.indexOf(socket.id),rooms[socket.room].players_names[0],rooms[socket.room].players_names[1],
+            rooms[socket.room].attack_linex, rooms[socket.room].attack_liney, rooms[socket.room].attack_lineEx, rooms[socket.room].attack_lineEy
+
+        );
     });
     socket.on("request_spec", function () {
         console.log("maybe "+rooms[socket.room].simulation);
@@ -451,3 +478,4 @@ io.sockets.on('connection', function(socket) {
         socket.broadcast.to(socket.server).emit('newMsg', socket.nickname, msg, color);
     });
 });
+

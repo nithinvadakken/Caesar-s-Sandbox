@@ -14,6 +14,10 @@ class GameTroopServer {
         this.name = name;
         this.killCount = 0;
         this.level = 1;
+        this.attack_linex=[];
+        this.attack_liney=[];
+        this.attack_lineEx=[];
+        this.attack_lineEy = [];
     }
 
     getDistanceToTarget (tx, ty) {
@@ -138,8 +142,13 @@ class GameTroopServer {
             }
         }
         // line(this.x, this.y, enemy.x, enemy.y);// TODO DO THIS ON CLIET
+        console.log("setting line val: "+this.attack_linex);
+        this.attack_linex=(this.x);
+        this.attack_liney=(this.y);
+        this.attack_lineEx=(enemy.x);
+        this.attack_lineEy=(enemy.y);
 
-        setTimeout(function(){}, 3000);
+        //setTimeout(function(){}, 3000);
 
     }
 
@@ -281,11 +290,11 @@ class GameTroopServer {
 
             this.x = 0;
 
-        // } else if (this.x + xspeed > window.innerWidth) {
-        //
-        //     this.x = window.innerWidth;
-        //
-         } else {
+            // } else if (this.x + xspeed > window.innerWidth) {
+            //
+            //     this.x = window.innerWidth;
+            //
+        } else {
 
             this.x += xspeed;
 
@@ -297,9 +306,9 @@ class GameTroopServer {
 
             this.y = 0;
 
-        //} else if (this.pos.y + yspeed > window.innerHeight) {
-        //
-        //    this.pos.y = window.innerHeight;
+            //} else if (this.pos.y + yspeed > window.innerHeight) {
+            //
+            //    this.pos.y = window.innerHeight;
 
         } else {
 
@@ -385,6 +394,10 @@ class PlayerServer {
         this.archerY2 = [];
         this.tankX2 = [];
         this.tankY2 = [];
+        this.attack_linex=[];
+        this.attack_liney=[];
+        this.attack_lineEx=[];
+        this.attack_lineEy = [];
     }
 
     update(){
@@ -395,6 +408,7 @@ class PlayerServer {
     }
 
     moveArmy() {
+
         for(let i = 0; i < this.army.length; i++){
             if (this.army[i].health <= 0) {
                 this.army.splice(i, 1);
@@ -451,6 +465,14 @@ class PlayerServer {
 
             }
         }
+
+        for (let i = 0; i < this.army.length; i++) {
+            console.log("player line array: "+this.army[i].attack_linex);
+            this.attack_linex.push(this.army[i].attack_linex);
+            this.attack_liney.push(this.army[i].attack_liney);
+            this.attack_lineEx.push(this.army[i].attack_lineEx);
+            this.attack_lineEy.push(this.army[i].attack_lineEy);
+        }
     }
 
     createArmy(meleeX2,meleeY2,archerX2,archerY2,tankX2,tankY2){
@@ -491,3 +513,4 @@ class PlayerServer {
     }
 }
 module.exports = PlayerServer;
+
