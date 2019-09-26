@@ -3,7 +3,7 @@
 
 class GameTroopServer {
 
-    constructor(x, y, health, dmg, range, speed, size, name) {
+    constructor(x, y, health, dmg, range, speed, size, name, att_spd) {
         this.x = x;
         this.y = y;
         this.health = health;
@@ -12,6 +12,9 @@ class GameTroopServer {
         this.size = size;
         this.speed = speed*100;
         this.name = name;
+        this.att_spd = att_spd;
+        this.d = new Date();
+        this.t = d.getTime();
         this.killCount = 0;
         this.level = 1;
         this.attack_linex=[];
@@ -131,6 +134,7 @@ class GameTroopServer {
 
 
     attack (enemy) {
+        if(d.getTime - this.t> this.att_spd*1000){
         enemy.health -= this.dmg + this.dmg*(this.level/2);
         if (enemy.health <= 0) {
             this.killCount+=1;
@@ -147,7 +151,8 @@ class GameTroopServer {
         this.attack_liney=(this.y);
         this.attack_lineEx=(enemy.x);
         this.attack_lineEy=(enemy.y);
-
+            this.t = d.getTime();
+        }
         //setTimeout(function(){}, 3000);
 
     }
@@ -323,8 +328,8 @@ class GameTroopServer {
 class MeleeSoldierServer extends GameTroopServer {
 
     constructor(x, y, name) {
-        //x, y, health, dmg, range, speed, size, name
-        super(x, y, 300, 70, 40, 10, 7, "Melee");
+        //x, y, health, dmg, range, speed, size, name, att_spd
+        super(x, y, 300, 75, 40, 10, 7, "Melee", 1.5;
     }
 
     checkBounds(tx, ty) {
@@ -343,8 +348,8 @@ class MeleeSoldierServer extends GameTroopServer {
 class ArcherServer extends GameTroopServer {
 
     constructor(x, y, name) {
-        //x, y, health, dmg, range, speed, size, name
-        super(x, y, 200, 10, 70, 30, 20, "Archer");
+        //x, y, health, dmg, range, speed, size, name, att_spd
+        super(x, y, 200, 50, 70, 30, 20, "Archer", 1);
     }
 
     checkBounds(tx, ty) {
@@ -361,7 +366,7 @@ class TankServer extends GameTroopServer {
 
     constructor(x, y) {
         //x, y, health, dmg, range, speed, size, name, acc
-        super(x, y, 1000, 40, 60, 50, 40, "Tank");
+        super(x, y, 600, 150, 60, 50, 40, "Tank",5);
     }
 
     checkBounds(tx, ty) {
