@@ -1,7 +1,7 @@
 //Player Class (should come in handy later for online play)
 // Troop class
 
-class GameTroopServer {
+class GameTroopServer {//TODO make the drawing start for the middle not the edges!!!
 
     constructor(x, y, health, dmg, range, speed, size, name, att_spd) {
         this.x = x;
@@ -135,8 +135,7 @@ class GameTroopServer {
 
     attack (enemy) {
         if(d.getTime - this.t> this.att_spd*1000){
-            console.log(this.name + " attacked "+enemy.name)
-        enemy.health -= this.dmg /*+ this.dmg*(this.level/2)*/;//TODO
+        enemy.health -= this.dmg + this.dmg*(this.level/2);
         if (enemy.health <= 0) {
             this.killCount+=1;
             if (this.killCount >= this.level*2  ) {
@@ -152,7 +151,7 @@ class GameTroopServer {
         this.attack_liney=(this.y);
         this.attack_lineEx=(enemy.x);
         this.attack_lineEy=(enemy.y);
-        this.t = d.getTime();
+            this.t = d.getTime();
         }
         //setTimeout(function(){}, 3000);
 
@@ -252,7 +251,7 @@ class GameTroopServer {
 
 
 
-            if (this.getDistanceToTarget(enemies[i].x, enemies[i].y) < this.range) {
+            if (this.getDistanceToTarget(enemies[i].x, enemies[i].y) < this.range) {//TODO attacks all enemies onstead of 1
 
                 this.attack(enemies[i]);
 
@@ -264,12 +263,12 @@ class GameTroopServer {
 
                 ey = enemies[i].y;
 
-                this.targetMove(ex, ey, terror);
+
 
             }
 
         }
-
+        this.targetMove(ex, ey, terror);
     }
 
 
@@ -330,7 +329,7 @@ class MeleeSoldierServer extends GameTroopServer {
 
     constructor(x, y, name) {
         //x, y, health, dmg, range, speed, size, name, att_spd
-        super(x, y, 300, 75, 40, 10, 7, "Melee", 1.5;
+        super(x, y, 300, 75, 40, 10, 7, "Melee", 1.5);
     }
 
     checkBounds(tx, ty) {
@@ -350,7 +349,7 @@ class ArcherServer extends GameTroopServer {
 
     constructor(x, y, name) {
         //x, y, health, dmg, range, speed, size, name, att_spd
-        super(x, y, 200, 50, 70, 30, 20, "Archer", .75);
+        super(x, y, 200, 50, 70, 30, 20, "Archer", 1);
     }
 
     checkBounds(tx, ty) {
@@ -367,7 +366,7 @@ class TankServer extends GameTroopServer {
 
     constructor(x, y) {
         //x, y, health, dmg, range, speed, size, name, acc
-        super(x, y, 600, 150, 60, 50, 40, "Tank",2);
+        super(x, y, 600, 150, 60, 50, 40, "Tank",5);
     }
 
     checkBounds(tx, ty) {
