@@ -114,6 +114,8 @@ function    updateGame(room) {
             clearInterval(rooms[room].loop);
         }
         else {
+
+            table(room);
             rooms[room].player1.attack_linex=[];
             rooms[room].player1.attack_liney=[];
             rooms[room].player1.attack_lineEx = [];
@@ -150,6 +152,19 @@ function    updateGame(room) {
             rooms[room].attack_lineEy =  rooms[room].player1.attack_lineEy;
         }
     }, 1000/60 );
+}
+
+function table(room){
+    var temp = setInterval(function () {
+        if(rooms[room].game_state !== 2) {            
+            console.log("game stop");
+            clearInterval(temp);
+        }
+        else{
+            console.table(rooms[room].player1.army);
+            console.table(rooms[room].player2.army);
+        }
+        },1000/2);
 }
 setInterval( function() {
     for(i = 0; i < amount_of_rooms; i++){
