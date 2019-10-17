@@ -329,7 +329,7 @@ class MeleeSoldierServer extends GameTroopServer {
 
     constructor(x, y, name) {
         //x, y, health, dmg, range, speed, size, name, att_spd
-        super(x, y, 300, 75, 40, 10, 7, "Melee", 1.5);
+        super(x, y, 300, 75, 20, 10, 7, "Melee", 1.5);
     }
 
     checkBounds(tx, ty) {
@@ -366,7 +366,7 @@ class TankServer extends GameTroopServer {
 
     constructor(x, y) {
         //x, y, health, dmg, range, speed, size, name, acc
-        super(x, y, 600, 150, 60, 50, 40, "Tank",5);
+        super(x, y, 600, 150, 35, 50, 40, "Tank",5);
     }
 
     checkBounds(tx, ty) {
