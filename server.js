@@ -352,6 +352,7 @@ io.sockets.on('connection', function(socket) {
         // io.sockets.in(socket.server).emit("make army",rooms[socket.server].players_ids.indexOf(socket.id));
     });
     socket.on("army_submitted", function (meleeX,meleeY,archerX,archerY,tankX,tankY) {
+         console.log("army_submitted");
         //console.log(rooms[socket.server].players_ids.indexOf(socket.id));
         rooms[socket.room].army_submit[rooms[socket.room].players_ids.indexOf(socket.id)] = true;
         // socket.meleeX = meleeX;
@@ -360,7 +361,7 @@ io.sockets.on('connection', function(socket) {
         // socket.archerY = archerY;
         // socket.tankX = tankX;
         // socket.tankY = tankY;
-        console.log("army_submitted");
+      
         if(rooms[socket.room].players_ids.indexOf(socket.id)===0){
 
             if(rooms[socket.room].army_submit[1]===true) {
