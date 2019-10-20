@@ -134,7 +134,7 @@ class GameTroopServer {//TODO make the drawing start for the middle not the edge
 
 
     attack (enemy) {
-        if(d.getTime - this.t> this.att_spd*1000){
+        if(this.d.getTime - this.t> this.att_spd*1000){
         enemy.health -= this.dmg + this.dmg*(this.level/2);
         if (enemy.health <= 0) {
             this.killCount+=1;
@@ -151,7 +151,7 @@ class GameTroopServer {//TODO make the drawing start for the middle not the edge
         this.attack_liney=(this.y);
         this.attack_lineEx=(enemy.x);
         this.attack_lineEy=(enemy.y);
-            this.t = d.getTime();
+            this.t = this.d.getTime();
         }
         //setTimeout(function(){}, 3000);
 
