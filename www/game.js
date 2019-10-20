@@ -583,8 +583,10 @@ Game.prototype = {
                     that.socket.on("updated_draw", function (meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2, index, name1, name2, linex,liney,lineEx,lineEy) {
                         console.log("drawing... " +linex.length);
                         draw_please(0, 1, name1, name2, max, 'green', 'red', meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2,linex,liney,lineEx,lineEy,index);
-                        if(keep_drawing===true)
+                        if(keep_drawing===true){
                             window.requestAnimationFrame(draw_loop())
+                        requestAnimFrame(() => { draw_loop(); });
+                        }
                     })
                     that.socket.on("game_ended", function () {
                         keep_drawing = false;
