@@ -239,14 +239,14 @@ class GameTroopServer {//TODO make the drawing start for the middle not the edge
             if (this.getDistanceToTarget(enemies[i].x, enemies[i].y) < this.range) {//TODO attacks all enemies onstead of 1
                 this.attack(enemies[i]);
                 break;
-
             } else if (this.getDistanceToTarget(enemies[i].x, enemies[i].y) < this.getDistanceToTarget(ex, ey)) {
                 ex =  enemies[i].x;
                 ey = enemies[i].y;
+                this.targetMove(ex, ey, terror);
             }
 
         }
-        this.targetMove(ex, ey, terror);
+        
     }
 
 
