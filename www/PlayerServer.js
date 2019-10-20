@@ -134,8 +134,8 @@ class GameTroopServer {//TODO make the drawing start for the middle not the edge
 
 
     attack (enemy) {
-     console.log("attack func")
-        if(this.d.getTime - this.t> this.att_spd/**1000*/){
+     //console.log("d.gettime ="+d.getTime() )
+        if(this.d.getTime() - this.t> this.att_spd*1000){
             console.log("attacked");
         enemy.health -= this.dmg + this.dmg*(this.level/2);
         if (enemy.health <= 0) {
