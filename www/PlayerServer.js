@@ -14,7 +14,7 @@ class GameTroopServer {//TODO make the drawing start for the middle not the edge
         this.name = name;
         this.att_spd = att_spd;
         this.d = new Date();
-        this.t = d.getTime();
+        this.t = this.d.getTime();
         this.killCount = 0;
         this.level = 1;
         this.attack_linex=[];
@@ -238,33 +238,19 @@ class GameTroopServer {//TODO make the drawing start for the middle not the edge
     autoMove(enemies, allies) {
 
         let ex = 1000000;
-
         let ey = 1000000;
-
+        let terror = 0;
 
 
         for (let i=0; i<enemies.length; i++) {
-
-
-
             let terror = this.movement_heuristic(enemies, allies);
-
-
-
             if (this.getDistanceToTarget(enemies[i].x, enemies[i].y) < this.range) {//TODO attacks all enemies onstead of 1
-
                 this.attack(enemies[i]);
-
                 break;
 
             } else if (this.getDistanceToTarget(enemies[i].x, enemies[i].y) < this.getDistanceToTarget(ex, ey)) {
-
                 ex =  enemies[i].x;
-
                 ey = enemies[i].y;
-
-
-
             }
 
         }
@@ -276,15 +262,12 @@ class GameTroopServer {//TODO make the drawing start for the middle not the edge
     targetMove(tx, ty, terror) {
 
         let xspeed = (tx - this.x)/this.speed;
-
         let yspeed = (ty - this.y)/this.speed;
 
 
 
         if (terror) {
-
             xspeed = (this.x - tx)/this.speed;
-
             yspeed = (this.y - ty)/this.speed;
 
         }
