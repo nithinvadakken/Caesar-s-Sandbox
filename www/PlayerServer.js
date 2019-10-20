@@ -163,20 +163,12 @@ class GameTroopServer {//TODO make the drawing start for the middle not the edge
 
         let terror = 0;
 
-
-
         if (enemies.length < 10 && allies.length < 10) {
-
             return false;
-
         }
 
-
-
         for (let i=0; i<enemies.length; i++) {
-
             if (this.getDistanceToTarget(enemies[i].x, enemies[i].y) < 100) {
-
                 if (this.name === "Melee" && enemies[i].name==="Archer") {
 
                     terror += 3;
