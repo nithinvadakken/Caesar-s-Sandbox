@@ -116,7 +116,7 @@ function    updateGame(room) {
         }
         else {
 
-            table(room);
+            // table(room);
             rooms[room].player1.attack_linex=[];
             rooms[room].player1.attack_liney=[];
             rooms[room].player1.attack_lineEx = [];
