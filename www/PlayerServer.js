@@ -266,35 +266,37 @@ class GameTroopServer {//TODO make the drawing start for the middle not the edge
 
 
 
-        if (this.x + xspeed < 0) {
+        // if (this.x + xspeed < 0) {
 
-            this.x = 0;
+        //     this.x = 0;
 
-            // } else if (this.x + xspeed > window.innerWidth) {
-            //
-            //     this.x = window.innerWidth;
-            //
-        } else {
+        //     // } else if (this.x + xspeed > window.innerWidth) {
+        //     //
+        //     //     this.x = window.innerWidth;
+        //     //
+        // } else {
 
-            this.x += xspeed;
+        //     this.x += xspeed;
 
-        }
+        // }
+        this.x += xspeed;
 
 
 
-        if (this.y + yspeed < 0) {
+        // if (this.y + yspeed < 0) {
 
-            this.y = 0;
+        //     this.y = 0;
 
-            //} else if (this.pos.y + yspeed > window.innerHeight) {
-            //
-            //    this.pos.y = window.innerHeight;
+        //     //} else if (this.pos.y + yspeed > window.innerHeight) {
+        //     //
+        //     //    this.pos.y = window.innerHeight;
 
-        } else {
+        // } else {
 
-            this.y += yspeed;
+        //     this.y += yspeed;
 
-        }
+        // }
+        this.y += yspeed;
 
     }
 }
