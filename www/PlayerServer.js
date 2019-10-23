@@ -14,6 +14,8 @@ class GameTroopServer {//TODO make the drawing start for the middle not the edge
         this.name = name;
         this.att_spd = att_spd;
         this.saved_time = new Date();
+        this.temp = this.saved_time.getTime();
+        this.temp2 = this.temp;
         this.killCount = 0;
         this.level = 1;
         this.attack_linex=[];
@@ -134,26 +136,29 @@ class GameTroopServer {//TODO make the drawing start for the middle not the edge
 
     attack (enemy) {
      let current_time = new Date();
-     console.log("saved ="+this.saved_time.getTime() +"curr = "+current_time.getTime()+"\ndiff="+(this.saved_time.getTime()-current_time.getTime()))
-        if(this.saved_time.getTime() - current_time.getTime()> this.att_spd*1000){
+     //console.log("saved ="+this.saved_time.getTime() +"curr = "+current_time.getTime()+"\ndiff="+(this.saved_time.getTime()-current_time.getTime()))
+        if(this.temp2 - current_time.getTime()> this.att_spd*1000){
             console.log("attacked");
-        enemy.health -= this.dmg + this.dmg*(this.level/2);
-        if (enemy.health <= 0) {
-            this.killCount+=1;
-            if (this.killCount >= this.level*2  ) {
-                this.killCount = 0;
-                this.level += 1;
-                this.size *= 1.25;
-                this.health += 50;
-            }
-        }
-        // line(this.x, this.y, enemy.x, enemy.y);// TODO DO THIS ON CLIET
-        console.log("setting line val: "+this.attack_linex);
-        this.attack_linex=(this.x);
-        this.attack_liney=(this.y);
-        this.attack_lineEx=(enemy.x);
-        this.attack_lineEy=(enemy.y);
+             enemy.health -= this.dmg + this.dmg*(this.level/2);
+            if (enemy.health <= 0) {
+                this.killCount+=1;
+                if (this.killCount >= this.level*2  ) {
+                    this.killCount = 0;
+                    this.level += 1;
+                    this.size *= 1.25;
+                    this.health += 50;
+                }
+             }
+            // line(this.x, this.y, enemy.x, enemy.y);// TODO DO THIS ON CLIET
+         //console.log("setting line val: "+this.attack_linex);
+            this.attack_linex=(this.x);
+            this.attack_liney=(this.y);
+            this.attack_lineEx=(enemy.x);
+            this.attack_lineEy=(enemy.y);
             this.saved_time = new Date();
+            this.temp = this.saved_time.getTime();
+            this.temp2 = this.temp;
+            
         }
         //setTimeout(function(){}, 3000);
 
