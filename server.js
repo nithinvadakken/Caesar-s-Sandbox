@@ -45,6 +45,12 @@ Room.prototype = {
     attack_liney: [],
     attack_lineEx: [],
     attack_lineEy: [],
+    meleeTime1:[],
+    meleeTime2:[],
+    archerTime1: [],
+    archerTime2: [],
+    tankTime1: [],
+    tankTime2: [],
     simulation: 0,
     game_state: 0,
     loop: 0,
@@ -97,6 +103,12 @@ function create_room(server) {
     x.attack_liney= [];
     x.attack_lineEx= [];
     x.attack_lineEy= [];
+    x.meleeTime1=[];
+    x.meleeTime2=[];
+    x.archerTime1= [];
+    x.archerTime2= [];
+    x.tankTime1= [];
+    x.tankTime2= [];
     x.simulation = 0;
     x.private = false;
     rooms.push(x);
@@ -151,6 +163,13 @@ function    updateGame(room) {
             rooms[room].attack_liney=rooms[room].player1.attack_liney;
             rooms[room].attack_lineEx =rooms[room].player1.attack_lineEx;
             rooms[room].attack_lineEy =  rooms[room].player1.attack_lineEy;
+            
+            rooms[room].meleeTime1 = rooms[room].player1.meleeTime;
+            rooms[room].archerTime1 = rooms[room].player1.archerTime;
+            rooms[room].tankTime1 = rooms[room].player1.tankTime;
+            rooms[room].meleeTime2 = rooms[room].player2.meleeTime;
+            rooms[room].archerTime2 = rooms[room].player2.archerTime;
+            rooms[room].tankTime2 = rooms[room].player2.tankTime;
         }
     }, 1000/60 );
 }
@@ -377,6 +396,20 @@ io.sockets.on('connection', function(socket) {
                 rooms[socket.room].archerY2= archerY;
                 rooms[socket.room].tankX2 = tankX;
                 rooms[socket.room].tankY2 = tankY;
+                socket.emit("request max");
+                socket.on("max", function(max){
+                rooms[socket.room].max = max;
+                });
+                let i;
+                for(i = 0; i< max; i++){
+                    rooms[room].meleeTime1.push(0);
+                    rooms[room].archerTime1.push(0);
+                    rooms[room].tankTime1.push(0);
+                    rooms[room].meleeTime2.push(0);
+                    rooms[room].archerTime2.push(0);
+                    rooms[room].tankTime2.push(0);
+                }
+                
                 rooms[socket.room].game_state = 2;
                 console.log("a11: "+ rooms[socket.room].archerX1 );
                 console.log("a12: "+ rooms[socket.room].archerX2 );
