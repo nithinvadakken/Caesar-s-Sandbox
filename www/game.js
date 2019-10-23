@@ -571,6 +571,9 @@ Game.prototype = {
             });
 
         });
+        that.socket.on("request max", function(){
+            that.socket.emit("max", max);
+        });
         that.socket.on("game_ready", function (index) {
            // console.log("start1")
             let keep_drawing = true;
