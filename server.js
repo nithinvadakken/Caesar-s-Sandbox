@@ -399,7 +399,7 @@ io.sockets.on('connection', function(socket) {
                 socket.emit("request max");
                 socket.on("max", function(max){
                 rooms[socket.room].max = max;
-                });
+                
                 let i;
                 for(i = 0; i< max; i++){
                     rooms[room].meleeTime1.push(0);
@@ -409,6 +409,7 @@ io.sockets.on('connection', function(socket) {
                     rooms[room].archerTime2.push(0);
                     rooms[room].tankTime2.push(0);
                 }
+                    });
                 
                 rooms[socket.room].game_state = 2;
                 console.log("a11: "+ rooms[socket.room].archerX1 );
