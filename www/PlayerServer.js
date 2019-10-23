@@ -3,7 +3,7 @@
 
 class GameTroopServer {//TODO make the drawing start for the middle not the edges!!!
 
-    constructor(x, y, health, dmg, range, speed, size, name, att_spd) {
+    constructor(x, y, health, dmg, range, speed, size, name, att_spd, time) {
         this.x = x;
         this.y = y;
         this.health = health;
@@ -13,9 +13,7 @@ class GameTroopServer {//TODO make the drawing start for the middle not the edge
         this.speed = speed*100;
         this.name = name;
         this.att_spd = att_spd;
-        this.saved_time = new Date();
-        this.temp = this.saved_time.getTime();
-        this.temp2 = this.temp;
+        this.saved_time = time;
         this.killCount = 0;
         this.level = 1;
         this.attack_linex=[];
@@ -136,9 +134,9 @@ class GameTroopServer {//TODO make the drawing start for the middle not the edge
 
     attack (enemy) {
      let current_time = new Date();
-        console.log(this.temp2);
+        console.log(this.saved_time);
      //console.log("saved ="+this.saved_time.getTime() +"curr = "+current_time.getTime()+"\ndiff="+(this.saved_time.getTime()-current_time.getTime()))
-        if(this.temp2 - current_time.getTime()> this.att_spd*1000){
+        if(this.saved_time - current_time.getTime()> this.att_spd*1000){
             console.log("attacked");
              enemy.health -= this.dmg + this.dmg*(this.level/2);
             if (enemy.health <= 0) {
@@ -156,10 +154,8 @@ class GameTroopServer {//TODO make the drawing start for the middle not the edge
             this.attack_liney=(this.y);
             this.attack_lineEx=(enemy.x);
             this.attack_lineEy=(enemy.y);
-            this.saved_time = new Date();
-            this.temp = this.saved_time.getTime();
-            this.temp2 = this.temp;
-            
+            this.d = new Date();
+            this.saved_time = this.d.getTime();
         }
         //setTimeout(function(){}, 3000);
 
@@ -312,9 +308,9 @@ class GameTroopServer {//TODO make the drawing start for the middle not the edge
 //Melee Class
 class MeleeSoldierServer extends GameTroopServer {
 
-    constructor(x, y, name) {
+    constructor(x, y, name,time) {
         //x, y, health, dmg, range, speed, size, name, att_spd
-        super(x, y, 300, 75, 20, 10, 7, "Melee", 1.5);
+        super(x, y, 300, 75, 20, 10, 7, "Melee", 1.5,time);
     }
 
     checkBounds(tx, ty) {
@@ -332,9 +328,9 @@ class MeleeSoldierServer extends GameTroopServer {
 
 class ArcherServer extends GameTroopServer {
 
-    constructor(x, y, name) {
+    constructor(x, y, name,time) {
         //x, y, health, dmg, range, speed, size, name, att_spd
-        super(x, y, 200, 50, 70, 30, 20, "Archer", 1);
+        super(x, y, 200, 50, 70, 30, 20, "Archer", 1,time);
     }
 
     checkBounds(tx, ty) {
@@ -349,9 +345,9 @@ class ArcherServer extends GameTroopServer {
 // Tank Class
 class TankServer extends GameTroopServer {
 
-    constructor(x, y) {
+    constructor(x, y,name,time) {
         //x, y, health, dmg, range, speed, size, name, acc
-        super(x, y, 600, 150, 35, 50, 40, "Tank",5);
+        super(x, y, 600, 150, 35, 50, 40, "Tank",5,time);
     }
 
     checkBounds(tx, ty) {
@@ -388,6 +384,9 @@ class PlayerServer {
         this.attack_liney=[];
         this.attack_lineEx=[];
         this.attack_lineEy = [];
+        this.meleeTime = [];
+        this.archerTime = [];
+        this.tankTime = [];
     }
 
     update(){
@@ -422,14 +421,17 @@ class PlayerServer {
                 if(this.army[x].name === ("Melee")){
                     this.meleeX1.push(this.army[x].x);
                     this.meleeY1.push(this.army[x].y);
+                    this.meleeTime.push(this.army[x].saved_time);
                 }
                 if(this.army[x].name ===("Tank")){
                     this.tankX1.push(this.army[x].x);
                     this.tankY1.push(this.army[x].y);
+                    this.archerTime.push(this.army[x].saved_time);
                 }
                 if(this.army[x].name === ("Archer")){
                     this.archerX1.push(this.army[x].x);
                     this.archerY1.push(this.army[x].y);
+                    this.tankTime.push(this.army[x].saved_time);
                 }
 
             }
@@ -465,18 +467,18 @@ class PlayerServer {
         }
     }
 
-    createArmy(meleeX2,meleeY2,archerX2,archerY2,tankX2,tankY2){
+    createArmy(meleeX2,meleeY2,archerX2,archerY2,tankX2,tankY2, meleeTime, archerTime,tankTime){
         let temp = [];
         for(let i = 0; i< meleeX2.length;i++){
-            temp.push(new MeleeSoldierServer(meleeX2[i],meleeY2[i]));
+            temp.push(new MeleeSoldierServer(meleeX2[i],meleeY2[i],i,meleeTime[i]));
 
         }
         for(let i = 0; i< archerX2.length;i++){
-            temp.push(new ArcherServer(archerX2[i],archerY2[i]));
+            temp.push(new ArcherServer(archerX2[i],archerY2[i],i,archerTime[i]));
         }
         for(let i = 0; i< tankX2.length;i++){
 
-            temp.push(new TankServer(tankX2[i],tankY2[i]));
+            temp.push(new TankServer(tankX2[i],tankY2[i],i,tankTime[i]));
         }
         return temp;
     }
