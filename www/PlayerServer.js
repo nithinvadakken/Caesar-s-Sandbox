@@ -16,9 +16,9 @@ Bullets = [];
         }
 
         play() {//TODO make bullet follow enemy
-            console.log(this.x, this.y,this.Ex,this.Ey,this.id);
+            //console.log(this.x, this.y,this.Ex,this.Ey,this.id);
             let that = this;
-            console.log("????"+that.id+"  "+(that.Ey - that.y));
+           // console.log("????"+that.id+"  "+(that.Ey - that.y));
             var a = setInterval(function () {
 
                 if ((that.Ex - that.x) < 1 && (that.Ex - that.x) > -1 && (that.Ey - that.y) < 1 && (that.Ey - that.y) > -1) {
@@ -70,8 +70,11 @@ Bullets = [];
             this.id = id;
         }
 
-        getDistanceToTarget(tx, ty) {
+        getDistanceToTarget(tx, ty, temp) {
+            if(temp ===0)
             return Math.sqrt(Math.pow(this.x - tx, 2) + Math.pow(this.y - ty, 2));
+            else
+                return Math.sqrt(Math.pow(this.x - tx+20, 2) + Math.pow(this.y - ty+20, 2));
         }
 
 //     attack (enemy) {
@@ -202,7 +205,12 @@ Bullets = [];
                 // this.attack_lineEx = (enemy.x);
                 // this.attack_lineEy = (enemy.y);
                 //console.log(this.x, this.y, enemy.x, enemy.y);
-                var temp = new Bullet(this.x, this.y, enemy.x, enemy.y, .2,this.id );
+                if(this.name === "Tank" && enemy.name === "Tank")
+                    var temp = new Bullet(this.x+20, this.y+20, enemy.x+20, enemy.y+20, 1,this.id );
+                else if(this.name === "Tank")
+                    var temp = new Bullet(this.x+20, this.y+20, enemy.x, enemy.y, 1,this.id );
+                else
+                    var temp = new Bullet(this.x, this.y, enemy.x, enemy.y, 1,this.id );
                 Bullets.push(temp);
                 console.log("HERE"+Bullets);
                 temp.play();
@@ -222,7 +230,7 @@ Bullets = [];
             }
 
             for (let i = 0; i < enemies.length; i++) {
-                if (this.getDistanceToTarget(enemies[i].x, enemies[i].y) < 100) {
+                if (this.getDistanceToTarget(enemies[i].x, enemies[i].y,0) < 100) {
                     if (this.name === "Melee" && enemies[i].name === "Archer") {
 
                         terror += 3;
@@ -244,7 +252,7 @@ Bullets = [];
 
             for (let i = 0; i < allies.length; i++) {
 
-                if (this.getDistanceToTarget(allies[i].x, allies[i].y) < 100) {
+                if (this.getDistanceToTarget(allies[i].x, allies[i].y,0) < 100) {
 
                     if (this.name === "Melee" && allies[i].name === "Archer") {
 
@@ -284,18 +292,34 @@ Bullets = [];
             let ey = 1000000;
             let terror = 0;
 
-
+            let attacked = 0;
             for (let i = 0; i < enemies.length; i++) {
                 let terror = this.movement_heuristic(enemies, allies);
-                if (this.getDistanceToTarget(enemies[i].x, enemies[i].y) < this.range) {//TODO attacks all enemies onstead of 1
-                    this.attack(enemies[i]);
-                    break;
-                } else if (this.getDistanceToTarget(enemies[i].x, enemies[i].y) < this.getDistanceToTarget(ex, ey)) {
-                    ex = enemies[i].x;
-                    ey = enemies[i].y;
-                    this.targetMove(ex, ey, terror);
+                if (this.name === "Tank") {
+                    if (this.getDistanceToTarget(enemies[i].x+20, enemies[i].y+20, 1) < this.range && attacked === 0) {//TODO attacks all enemies onstead of 1
+                        this.attack(enemies[i]);
+                        attacked = 1;
+                        break;
+                    }
+                    else if (attacked === 0 && this.getDistanceToTarget(enemies[i].x, enemies[i].y,1) < this.getDistanceToTarget(ex, ey,1)) {
+                        ex = enemies[i].x;
+                        ey = enemies[i].y;
+                        this.targetMove(ex, ey, terror);
+                    }
                 }
+                else {
+                    if (this.getDistanceToTarget(enemies[i].x, enemies[i].y,0) < this.range && attacked === 0) {//TODO attacks all enemies onstead of 1
+                        this.attack(enemies[i]);
+                        attacked = 1;
+                        break;
+                    }
+                    else if (attacked === 0 && this.getDistanceToTarget(enemies[i].x, enemies[i].y,0) < this.getDistanceToTarget(ex, ey,0)) {
+                        ex = enemies[i].x;
+                        ey = enemies[i].y;
+                        this.targetMove(ex, ey, terror);
+                    }
 
+                }
             }
 
         }
@@ -353,11 +377,11 @@ Bullets = [];
 
         constructor(x, y, name, time, hp = MELEEHP,id) {
             //x, y, health, dmg, range, speed, size, name, att_spd
-            super(x, y, hp, 75, 20, 10, 7, "Melee", 1.5, time,id);
+            super(x, y, hp, 75, 30, 10, 7, "Melee", 1.5, time,id);
         }
 
         checkBounds(tx, ty) {
-            if (this.getDistanceToTarget(tx, ty) <= this.size / 2) {
+            if (this.getDistanceToTarget(tx, ty,0) <= this.size / 2) {
                 return true;
             }
             return false;
@@ -374,11 +398,11 @@ Bullets = [];
 
         constructor(x, y, name, time, hp = ARCHERHP,id) {
             //x, y, health, dmg, range, speed, size, name, att_spd
-            super(x, y, hp, 50, 70, 30, 20, "Archer", 1, time,id);
+            super(x, y, hp, 50, 70, 30, 20, "Archer", 1.5, time,id);
         }
 
         checkBounds(tx, ty) {
-            if (this.getDistanceToTarget(tx, ty) <= this.size / 2) {
+            if (this.getDistanceToTarget(tx, ty,0) <= this.size / 2) {
                 return true;
             }
             return false;
@@ -391,7 +415,7 @@ Bullets = [];
 
         constructor(x, y, name, time, hp = TANKHP,id) {
             //x, y, health, dmg, range, speed, size, name, acc
-            super(x, y, hp, 150, 35, 50, 40, "Tank", 5, time,id);
+            super(x, y, hp, 150, 50, 50, 40, "Tank", 5, time,id);
         }
 
         checkBounds(tx, ty) {
@@ -477,12 +501,12 @@ Bullets = [];
                     if (this.army[x].name === ("Tank")) {
                         this.tankX1.push(this.army[x].x);
                         this.tankY1.push(this.army[x].y);
-                        this.archerTime.push(this.army[x].saved_time);
+                        this.tankTime.push(this.army[x].saved_time);
                     }
                     if (this.army[x].name === ("Archer")) {
                         this.archerX1.push(this.army[x].x);
                         this.archerY1.push(this.army[x].y);
-                        this.tankTime.push(this.army[x].saved_time);
+                        this.archerTime.push(this.army[x].saved_time);
                     }
 
                 }
@@ -492,6 +516,9 @@ Bullets = [];
                 this.archerY2 = [];
                 this.tankX2 = [];
                 this.tankY2 = [];
+                this.meleehpE = [];
+                this.archerhpE = [];
+                this.tankhpE = [];
                 for (let x = 0; x < this.enemies.length; x++) {
                     if (this.enemies[x].name === ("Melee")) {
                         this.meleeX2.push(this.enemies[x].x);
@@ -510,8 +537,9 @@ Bullets = [];
                     }
 
                 }
-            }
 
+            }
+            //console.log(this.id+"   "+this.meleehpE.length);
             // for (let i = 0; i < this.army.length; i++) {
             //     //if (this.army[i].attack_linex !== undefined)
             //       //  console.log("player line array: " + this.army[i].attack_linex);

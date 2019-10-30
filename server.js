@@ -7,8 +7,8 @@ users_id = [];
 //specify the html we will use
 app.use('/', express.static(__dirname + '/www'));
 //bind the server to the 80 port
-//server.listen(3000);//local
-server.listen(process.env.PORT);//publish to heroku
+server.listen(3000);//local
+//server.listen(process.env.PORT);//publish to heroku
 //server.listen(process.env.OPENSHIFT_NODEJS_PORT || 3000);//publish to openshift
 console.log('server started on port'/*+process.env.PORT ||*/ + 3000);
 //handle the socket
@@ -169,9 +169,9 @@ function updateGame(room) {
             rooms[room].meleehp1 = rooms[room].player2.meleehpE;
             rooms[room].archerhp1 = rooms[room].player2.archerhpE;
             rooms[room].tankhp1 = rooms[room].player2.tankhpE;
-            rooms[room].meleehp2 = rooms[room].player2.meleehpE;
-            rooms[room].archerhp2 = rooms[room].player2.archerhpE;
-            rooms[room].tankhp2 = rooms[room].player2.tankhpE;
+            rooms[room].meleehp2 = rooms[room].player1.meleehpE;
+            rooms[room].archerhp2 = rooms[room].player1.archerhpE;
+            rooms[room].tankhp2 = rooms[room].player1.tankhpE;
 
 
             rooms[room].meleeX2 = rooms[room].player2.meleeX1;
@@ -215,17 +215,16 @@ function table(room) {
             console.log("***");
             // console.log(rooms[room].attack_linex1);
             // console.log(rooms[room].attack_linex2);
-            console.log(rooms[room].meleehp1+"  "+rooms[room].meleehp1.length);
-            console.log(rooms[room].meleeX1.length)
-            console.log(rooms[room].meleehp2+"  " +rooms[room].meleehp2.length);
-            console.log(rooms[room].meleeX2.length)
-            // console.log(rooms[room].attack_lineEx1[0]+"  "+rooms[room].attack_linex2[0]);
-            // console.log(rooms[room].attack_lineEx2[0]+"  "+rooms[room].attack_linex1[0]);
+            console.log(rooms[room].archerhp1);
+            console.log(rooms[room].archerhp2);
+
+            //console.log(rooms[room].attack_lineEx1[0]+"  "+rooms[room].attack_linex2[0]);
+            //console.log(rooms[room].attack_lineEx2[0]+"  "+rooms[room].attack_linex1[0]);
            // console.log(rooms[room].attack_linex1[1])
             //console.log(rooms[room].attack_liney1[1])
 
-            //console.assert(rooms[room].attack_linex1[0],rooms[room].attack_liney1[0],rooms[room].attack_lineEx1[0],rooms[room].attack_lineEy1[0])
-            //console.assert(rooms[room].attack_linex2[0],rooms[room].attack_liney2[0],rooms[room].attack_lineEx2[0],rooms[room].attack_lineEy2[0])
+           // console.assert(rooms[room].attack_linex1[0],rooms[room].attack_liney1[0],rooms[room].attack_lineEx1[0],rooms[room].attack_lineEy1[0])
+           // console.assert(rooms[room].attack_linex2[0],rooms[room].attack_liney2[0],rooms[room].attack_lineEx2[0],rooms[room].attack_lineEy2[0])
         }
     }, 1000 / 2);
 }
@@ -464,6 +463,7 @@ io.sockets.on('connection', function (socket) {
                     for (let i = 0; i < rooms[socket.room].tankX1.length; i++) {
                         rooms[socket.room].tankhp1.push(tankhp);
                     }
+                    console.log(  "!!!!!!!!!!!!!!!"+rooms[socket.room].meleehp1.length+"  "+rooms[socket.room].meleehp2.length)
 
                     rooms[socket.room].max = max;
                     let i;
@@ -526,7 +526,6 @@ io.sockets.on('connection', function (socket) {
                     for (let i = 0; i < rooms[socket.room].tankX2.length; i++) {
                         rooms[socket.room].tankhp2.push(tankhp);
                     }
-
                     for (let i = 0; i < rooms[socket.room].meleeX1.length; i++) {
                         rooms[socket.room].meleehp1.push(meleehp);
                     }
@@ -536,7 +535,7 @@ io.sockets.on('connection', function (socket) {
                     for (let i = 0; i < rooms[socket.room].tankX1.length; i++) {
                         rooms[socket.room].tankhp1.push(tankhp);
                     }
-
+                    console.log(  "!!!!!!!!!!!!!!!"+rooms[socket.room].meleehp1.length+"  "+rooms[socket.room].meleehp2.length)
                     rooms[socket.room].max = max;
                     let i;
                     for (i = 0; i < max; i++) {
