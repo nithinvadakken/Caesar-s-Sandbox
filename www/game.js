@@ -131,12 +131,18 @@ let player1;
 let player2;
 let thisname;
 
-function draw_please(id1, id2, name1, name2, troops, color1, color2, meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2, linex,liney,lineEx,lineEy,index) {
+function draw_please(id1, id2, name1, name2, troops, color1, color2, meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2, linex1,liney1,lineEx1,lineEy1,linex2,liney2,lineEx2,lineEy2,index) {
     //console.log("tank " + tankX2);
    // console.log("first");
     createCanvas(window.innerWidth, window.innerHeight);
-    player1 = new Player(id1, color1);
-    player2 = new Player(id2, color2);
+    if(index === 1) {
+        player1 = new Player(id1, color1);
+        player2 = new Player(id2, color2);
+    }
+    else{
+        player2 = new Player(id1, color1);
+        player1 = new Player(id2, color2);
+    }
     background(0);
     translate(window.innerWidth / 2 - player1.position.x, window.innerHeight / 2 - player1.position.y);
     army1 = player1.createArmy(meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1);
@@ -153,23 +159,29 @@ function draw_please(id1, id2, name1, name2, troops, color1, color2, meleeX1, me
     player2.enemies = army1;
     player1.show();
     player2.show();
-    if(linex !==null) {
-        for (let i = 0; i < linex.length; i++) {
-            console.log("drawing line: "+linex[i]);
-            if(index === 0){
-                console.log(index+" attacked");
+    //console.log("importatny"+lineEx1)
+    if(linex1 !==null) {
+        for (let i = 0; i < linex1.length; i++) {
+            console.log("drawing line: "+linex1[i]);
+            if(index ===1)
                 stroke(color(255, 0, 0));
-                strokeWeight(1);
-                line(parseInt(linex[i])+5, parseInt(liney[i])+5, parseInt(lineEx[i])+5, parseInt(lineEy[i])+5);
-            }
-            if(index === 1) {
-                console.log(index+" attacked");
+            else
                 stroke(color(0, 255, 0));
-                strokeWeight(1);
-                line(parseInt(linex[i]), parseInt(liney[i]), parseInt(lineEx[i]), parseInt(lineEy[i]));
-            }
+            strokeWeight(1);
+            line(parseInt(linex1[i]), parseInt(liney1[i]), parseInt(lineEx1[i]), parseInt(lineEy1[i]));
         }
     }
+    if(linex2 !==undefined) {
+        for (let i = 0; i < linex2.length; i++) {
+            console.log("drawing line: "+linex2[i]);
+            if(index ===0)
+                stroke(color(255, 0, 0));
+            else
+                stroke(color(0, 255, 0));
+            strokeWeight(1);
+            line(parseInt(linex2[i]), parseInt(liney2[i]), parseInt(lineEx2[i]), parseInt(lineEy2[i]));
+        }
+    } 
 }
 
 //
@@ -578,20 +590,22 @@ Game.prototype = {
            // console.log("start1")
             let keep_drawing = true;
             if (index < 2) {
+                army_edit = false;
                 //console.log("start2")
                 draw_loop();
                 function draw_loop() {
                     that.socket.emit("request_update");
                     //console.log("start3")
-                    that.socket.on("updated_draw", function (meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2, index, name1, name2, linex,liney,lineEx,lineEy) {
-                        console.log("drawing... " +linex.length);
-                        draw_please(0, 1, name1, name2, max, 'green', 'red', meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2,linex,liney,lineEx,lineEy,index);
+
+                    that.socket.on("updated_draw", function (meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2, index, name1, name2, linex1,liney1,lineEx1,lineEy1,linex2,liney2,lineEx2,lineEy2) {
+                        console.log(linex1+" "+liney1+" "+lineEx1+" "+lineEy1);
+                        draw_please(0, 1, name1, name2, max, 'green', 'red', meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2,linex1,liney1,lineEx1,lineEy1,linex2,liney2,lineEx2,lineEy2,index);
                         if(keep_drawing===true){
-                            let a = requestAnimationFrame(draw_loop())
+                            let a = requestAnimationFrame(draw_loop());
                             console.log(a);
                             // requestAnimFrame(() => { draw_loop(); });
                         }
-                    })
+                    });
                     that.socket.on("game_ended", function () {
                         keep_drawing = false;
                     })
