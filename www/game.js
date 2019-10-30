@@ -163,7 +163,7 @@ function draw_please(id1, id2, name1, name2, troops, color1, color2, meleeX1, me
     if(linex1 !==null) {
         for (let i = 0; i < linex1.length; i++) {
             console.log("drawing line: "+linex1[i]);
-            if(index ===1)
+            if(index ===0)
                 stroke(color(255, 0, 0));
             else
                 stroke(color(0, 255, 0));
@@ -174,7 +174,7 @@ function draw_please(id1, id2, name1, name2, troops, color1, color2, meleeX1, me
     if(linex2 !==undefined) {
         for (let i = 0; i < linex2.length; i++) {
             console.log("drawing line: "+linex2[i]);
-            if(index ===0)
+            if(index ===1)
                 stroke(color(255, 0, 0));
             else
                 stroke(color(0, 255, 0));
@@ -598,7 +598,8 @@ Game.prototype = {
                     //console.log("start3")
 
                     that.socket.on("updated_draw", function (meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2, index, name1, name2, linex1,liney1,lineEx1,lineEy1,linex2,liney2,lineEx2,lineEy2) {
-                        console.log(linex1+" "+liney1+" "+lineEx1+" "+lineEy1);
+                        //console.log(linex1+" "+liney1+" "+lineEx1+" "+lineEy1);
+                        console.log("0: "+lineEx1.length+ "   1:"+lineEx2.length);
                         draw_please(0, 1, name1, name2, max, 'green', 'red', meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2,linex1,liney1,lineEx1,lineEy1,linex2,liney2,lineEx2,lineEy2,index);
                         if(keep_drawing===true){
                             let a = requestAnimationFrame(draw_loop());

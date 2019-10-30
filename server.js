@@ -130,8 +130,9 @@ function updateGame(room) {
     //     if(rooms[i].game_state === 2)
     //rooms[i].moveArmy();
     rooms[room].loop = setInterval(function () {
-        rooms[room].player1 = new Player();
-        rooms[room].player2 = new Player();
+        rooms[room].player1 = new Player(0);
+        rooms[room].player2 = new Player(1);
+
         if (rooms[room].game_state !== 2) {
             io.to(rooms[room].server).emit('game_ended');
             console.log("game stop");
@@ -149,8 +150,8 @@ function updateGame(room) {
             // console.log("a1: "+rooms[room].archerX1);
             // console.log("a2: "+rooms[room].archerX2);
 
-            rooms[room].player1.army = rooms[room].player1.createArmy(rooms[room].meleeX1, rooms[room].meleeY1, rooms[room].archerX1, rooms[room].archerY1, rooms[room].tankX1, rooms[room].tankY1, rooms[room].meleeTime1, rooms[room].archerTime1, rooms[room].tankTime1, rooms[room].meleehp1, rooms[room].archerhp1, rooms[room].tankhp1);
-            rooms[room].player1.enemies = rooms[room].player1.createArmy(rooms[room].meleeX2, rooms[room].meleeY2, rooms[room].archerX2, rooms[room].archerY2, rooms[room].tankX2, rooms[room].tankY2, rooms[room].meleeTime2, rooms[room].archerTime2, rooms[room].tankTime2, rooms[room].meleehp2, rooms[room].archerhp2, rooms[room].tankhp2);
+            rooms[room].player1.army = rooms[room].player2.createArmy(rooms[room].meleeX1, rooms[room].meleeY1, rooms[room].archerX1, rooms[room].archerY1, rooms[room].tankX1, rooms[room].tankY1, rooms[room].meleeTime1, rooms[room].archerTime1, rooms[room].tankTime1, rooms[room].meleehp1, rooms[room].archerhp1, rooms[room].tankhp1,0);
+            rooms[room].player1.enemies = rooms[room].player2.createArmy(rooms[room].meleeX2, rooms[room].meleeY2, rooms[room].archerX2, rooms[room].archerY2, rooms[room].tankX2, rooms[room].tankY2, rooms[room].meleeTime2, rooms[room].archerTime2, rooms[room].tankTime2, rooms[room].meleehp2, rooms[room].archerhp2, rooms[room].tankhp2,1);
             rooms[room].player1.moveArmy();
             rooms[room].player2.army = rooms[room].player1.enemies;
             rooms[room].player2.enemies = rooms[room].player1.army;
@@ -214,8 +215,17 @@ function table(room) {
             console.log("***");
             // console.log(rooms[room].attack_linex1);
             // console.log(rooms[room].attack_linex2);
-            console.log(rooms[room].meleehp1);
-            console.log(rooms[room].meleehp2);
+            console.log(rooms[room].meleehp1+"  "+rooms[room].meleehp1.length);
+            console.log(rooms[room].meleeX1.length)
+            console.log(rooms[room].meleehp2+"  " +rooms[room].meleehp2.length);
+            console.log(rooms[room].meleeX2.length)
+            // console.log(rooms[room].attack_lineEx1[0]+"  "+rooms[room].attack_linex2[0]);
+            // console.log(rooms[room].attack_lineEx2[0]+"  "+rooms[room].attack_linex1[0]);
+           // console.log(rooms[room].attack_linex1[1])
+            //console.log(rooms[room].attack_liney1[1])
+
+            //console.assert(rooms[room].attack_linex1[0],rooms[room].attack_liney1[0],rooms[room].attack_lineEx1[0],rooms[room].attack_lineEy1[0])
+            //console.assert(rooms[room].attack_linex2[0],rooms[room].attack_liney2[0],rooms[room].attack_lineEx2[0],rooms[room].attack_lineEy2[0])
         }
     }, 1000 / 2);
 }
@@ -609,7 +619,7 @@ io.sockets.on('connection', function (socket) {
             rooms[socket.room].archerX = [];
             rooms[socket.room].archerY = [];
             rooms[socket.room].tankX = [];
-            rooms[socket.room].tankY = [];
+            rooms[socket.room].tankY = [];//TODO  RESET ERVERYTHING
 
             console.log("after");
             console.log(rooms[socket.room].players_names);

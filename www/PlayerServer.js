@@ -2,20 +2,23 @@
 // Troop class
 Bullets = [];
     class Bullet {
-        constructor(x, y, Ex, Ey, spd) {
+        constructor(x, y, Ex, Ey, spd, id) {
 
             this.x = x;
             this.y = y;
             this.Ey = Ey;
             this.Ex = Ex;
             this.spd = spd;
+            this.id = id;
             this.index1 = Bullets.length;
 
 
         }
 
         play() {//TODO make bullet follow enemy
+            console.log(this.x, this.y,this.Ex,this.Ey,this.id);
             let that = this;
+            console.log("????"+that.id+"  "+(that.Ey - that.y));
             var a = setInterval(function () {
 
                 if ((that.Ex - that.x) < 1 && (that.Ex - that.x) > -1 && (that.Ey - that.y) < 1 && (that.Ey - that.y) > -1) {
@@ -24,13 +27,21 @@ Bullets = [];
                     clearInterval(a);
                 }
                 else {
-                    that.y += that.spd * (that.Ey - that.y) / (that.Ex - that.x);
+                    let temp2 = that.Ey - that.y;
+                    let temp3 = that.Ex - that.x;
+                   // console.log(temp2,temp3);
+                    //console.log("???"+Math.sqrt((that.Ex - that.x)^2+(Math.abs(temp2 - temp))^2));
+
+                    that.y += that.spd * temp2 / (Math.pow(Math.pow(temp2,2)+Math.pow(temp3,2),.5));
                     // console.log(that.spd * (that.Ey - that.y) / (that.Ex - that.x));
-                    // console.log((this.Ex - this.x));
-                    that.x += that.spd * (that.Ex - that.x) / (that.Ey - that.y);
+                   // console.log("really"+that.id+"  "+(that.Ey - that.y));
+                    that.x += that.spd * temp3 / (Math.pow(Math.pow(temp2,2)+Math.pow(temp3,2),.5));
                     //console.log("("+that.x+","+that.y+")");
                 }
-            }, 60);
+             }, 60);
+            // setInterval(function () {
+            //     console.log(that.id + " HELLELELE"+that.x)
+            // },500)
         }
 
     }
@@ -38,7 +49,7 @@ Bullets = [];
 
     class GameTroopServer {//TODO make the drawing start for the middle not the edges!!!
 
-        constructor(x, y, health, dmg, range, speed, size, name, att_spd, time) {
+        constructor(x, y, health, dmg, range, speed, size, name, att_spd, time,id) {
             this.x = x;
             this.y = y;
             this.health = health;
@@ -56,6 +67,7 @@ Bullets = [];
             this.attack_lineEx = [];
             this.attack_lineEy = [];
             this.temp = false;
+            this.id = id;
         }
 
         getDistanceToTarget(tx, ty) {
@@ -173,7 +185,7 @@ Bullets = [];
             //console.log("saved ="+this.saved_time.getTime() +"curr = "+current_time.getTime()+"\ndiff="+(this.saved_time.getTime()-current_time.getTime()))
             if (current_time.getTime() - this.saved_time > this.att_spd * 1000) {
                 console.log("attacked");
-                enemy.health -= this.dmg / 2 + this.dmg * (this.level / 4 );
+                enemy.health -= this.dmg /2 + this.dmg * (this.level / 2 );
                 if (enemy.health <= 0) {
                     this.killCount += 1;
                     if (this.killCount >= this.level * 2) {
@@ -189,8 +201,8 @@ Bullets = [];
                 // this.attack_liney = (this.y);
                 // this.attack_lineEx = (enemy.x);
                 // this.attack_lineEy = (enemy.y);
-
-                var temp = new Bullet(this.x, this.y, enemy.x, enemy.y, .3);
+                //console.log(this.x, this.y, enemy.x, enemy.y);
+                var temp = new Bullet(this.x, this.y, enemy.x, enemy.y, .2,this.id );
                 Bullets.push(temp);
                 console.log("HERE"+Bullets);
                 temp.play();
@@ -339,9 +351,9 @@ Bullets = [];
 //Melee Class
     class MeleeSoldierServer extends GameTroopServer {
 
-        constructor(x, y, name, time, hp = MELEEHP) {
+        constructor(x, y, name, time, hp = MELEEHP,id) {
             //x, y, health, dmg, range, speed, size, name, att_spd
-            super(x, y, hp, 75, 20, 10, 7, "Melee", 1.5, time);
+            super(x, y, hp, 75, 20, 10, 7, "Melee", 1.5, time,id);
         }
 
         checkBounds(tx, ty) {
@@ -360,9 +372,9 @@ Bullets = [];
 
     class ArcherServer extends GameTroopServer {
 
-        constructor(x, y, name, time, hp = ARCHERHP) {
+        constructor(x, y, name, time, hp = ARCHERHP,id) {
             //x, y, health, dmg, range, speed, size, name, att_spd
-            super(x, y, hp, 50, 70, 30, 20, "Archer", 1, time);
+            super(x, y, hp, 50, 70, 30, 20, "Archer", 1, time,id);
         }
 
         checkBounds(tx, ty) {
@@ -377,9 +389,9 @@ Bullets = [];
 // Tank Class
     class TankServer extends GameTroopServer {
 
-        constructor(x, y, name, time, hp = TANKHP) {
+        constructor(x, y, name, time, hp = TANKHP,id) {
             //x, y, health, dmg, range, speed, size, name, acc
-            super(x, y, hp, 150, 35, 50, 40, "Tank", 5, time);
+            super(x, y, hp, 150, 35, 50, 40, "Tank", 5, time,id);
         }
 
         checkBounds(tx, ty) {
@@ -513,25 +525,28 @@ Bullets = [];
                 // console.log(Bullets.length);
                 // console.log(this.attack_linex);
                 //console.table(Bullets);
-                this.attack_linex.push(Bullets[i].x);
-                this.attack_liney.push(Bullets[i].y);
-                this.attack_lineEx.push(Bullets[i].Ex);
-                this.attack_lineEy.push(Bullets[i].Ey);
+
+                if(this.id === Bullets[i].id) {
+                    this.attack_linex.push(Bullets[i].x);
+                    this.attack_liney.push(Bullets[i].y);
+                    this.attack_lineEx.push(Bullets[i].Ex);
+                    this.attack_lineEy.push(Bullets[i].Ey);
+                }
             }
         }
 
-        createArmy(meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2, meleeTime, archerTime, tankTime, meleehp1, archerhp1, tankhp1) {
+        createArmy(meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2, meleeTime, archerTime, tankTime, meleehp1, archerhp1, tankhp1,index) {
             let temp = [];
             for (let i = 0; i < meleeX2.length; i++) {
-                temp.push(new MeleeSoldierServer(meleeX2[i], meleeY2[i], i, meleeTime[i], meleehp1[i]));
+                temp.push(new MeleeSoldierServer(meleeX2[i], meleeY2[i], i, meleeTime[i], meleehp1[i],index));
 
             }
             for (let i = 0; i < archerX2.length; i++) {
-                temp.push(new ArcherServer(archerX2[i], archerY2[i], i, archerTime[i], archerhp1[i]));
+                temp.push(new ArcherServer(archerX2[i], archerY2[i], i, archerTime[i], archerhp1[i],index));
             }
             for (let i = 0; i < tankX2.length; i++) {
 
-                temp.push(new TankServer(tankX2[i], tankY2[i], i, tankTime[i], tankhp1[i]));
+                temp.push(new TankServer(tankX2[i], tankY2[i], i, tankTime[i], tankhp1[i],index));
             }
             return temp;
         }
