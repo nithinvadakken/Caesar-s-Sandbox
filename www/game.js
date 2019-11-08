@@ -30,6 +30,10 @@ let submited = false;
 let stop_sim = false;
 let custom_room_clicked = false;
 let spec_btn_made = false;
+let troopId = 0;
+let meleeId = [];
+let archerId = [];
+let tankId = [];
 
 function add_armies(x) {
     console.log(x);
@@ -57,6 +61,10 @@ function add_armies(x) {
         archerY = [];
         tankX = [];
         tankY = [];
+        troopId = 0;
+        archerId = [];
+        meleeId  = [];
+        tankId = [];
     });
     submit_btn = document.createElement("BUTTON");
     submit_btn.innerHTML = "Submit";
@@ -71,14 +79,18 @@ function keyPressed() {
                 player.addArmyOnClick(mouseX, mouseY, 0);
                 meleeX.push(mouseX);
                 meleeY.push(mouseY);
+                meleeId.push(troopId);
+                troopId++;
                 player.drawArmy();
                 console.log("melee");
                 current++;
             }
-            if (which_player === 1 && mouseX > window.innerWidth / 2 && current < max) {
+            if (which_player === 1 && mouseX > window.innerWidth / 2 && current < max) {//TODO make a line so it splits screen
                 player.addArmyOnClick(mouseX, mouseY, 0);
                 meleeX.push(mouseX);
                 meleeY.push(mouseY);
+                meleeId.push(troopId);
+                troopId++;
                 player.drawArmy();
                 console.log("melee");
                 current++;
@@ -89,6 +101,8 @@ function keyPressed() {
                 player.addArmyOnClick(mouseX, mouseY, 1);
                 archerX.push(mouseX);
                 archerY.push(mouseY);
+                archerId.pop(troopId);
+                troopId++;
                 player.drawArmy();
                 console.log("archer");
                 current++;
@@ -97,6 +111,8 @@ function keyPressed() {
                 player.addArmyOnClick(mouseX, mouseY, 1);
                 archerX.push(mouseX);
                 archerY.push(mouseY);
+                archerId.pop(troopId);
+                troopId++;
                 player.drawArmy();
                 console.log("archer");
                 current++;
@@ -107,6 +123,8 @@ function keyPressed() {
                 player.addArmyOnClick(mouseX, mouseY, 2);
                 tankX.push(mouseX);
                 tankY.push(mouseY);
+                tankId.push(troopId);
+                troopId++;
                 player.drawArmy();
                 console.log("tank");
                 current++;
@@ -115,6 +133,8 @@ function keyPressed() {
                 player.addArmyOnClick(mouseX, mouseY, 2);
                 tankX.push(mouseX);
                 tankY.push(mouseY);
+                tankId.push(troopId);
+                troopId++;
                 player.drawArmy();
                 console.log("tank");
                 current++;
@@ -159,12 +179,13 @@ function draw_please(id1, id2, name1, name2, troops, color1, color2, meleeX1, me
     player2.enemies = army1;
     player1.show();
     player2.show();
+    console.log(lineEx1.length +"  ,   "+lineEx2.length);
     //console.log("importatny"+lineEx1)
-    if(linex1 !==null) {
+    if(linex1 !==undefined) {
         for (let i = 0; i < linex1.length; i++) {
             console.log("drawing line: "+linex1[i]);
             if(index ===0)
-                stroke(color(255, 0, 0));
+                stroke(color(200, 30, 0));
             else
                 stroke(color(0, 255, 0));
             strokeWeight(1);
@@ -175,7 +196,7 @@ function draw_please(id1, id2, name1, name2, troops, color1, color2, meleeX1, me
         for (let i = 0; i < linex2.length; i++) {
             console.log("drawing line: "+linex2[i]);
             if(index ===1)
-                stroke(color(255, 0, 0));
+                stroke(color(200, 30, 0));
             else
                 stroke(color(0, 255, 0));
             strokeWeight(1);
@@ -575,7 +596,7 @@ Game.prototype = {
                 clear_btn.parentNode.removeChild(clear_btn);
                 submit_btn.parentNode.removeChild(submit_btn);
                 finished_army = true;
-                that.socket.emit("army_submitted", meleeX, meleeY, archerX, archerY, tankX, tankY);
+                that.socket.emit("army_submitted", meleeX, meleeY, archerX, archerY, tankX, tankY, meleeId,archerId,tankId);
                 // that.socket.on("enemy army", function ( id1,id2,name1,name2,meleeXE,meleeYE,archerXE,archerYE,tankXE,tankYE) {
                 //     console.log("enemy+army");
                 //     draw_please(id1,id2,name1,name2,max,'green','red',meleeX,meleeY,archerX,archerY,tankX,tankY,meleeXE,meleeYE,archerXE,archerYE,tankXE,tankYE);

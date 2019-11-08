@@ -7,8 +7,8 @@ users_id = [];
 //specify the html we will use
 app.use('/', express.static(__dirname + '/www'));
 //bind the server to the 80 port
-//server.listen(3000);//local
-server.listen(process.env.PORT);//publish to heroku
+server.listen(3000);//local
+//server.listen(process.env.PORT);//publish to heroku
 //server.listen(process.env.OPENSHIFT_NODEJS_PORT || 3000);//publish to openshift
 console.log('server started on port'/*+process.env.PORT ||*/ + 3000);
 //handle the socket
@@ -55,7 +55,7 @@ Room.prototype = {
     game_state: 0,
     loop: 0,
     player: 0,
-    private: false,
+    private: false
 
 };
 
@@ -119,13 +119,19 @@ function create_room(server) {
     x.meleehp2 = [];
     x.archerhp2 = [];
     x.tankhp2 = [];
+    x.meleeId1 = [];
+    x.archerId1 = [];
+    x.tankId1 = [];
+    x.meleeId2 = [];
+    x.archerId2 = [];
+    x.tankId2 = [];
     x.simulation = 0;
     x.private = false;
     rooms.push(x);
     amount_of_rooms++;
 }
 function updateGame(room) {
-    table(room);
+    //table(room);
     // for(let i = 0; i<rooms.length; i++)
     //     if(rooms[i].game_state === 2)
     //rooms[i].moveArmy();
@@ -140,24 +146,43 @@ function updateGame(room) {
         }
         else {
 
+            // rooms[room].player1.attack_linex = [];
+            // rooms[room].player1.attack_liney = [];
+            // rooms[room].player1.attack_lineEx = [];
+            // rooms[room].player1.attack_lineEy = [];
 
-            rooms[room].player1.attack_linex = [];
-            rooms[room].player1.attack_liney = [];
-            rooms[room].player1.attack_lineEx = [];
-            rooms[room].player1.attack_lineEy = [];
+            rooms[room].attack_linex1 = []
+            rooms[room].attack_liney1 = []
+            rooms[room].attack_lineEx1 =[]
+            rooms[room].attack_lineEy1 = []
+            //console.log("hi "+ rooms[room].attack_linex1);
+
+            rooms[room].attack_linex2 = []
+            rooms[room].attack_liney2 = []
+            rooms[room].attack_lineEx2 = []
+            rooms[room].attack_lineEy2 =[]
 
             //console.log("updating...");
             // console.log("a1: "+rooms[room].archerX1);
             // console.log("a2: "+rooms[room].archerX2);
 
-            rooms[room].player1.army = rooms[room].player2.createArmy(rooms[room].meleeX1, rooms[room].meleeY1, rooms[room].archerX1, rooms[room].archerY1, rooms[room].tankX1, rooms[room].tankY1, rooms[room].meleeTime1, rooms[room].archerTime1, rooms[room].tankTime1, rooms[room].meleehp1, rooms[room].archerhp1, rooms[room].tankhp1,0);
-            rooms[room].player1.enemies = rooms[room].player2.createArmy(rooms[room].meleeX2, rooms[room].meleeY2, rooms[room].archerX2, rooms[room].archerY2, rooms[room].tankX2, rooms[room].tankY2, rooms[room].meleeTime2, rooms[room].archerTime2, rooms[room].tankTime2, rooms[room].meleehp2, rooms[room].archerhp2, rooms[room].tankhp2,1);
+            rooms[room].player1.army = rooms[room].player2.createArmy(rooms[room].meleeX1, rooms[room].meleeY1, rooms[room].archerX1, rooms[room].archerY1, rooms[room].tankX1, rooms[room].tankY1, rooms[room].meleeTime1, rooms[room].archerTime1, rooms[room].tankTime1, rooms[room].meleehp1, rooms[room].archerhp1, rooms[room].tankhp1,0,rooms[room].meleeId1,rooms[room].archerId1,rooms[room].tankId1,rooms[room].player1);
+            rooms[room].player1.enemies = rooms[room].player2.createArmy(rooms[room].meleeX2, rooms[room].meleeY2, rooms[room].archerX2, rooms[room].archerY2, rooms[room].tankX2, rooms[room].tankY2, rooms[room].meleeTime2, rooms[room].archerTime2, rooms[room].tankTime2, rooms[room].meleehp2, rooms[room].archerhp2, rooms[room].tankhp2,1,rooms[room].meleeId2,rooms[room].archerId2,rooms[room].tankId2,rooms[room].player2);
             rooms[room].player1.moveArmy();
             rooms[room].player2.army = rooms[room].player1.enemies;
             rooms[room].player2.enemies = rooms[room].player1.army;
             rooms[room].player2.moveArmy();
             rooms[room].player1.army = rooms[room].player2.enemies;
             rooms[room].player1.enemies = rooms[room].player2.army;
+
+            // for(let i = 0; i<rooms[room].player1.attack_linex.length; i++){
+            //     if(rooms[room].player1.attack_linex[i]=== temp1[i] &&rooms[room].player1.attack_liney[i]=== temp2[i] &&rooms[room].player1.attack_lineEx[i]=== temp3[i] &&rooms[room].player1.attack_lineEy[i]=== temp4[i] ){
+            //         rooms[room].player1.attack_linex.splice(i,1);
+            //         rooms[room].player1.attack_liney.splice(i,1);
+            //         rooms[room].player1.attack_lineEx.splice(i,1);
+            //         rooms[room].player1.attack_lineEy.splice(i,1);
+            //     }
+            // }
 
             rooms[room].meleeX1 = rooms[room].player1.meleeX1;
             rooms[room].meleeY1 = rooms[room].player1.meleeY1;
@@ -180,6 +205,7 @@ function updateGame(room) {
             rooms[room].archerY2 = rooms[room].player2.archerY1;
             rooms[room].tankX2 = rooms[room].player2.tankX1;
             rooms[room].tankY2 = rooms[room].player2.tankY1;
+
 
             rooms[room].attack_linex1 = rooms[room].player1.attack_linex;
             rooms[room].attack_liney1 = rooms[room].player1.attack_liney;
@@ -226,13 +252,13 @@ function table(room) {
            // console.assert(rooms[room].attack_linex1[0],rooms[room].attack_liney1[0],rooms[room].attack_lineEx1[0],rooms[room].attack_lineEy1[0])
            // console.assert(rooms[room].attack_linex2[0],rooms[room].attack_liney2[0],rooms[room].attack_lineEx2[0],rooms[room].attack_lineEy2[0])
         }
-    }, 1000 / 2);
+    }, 1000 / 1);
 }
 setInterval(function () {
     for (i = 0; i < amount_of_rooms; i++) {
         if (rooms[i].players_ids.length === 0) {
             console.log("deleted room" + rooms[i].server + "  " + rooms.length);
-            rooms.slice(i - 1, i);//FIX this TODO
+            rooms.slice(i - 1, 1);//FIX this TODO
             console.log(rooms.length)
         }
     }
@@ -413,7 +439,7 @@ io.sockets.on('connection', function (socket) {
 
         // io.sockets.in(socket.server).emit("make army",rooms[socket.server].players_ids.indexOf(socket.id));
     });
-    socket.on("army_submitted", function (meleeX, meleeY, archerX, archerY, tankX, tankY) {
+    socket.on("army_submitted", function (meleeX, meleeY, archerX, archerY, tankX, tankY, meleeId,archerId, tankId) {
         console.log("army_submitted");
         //console.log(rooms[socket.server].players_ids.indexOf(socket.id));
         rooms[socket.room].army_submit[rooms[socket.room].players_ids.indexOf(socket.id)] = true;
@@ -431,6 +457,9 @@ io.sockets.on('connection', function (socket) {
                 // io.to(rooms[socket.server].players_ids[1]).emit("enemy army", rooms[socket.server].players_ids[0], rooms[socket.server].players_ids[1], rooms[socket.server].players_names[0], rooms[socket.server].players_names[1], meleeX, meleeY, archerX, archerY, tankX, tankY);
                 // rooms[socket.server].simulation = [rooms[socket.server].players_ids[0], rooms[socket.server].players_ids[1], rooms[socket.server].players_names[0], rooms[socket.server].players_names[1],rooms[socket.server].meleeX, rooms[socket.server].meleeY, rooms[socket.server].archerX, rooms[socket.server].archerY, rooms[socket.server].tankX, rooms[socket.server].tankY, meleeX, meleeY, archerX, archerY, tankX, tankY];
                 // socket.broadcast.to(socket.server).emit("start_spec");//for spectating
+                rooms[socket.room].meleeId2 = meleeId;
+                rooms[socket.room].archerId2 = archerId;
+                rooms[socket.room].tankId2= tankId;
 
                 rooms[socket.room].meleeX2 = meleeX;
                 rooms[socket.room].meleeY2 = meleeY;
@@ -489,6 +518,9 @@ io.sockets.on('connection', function (socket) {
                 io.to(socket.server).emit("game_ready", rooms[socket.room].players_ids.indexOf(socket.id));
             }
             else {
+                rooms[socket.room].meleeId2 = meleeId;
+                rooms[socket.room].archerId2 = archerId;
+                rooms[socket.room].tankId2= tankId;
                 rooms[socket.room].meleeX2 = meleeX;
                 rooms[socket.room].meleeY2 = meleeY;
                 rooms[socket.room].archerX2 = archerX;
@@ -504,6 +536,10 @@ io.sockets.on('connection', function (socket) {
                 // io.to(rooms[socket.server].players_ids[1]).emit("enemy army", rooms[socket.server].players_ids[0], rooms[socket.server].players_ids[1], rooms[socket.server].players_names[0], rooms[socket.server].players_names[1], rooms[socket.server].meleeX, rooms[socket.server].meleeY, rooms[socket.server].archerX, rooms[socket.server].archerY, rooms[socket.server].tankX, rooms[socket.server].tankY);
                 // io.to(rooms[socket.server].players_ids[0]).emit("enemy army", rooms[socket.server].players_ids[0], rooms[socket.server].players_ids[1], rooms[socket.server].players_names[0], rooms[socket.server].players_names[1], meleeX, meleeY, archerX, archerY, tankX, tankY);
                 // rooms[socket.server].simulation = [rooms[socket.server].players_ids[0], rooms[socket.server].players_ids[1], rooms[socket.server].players_names[0], rooms[socket.server].players_names[1], rooms[socket.server].meleeX, rooms[socket.server].meleeY, rooms[socket.server].archerX, rooms[socket.server].archerY, rooms[socket.server].tankX, rooms[socket.server].tankY,meleeX, meleeY, archerX, archerY, tankX, tankY];
+
+                rooms[socket.room].meleeId1 = meleeId;
+                rooms[socket.room].archerId1 = archerId;
+                rooms[socket.room].tankId1= tankId;
 
                 rooms[socket.room].meleeX1 = meleeX;
                 rooms[socket.room].meleeY1 = meleeY;
@@ -557,6 +593,10 @@ io.sockets.on('connection', function (socket) {
                 io.to(socket.server).emit("game_ready", rooms[socket.room].players_ids.indexOf(socket.id));
             }
             else {
+                rooms[socket.room].meleeId1 = meleeId;
+                rooms[socket.room].archerId1 = archerId;
+                rooms[socket.room].tankId1= tankId;
+                
                 rooms[socket.room].meleeX1 = meleeX;
                 rooms[socket.room].meleeY1 = meleeY;
                 rooms[socket.room].archerX1 = archerX;
@@ -619,6 +659,15 @@ io.sockets.on('connection', function (socket) {
             rooms[socket.room].archerY = [];
             rooms[socket.room].tankX = [];
             rooms[socket.room].tankY = [];//TODO  RESET ERVERYTHING
+            let x = rooms[socket.room];
+            x.attack_linex1 = [];
+            x.attack_liney1 = [];
+            x.attack_lineEx1 = [];
+            x.attack_lineEy1 = [];
+            x.attack_linex2 = [];
+            x.attack_liney2 = [];
+            x.attack_lineEx2 = [];
+            x.attack_lineEy2 = [];
 
             console.log("after");
             console.log(rooms[socket.room].players_names);
