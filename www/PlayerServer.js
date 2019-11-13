@@ -547,9 +547,8 @@ function write(x){
 //     }
 //
 // },1000/2);
-GAMETROOPS = ["Melee","Archer", "Tank"];
 
-var PLAYER = 0;
+
     class PlayerServer {
         constructor(index, color) {//TODO recode entire code so i dont have to add this shit everytime ARRAYSSSSSSSSSSSSSSSSSS
             PLAYER = this;
