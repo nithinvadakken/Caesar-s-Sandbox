@@ -1,18 +1,17 @@
 GAMETROOPNAMES = ["Melee", "Archer", "Tank"];
-GAMETROOPDAMAGES = [100, 100, 75];
-GAMETROOPHPS = [300, 200, 600];
-GAMETROOPATTACKSPDS = [1, 1.5, 2];
-GAMETROOPSPDS = [3, 2, 1];
-GAMETROOPRANGE = [150, 75, 600];
+GAMETROOPDAMAGES = [90, 70, 125];
+GAMETROOPHPS = [100, 80, 600];
+GAMETROOPATTACKSPDS = [3, 2.5, 1];
+GAMETROOPSPDS = [3, 2, .4];
+GAMETROOPRANGE = [150, 320, 225];
 GAMETROOPBULLETLEN = [5, 3, 7];
 GAMETROOPBULLETSPD = [2, 6, 4];
-GAMETROOPBULLEWIDTH = [5, 4, 8];//TODO IMPLEMENT
+GAMETROOPBULLEWIDTH = [4, 3, 7];//TODO IMPLEMENT
 
 var canvas = document.createElement('canvas');
 canvas.id = 'myCanvas';
 canvas.height =  window.innerHeight;
 canvas.width =  window.innerWidth;
-
 
 document.body.appendChild(canvas);
 
@@ -22,6 +21,7 @@ TROOP_ID = 0;
 BULLET_ID = 0;
 var PLAYER = function () {
 };
+
 PLAYER.prototype = {
     id: -1,
     army: [],
@@ -37,11 +37,9 @@ PLAYER.prototype = {
             // PLAYERS[this.id].army.push(x);
             this.army.push(x);
         }
-
     },
     addtroop: function (x, y, type) {
         this.army[type].addtroop(x, y, this.id);
-
     }
 };
 
@@ -57,6 +55,7 @@ GAMETROOP.prototype = {
     hps: [],
     player: 0,
     color: 0,
+
     init: function (color) {
         this.xs = [];
         this.ys = [];
@@ -65,6 +64,7 @@ GAMETROOP.prototype = {
         this.hps = [];
         this.color = color;
     },
+
     addtroop: function (x, y, player) {
         this.player = player;
         this.xs.push(x);
@@ -233,7 +233,7 @@ BULLET.prototype = {
             let temp = 0;
             for (let i = 0; i < PLAYERS[this.p1].bullets.length; i++) {
                 if (this.id === PLAYERS[this.p1].bullets[i].id) {
-                    console.log("deleted")
+                    console.log("deleted");
                     PLAYERS[this.p1].bullets.splice(i, 1);
                     temp = 1;
                 }
@@ -253,6 +253,7 @@ BULLET.prototype = {
     }
 
 };
+
 GAMESTATE = 0;
 class temp {
     constructor() {
@@ -269,7 +270,6 @@ class temp {
         //
         // console.log(PLAYERS[0].id)
         // console.log(PLAYERS[1].id)
-
     }
 
     addtroop(x, y, type, player) {
@@ -405,10 +405,10 @@ function random() {
     var x = Math.sin(seed++) * 10000;
     return x - Math.floor(x);
 }
-for(let a = 0; a<4;a++) {
+for(let a = 0; a < 4;a++) {
     for (let i = 0; i < 3; i++) {
-        z.addtroop(Math.floor(random() *  window.innerWidth), Math.floor(random() *  window.innerHeight), i, 0)
-        z.addtroop(Math.floor(random() *  window.innerWidth), Math.floor(random() *  window.innerHeight), i, 1)
+        z.addtroop(Math.floor(random() *  window.innerWidth), Math.floor(random() *  window.innerHeight), i, 0);
+        z.addtroop(Math.floor(random() *  window.innerWidth), Math.floor(random() *  window.innerHeight), i, 1);
 
     }
 }
@@ -438,11 +438,11 @@ let draw = setInterval(function () {
     c = document.getElementById("myCanvas");
     ctx = c.getContext("2d");
     ctx.clearRect(0, 0, c.width, c.height);
-    ctx.fillStyle = '#000000'
+    ctx.fillStyle = '#000000';
     ctx.fillRect(0,0, c.width,c.height);
     for (let i = 0; i < PLAYERS.length; i++) {
         for (let z = 0; z < PLAYERS[i].army.length; z++) {
-            ctx.strokeStyle = '#ffffff'
+            ctx.strokeStyle = '#ffffff';
             if (z === 0) {//TODO HERE
                 for (let a = 0; a < PLAYERS[i].army[z].xs.length; a++) {
                     let temp = PLAYERS[i].color;
@@ -457,11 +457,11 @@ let draw = setInterval(function () {
                 }
                 for (let z = 0; z < PLAYERS[i].bullets.length; z++) {
                     ctx.beginPath();
-                    ctx.strokeStyle = '#800080'
+                    ctx.strokeStyle = '#800080';
                     ctx.lineWidth = 5;
                     ctx.moveTo(PLAYERS[i].bullets[z].x, PLAYERS[i].bullets[z].y);
                     ctx.lineTo(PLAYERS[i].bullets[z].Ax, PLAYERS[i].bullets[z].Ay);
-                    ctx.stroke();//TODO MAKE BULLETS KOOL
+                    ctx.stroke();//TODO MAKE BULLETS COOL
                 }
             }
             else if (z === 1) {
@@ -480,7 +480,7 @@ let draw = setInterval(function () {
                 for (let z = 0; z < PLAYERS[i].bullets.length; z++) {
                     ctx.beginPath();
 
-                    ctx.strokeStyle = '#0000ff'
+                    ctx.strokeStyle = '#0000ff';
                     ctx.lineWidth = 5;
                     ctx.moveTo(PLAYERS[i].bullets[z].x, PLAYERS[i].bullets[z].y);
                     ctx.lineTo(PLAYERS[i].bullets[z].Ax, PLAYERS[i].bullets[z].Ay);
@@ -492,10 +492,19 @@ let draw = setInterval(function () {
                     let temp = PLAYERS[i].color;
                     ctx.beginPath();
                     ctx.fillStyle = temp;
-                    ctx.fillRect(PLAYERS[i].army[z].xs[a] - 10, PLAYERS[i].army[z].ys[a] - 10, 20, 20);
-                    ctx.strokeStyle = '#000000'
-                    ctx.strokeStyle = '#ffffff'
-                    ctx.rect(PLAYERS[i].army[z].xs[a] - 10, PLAYERS[i].army[z].ys[a] - 10, 20, 20);
+                    ctx.fillRect(PLAYERS[i].army[z].xs[a] - 10, PLAYERS[i].army[z].ys[a] - 10, 30, 30);
+                    ctx.strokeStyle = '#000000';
+                    ctx.strokeStyle = '#ffffff';
+                    ctx.rect(PLAYERS[i].army[z].xs[a] - 10, PLAYERS[i].army[z].ys[a] - 10, 30, 30);
+
+
+                    //turret
+                    // ctx.fillStyle = black;
+                    ctx.rect(PLAYERS[i].army[z].xs[a] + 2.5, PLAYERS[i].army[z].ys[a] + 2.5, 5, 5);
+                    // ctx.fillStyle = temp;
+
+
+
 
                     // ctx.arc(PLAYERS[i].army[z].xs[a], PLAYERS[i].army[z].ys[a], 10, 0, 2 * Math.PI);
                     ctx.fill();
@@ -504,7 +513,7 @@ let draw = setInterval(function () {
                 }
                 for (let z = 0; z < PLAYERS[i].bullets.length; z++) {
                     ctx.beginPath();
-                    ctx.strokeStyle = '#0000ff'
+                    ctx.strokeStyle = '#0000ff';
                     ctx.lineWidth = 5;
                     ctx.moveTo(PLAYERS[i].bullets[z].x, PLAYERS[i].bullets[z].y);
                     ctx.lineTo(PLAYERS[i].bullets[z].Ax, PLAYERS[i].bullets[z].Ay);

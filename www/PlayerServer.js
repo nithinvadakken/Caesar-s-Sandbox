@@ -619,6 +619,7 @@ function write(x){
                             }
                         }
                     }
+
                     if(this.army[i].name ===("Archer") ){//TODO put everything in arrays for ez life(hierarchy )
                         tname = "Archer";
                         for (let i = 0; i < this.archerX1.length; i++) {
@@ -627,6 +628,7 @@ function write(x){
                             }
                         }
                     }
+
                     if(this.army[i].name ===("Tank") ){//TODO put everything in arrays for ez life(hierarchy )
                         tname = "Tank";
                         for (let i = 0; i < this.tankX1.length; i++) {
@@ -635,7 +637,6 @@ function write(x){
                             }
                         }
                     }
-
                 }
             }
             //GameTroopServer.table(troop);
