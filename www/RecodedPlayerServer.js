@@ -1,12 +1,12 @@
 GAMETROOPNAMES = ["Melee", "Archer", "Tank"];
-GAMETROOPDAMAGES = [100, 100, 75];
-GAMETROOPHPS = [300, 200, 600];
-GAMETROOPATTACKSPDS = [1, 1.5, 2];
-GAMETROOPSPDS = [3, 2, 1];
-GAMETROOPRANGE = [150, 75, 600];
+GAMETROOPDAMAGES = [90, 70, 125];
+GAMETROOPHPS = [100, 80, 600];
+GAMETROOPATTACKSPDS = [3, 2.5, 1];
+GAMETROOPSPDS = [3, 2, .4];
+GAMETROOPRANGE = [150, 320, 225];
 GAMETROOPBULLETLEN = [5, 3, 7];
 GAMETROOPBULLETSPD = [2, 6, 4];
-GAMETROOPBULLEWIDTH = [5, 4, 8];//TODO IMPLEMENT
+GAMETROOPBULLEWIDTH = [4, 3, 7];//TODO IMPLEMENT
 
 function reset(){
     PLAYERS = [];
@@ -274,6 +274,7 @@ class temp {
         //
         // console.log(PLAYERS[0].id)
         // console.log(PLAYERS[1].id)
+
     }
 
     addtroop(x, y, type, player) {
