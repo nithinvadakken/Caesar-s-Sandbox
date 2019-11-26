@@ -8,19 +8,12 @@ GAMETROOPBULLETLEN = [5, 3, 7];
 GAMETROOPBULLETSPD = [2, 6, 4];
 GAMETROOPBULLEWIDTH = [5, 4, 8];//TODO IMPLEMENT
 
-function reset(){
-    PLAYERS = [];
-    BULLETS = [];
-    TROOP_ID = 0;
-    BULLET_ID = 0;
-    GAMESTATE = 0;
-}
+
 //when u first create
 PLAYERS = [];
 BULLETS = [];
 TROOP_ID = 0;
 BULLET_ID = 0;
-GAMESTATE = 0;
 var PLAYER = function () {
 };
 PLAYER.prototype = {
@@ -174,7 +167,7 @@ BULLET.prototype = {
             for (let i = 0; i < BULLETS.length; i++) {
                 if (this.id === BULLETS[i].id) {
                     BULLETS.splice(i, 1);
-  //                  console.log("deleted1")
+                    //                  console.log("deleted1")
                     temp = 1;
                 }
             }
@@ -257,6 +250,7 @@ BULLET.prototype = {
     }
 
 };
+GAMESTATE = 0;
 class temp {
     init(){
         this.p1 = new PLAYER();
@@ -390,7 +384,7 @@ class temp {
             //TODO level here
         }
     }
-    
+
     createArmy(x,y,type,Ex,Ey,Etype) {
         console.log("hi"+ PLAYERS)
         for (let i = 0; i < x.length; i++) {//TODO make this easier make all of them into 3 arrays x,y,type
@@ -404,7 +398,7 @@ class temp {
         }
         console.log("hi"+ PLAYERS)
     }
-    
+
     startGame(){
         let update = setInterval(function () {
             if (GAMESTATE === -1) {
@@ -414,12 +408,116 @@ class temp {
                 z.moveArmies();
         }, 1000 / 180);
     }
+
+    draw(temp = 1) {
+    if(temp === 0){
+        clearInterval(draw);
+    }
+    else {
+        var c = 0;
+        var ctx = 0;
+        let draw = setInterval(function () {
+            var canvas = document.createElement('canvas');
+            canvas.id = 'myCanvas';
+            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth;
+
+
+            document.body.appendChild(canvas);
+            c = document.getElementById("myCanvas");
+            ctx = c.getContext("2d");
+            ctx.clearRect(0, 0, c.width, c.height);
+            ctx.fillStyle = '#000000'
+            ctx.fillRect(0, 0, c.width, c.height);
+            for (let i = 0; i < PLAYERS.length; i++) {
+                for (let z = 0; z < PLAYERS[i].army.length; z++) {
+                    ctx.strokeStyle = '#ffffff'
+                    if (z === 0) {//TODO HERE
+                        for (let a = 0; a < PLAYERS[i].army[z].xs.length; a++) {
+                            let temp = PLAYERS[i].color;
+                            ctx.beginPath();
+
+                            ctx.fillStyle = temp;
+                            ctx.arc(PLAYERS[i].army[z].xs[a], PLAYERS[i].army[z].ys[a], 10, 0, 2 * Math.PI);
+                            //ctx.strokeStyle = temp;
+                            ctx.fill();
+                            ctx.closePath();
+                            ctx.stroke();
+                        }
+                        for (let z = 0; z < PLAYERS[i].bullets.length; z++) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = '#800080'
+                            ctx.lineWidth = 5;
+                            ctx.moveTo(PLAYERS[i].bullets[z].x, PLAYERS[i].bullets[z].y);
+                            ctx.lineTo(PLAYERS[i].bullets[z].Ax, PLAYERS[i].bullets[z].Ay);
+                            ctx.stroke();//TODO MAKE BULLETS KOOL
+                        }
+                    }
+                    else if (z === 1) {
+                        for (let a = 0; a < PLAYERS[i].army[z].xs.length; a++) {
+                            let temp = PLAYERS[i].color;
+                            ctx.beginPath();
+                            ctx.fillStyle = temp;
+                            ctx.moveTo(PLAYERS[i].army[z].xs[a], PLAYERS[i].army[z].ys[a] - 10);
+                            ctx.lineTo(PLAYERS[i].army[z].xs[a] + 10, PLAYERS[i].army[z].ys[a] + 10);
+                            ctx.lineTo(PLAYERS[i].army[z].xs[a] - 10, PLAYERS[i].army[z].ys[a] + 10);
+                            // ctx.arc(PLAYERS[i].army[z].xs[a], PLAYERS[i].army[z].ys[a], 10, 0, 2 * Math.PI);
+                            ctx.fill();
+                            ctx.closePath();
+                            ctx.stroke();
+                        }
+                        for (let z = 0; z < PLAYERS[i].bullets.length; z++) {
+                            ctx.beginPath();
+
+                            ctx.strokeStyle = '#0000ff'
+                            ctx.lineWidth = 5;
+                            ctx.moveTo(PLAYERS[i].bullets[z].x, PLAYERS[i].bullets[z].y);
+                            ctx.lineTo(PLAYERS[i].bullets[z].Ax, PLAYERS[i].bullets[z].Ay);
+                            ctx.stroke();
+                        }
+                    }
+                    else if (z === 2) {
+                        for (let a = 0; a < PLAYERS[i].army[z].xs.length; a++) {
+                            let temp = PLAYERS[i].color;
+                            ctx.beginPath();
+                            ctx.fillStyle = temp;
+                            ctx.fillRect(PLAYERS[i].army[z].xs[a] - 10, PLAYERS[i].army[z].ys[a] - 10, 20, 20);
+                            ctx.strokeStyle = '#000000'
+                            ctx.strokeStyle = '#ffffff'
+                            ctx.rect(PLAYERS[i].army[z].xs[a] - 10, PLAYERS[i].army[z].ys[a] - 10, 20, 20);
+
+                            // ctx.arc(PLAYERS[i].army[z].xs[a], PLAYERS[i].army[z].ys[a], 10, 0, 2 * Math.PI);
+                            ctx.fill();
+                            ctx.closePath();
+                            ctx.stroke();
+                        }
+                        for (let z = 0; z < PLAYERS[i].bullets.length; z++) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = '#0000ff'
+                            ctx.lineWidth = 5;
+                            ctx.moveTo(PLAYERS[i].bullets[z].x, PLAYERS[i].bullets[z].y);
+                            ctx.lineTo(PLAYERS[i].bullets[z].Ax, PLAYERS[i].bullets[z].Ay);
+                            ctx.stroke();
+                        }
+                    }
+                    else {
+                        console.log("what")
+                    }
+                    function drawBozrder(xPos, yPos, width, height, thickness = 1) {
+                        ctx.fillStyle = '#000';
+                        ctx.fillRect(xPos - (thickness), yPos - (thickness), width + (thickness * 2), height + (thickness * 2));
+                    }
+                }
+            }
+        }, 1000 / 60);
+    }
+}
 }
 function getDistanceToTarget(x, y, tx, ty) {
     return Math.sqrt(Math.pow(x - tx, 2) + Math.pow(y - ty, 2));
 
 }
-//var z = new temp();
+var z = new temp();
 // z.addtroop(Math.floor(Math.random() * 1000), , 1, 1);
 // z.addtroop(400, 300, 1, 0);
 // z.addtroop(50, 120, 2, 1);
@@ -460,103 +558,6 @@ function getDistanceToTarget(x, y, tx, ty) {
  ctx.stroke();
  */
 
-// var c = 0;
-// var ctx = 0;
-// let draw = setInterval(function () {
-//     var canvas = document.createElement('canvas');
-//     canvas.id = 'myCanvas';
-//     canvas.height =  window.innerHeight;
-//     canvas.width =  window.innerWidth;
-//
-//
-//     document.body.appendChild(canvas);
-//     c = document.getElementById("myCanvas");
-//     ctx = c.getContext("2d");
-//     ctx.clearRect(0, 0, c.width, c.height);
-//     ctx.fillStyle = '#000000'
-//     ctx.fillRect(0,0, c.width,c.height);
-//     for (let i = 0; i < PLAYERS.length; i++) {
-//         for (let z = 0; z < PLAYERS[i].army.length; z++) {
-//             ctx.strokeStyle = '#ffffff'
-//             if (z === 0) {//TODO HERE
-//                 for (let a = 0; a < PLAYERS[i].army[z].xs.length; a++) {
-//                     let temp = PLAYERS[i].color;
-//                     ctx.beginPath();
-//
-//                     ctx.fillStyle = temp;
-//                     ctx.arc(PLAYERS[i].army[z].xs[a], PLAYERS[i].army[z].ys[a], 10, 0, 2 * Math.PI);
-//                     //ctx.strokeStyle = temp;
-//                     ctx.fill();
-//                     ctx.closePath();
-//                     ctx.stroke();
-//                 }
-//                 for (let z = 0; z < PLAYERS[i].bullets.length; z++) {
-//                     ctx.beginPath();
-//                     ctx.strokeStyle = '#800080'
-//                     ctx.lineWidth = 5;
-//                     ctx.moveTo(PLAYERS[i].bullets[z].x, PLAYERS[i].bullets[z].y);
-//                     ctx.lineTo(PLAYERS[i].bullets[z].Ax, PLAYERS[i].bullets[z].Ay);
-//                     ctx.stroke();//TODO MAKE BULLETS KOOL
-//                 }
-//             }
-//             else if (z === 1) {
-//                 for (let a = 0; a < PLAYERS[i].army[z].xs.length; a++) {
-//                     let temp = PLAYERS[i].color;
-//                     ctx.beginPath();
-//                     ctx.fillStyle = temp;
-//                     ctx.moveTo(PLAYERS[i].army[z].xs[a], PLAYERS[i].army[z].ys[a] - 10);
-//                     ctx.lineTo(PLAYERS[i].army[z].xs[a] + 10, PLAYERS[i].army[z].ys[a] + 10);
-//                     ctx.lineTo(PLAYERS[i].army[z].xs[a] - 10, PLAYERS[i].army[z].ys[a] + 10);
-//                     // ctx.arc(PLAYERS[i].army[z].xs[a], PLAYERS[i].army[z].ys[a], 10, 0, 2 * Math.PI);
-//                     ctx.fill();
-//                     ctx.closePath();
-//                     ctx.stroke();
-//                 }
-//                 for (let z = 0; z < PLAYERS[i].bullets.length; z++) {
-//                     ctx.beginPath();
-//
-//                     ctx.strokeStyle = '#0000ff'
-//                     ctx.lineWidth = 5;
-//                     ctx.moveTo(PLAYERS[i].bullets[z].x, PLAYERS[i].bullets[z].y);
-//                     ctx.lineTo(PLAYERS[i].bullets[z].Ax, PLAYERS[i].bullets[z].Ay);
-//                     ctx.stroke();
-//                 }
-//             }
-//             else if (z === 2) {
-//                 for (let a = 0; a < PLAYERS[i].army[z].xs.length; a++) {
-//                     let temp = PLAYERS[i].color;
-//                     ctx.beginPath();
-//                     ctx.fillStyle = temp;
-//                     ctx.fillRect(PLAYERS[i].army[z].xs[a] - 10, PLAYERS[i].army[z].ys[a] - 10, 20, 20);
-//                     ctx.strokeStyle = '#000000'
-//                     ctx.strokeStyle = '#ffffff'
-//                     ctx.rect(PLAYERS[i].army[z].xs[a] - 10, PLAYERS[i].army[z].ys[a] - 10, 20, 20);
-//
-//                     // ctx.arc(PLAYERS[i].army[z].xs[a], PLAYERS[i].army[z].ys[a], 10, 0, 2 * Math.PI);
-//                     ctx.fill();
-//                     ctx.closePath();
-//                     ctx.stroke();
-//                 }
-//                 for (let z = 0; z < PLAYERS[i].bullets.length; z++) {
-//                     ctx.beginPath();
-//                     ctx.strokeStyle = '#0000ff'
-//                     ctx.lineWidth = 5;
-//                     ctx.moveTo(PLAYERS[i].bullets[z].x, PLAYERS[i].bullets[z].y);
-//                     ctx.lineTo(PLAYERS[i].bullets[z].Ax, PLAYERS[i].bullets[z].Ay);
-//                     ctx.stroke();
-//                 }
-//             }
-//             else {
-//                 console.log("what")
-//             }
-//             function drawBozrder(xPos, yPos, width, height, thickness = 1)
-//             {
-//                 ctx.fillStyle='#000';
-//                 ctx.fillRect(xPos - (thickness), yPos - (thickness), width + (thickness * 2), height + (thickness * 2));
-//             }
-//         }
-//     }
-// }, 1000 / 60);
 
 //line(PLAYERS[i].bullets[z].x,PLAYERS[i].bullets[z].y,PLAYERS[i].bullets[z].Ax,PLAYERS[i].bullets[z].Ay )
 
@@ -573,5 +574,3 @@ function getDistanceToTarget(x, y, tx, ty) {
 
 
 //ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-module.exports = temp;

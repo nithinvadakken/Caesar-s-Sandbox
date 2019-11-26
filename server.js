@@ -14,7 +14,7 @@ console.log('server started on port'/*+process.env.PORT ||*/ + 3000);
 //handle the socket
 //wewewewe
 var amount_of_rooms = 0;
-Player = require("./www/PlayerServer");
+Temp = require("./www/RecodedPlayerServer");
 //GameTroop = require("./www/GameTroopServer");
 
 rooms = [];
@@ -130,6 +130,59 @@ function create_room(server) {
     rooms.push(x);
     amount_of_rooms++;
 }
+
+function startGame(room) {
+    console.log("start")
+    rooms[room].game = new Temp();
+
+    let armyX = [];//TODO make the arrays easier please
+    let armyY = [];
+    let armyType = [];
+    let armyEX = [];
+    let armyEY = [];
+    let armyEType = [];
+    console.log("***")
+    console.log(rooms[room].meleeX1,rooms[room].meleeX2)
+    for(let i = 0; i < rooms[room].meleeX1.length; i++){
+        console.log(rooms[room].meleeX1[i]+ " m")
+        armyX.push(rooms[room].meleeX1[i])
+        armyY.push(rooms[room].meleeY1[i])
+        armyType.push(0);
+    }
+    for(let i = 0; i < rooms[room].archerX1.length; i++){
+        armyX.push(rooms[room].archerX1[i])
+        armyY.push(rooms[room].archerY1[i])
+        armyType.push(1);
+    }
+    for(let i = 0; i < rooms[room].tankX1.length; i++){
+        armyX.push(rooms[room].tankX1[i])
+        armyY.push(rooms[room].tankX1[i])
+        armyType.push(2);
+    }
+
+    for(let i = 0; i < rooms[room].meleeX2.length; i++){
+        armyEX.push(rooms[room].meleeX2[i])
+        armyEY.push(rooms[room].meleeY2[i])
+        armyEType.push(0);
+    }
+    for(let i = 0; i < rooms[room].archerX2.length; i++){
+        armyEX.push(rooms[room].archerX2[i])
+        armyEY.push(rooms[room].archerY2[i])
+        armyEType.push(1);
+    }
+    for(let i = 0; i < rooms[room].tankX2.length; i++){
+        armyEX.push(rooms[room].tankX2[i])
+        armyEY.push(rooms[room].tankX2[i])
+        armyEType.push(2);
+    }
+    rooms[room].game.init();
+    rooms[room].game.createArmy(armyX,armyY,armyType,armyEX,armyEY,armyEType);
+    rooms[room].game.startGame();
+    rooms[room].PLAYERS = rooms[room].game.PLAYERS;
+    rooms[room].BULLETS = rooms[room].game.BULLETS;
+    console.log(rooms[room].PLAYERS)
+}
+
 function updateGame(room) {
     //table(room);
     // for(let i = 0; i<rooms.length; i++)
@@ -467,53 +520,54 @@ io.sockets.on('connection', function (socket) {
                 rooms[socket.room].archerY2 = archerY;
                 rooms[socket.room].tankX2 = tankX;
                 rooms[socket.room].tankY2 = tankY;
-                socket.emit("request max");
-                socket.on("max", function (max) {
-                    let temp_player = new Player();
-                    let meleehp = temp_player.MELEEHP;
-                    let archerhp = temp_player.ARCHERHP;
-                    let tankhp = temp_player.TANKHP;
-                    for (let i = 0; i < rooms[socket.room].meleeX2.length; i++) {
-                        rooms[socket.room].meleehp2.push(meleehp);
-                    }
-                    for (let i = 0; i < rooms[socket.room].archerX2.length; i++) {
-                        rooms[socket.room].archerhp2.push(archerhp);
-                    }
-                    for (let i = 0; i < rooms[socket.room].tankX2.length; i++) {
-                        rooms[socket.room].tankhp2.push(tankhp);
-                    }
-
-                    for (let i = 0; i < rooms[socket.room].meleeX1.length; i++) {
-                        rooms[socket.room].meleehp1.push(meleehp);
-                    }
-                    for (let i = 0; i < rooms[socket.room].archerX1.length; i++) {
-                        rooms[socket.room].archerhp1.push(archerhp);
-                    }
-                    for (let i = 0; i < rooms[socket.room].tankX1.length; i++) {
-                        rooms[socket.room].tankhp1.push(tankhp);
-                    }
-                    console.log(  "!!!!!!!!!!!!!!!"+rooms[socket.room].meleehp1.length+"  "+rooms[socket.room].meleehp2.length)
-
-                    rooms[socket.room].max = max;
-                    let i;
-                    for (i = 0; i < max; i++) {
-                        rooms[socket.room].meleeTime1.push(0);
-                        rooms[socket.room].archerTime1.push(0);
-                        rooms[socket.room].tankTime1.push(0);
-                        rooms[socket.room].meleeTime2.push(0);
-                        rooms[socket.room].archerTime2.push(0);
-                        rooms[socket.room].tankTime2.push(0);
-                    }
-
-
-                });
+                // socket.emit("request max");
+                // socket.on("max", function (max) {
+                //     let temp_player = new Player();
+                //     let meleehp = temp_player.MELEEHP;
+                //     let archerhp = temp_player.ARCHERHP;
+                //     let tankhp = temp_player.TANKHP;
+                //     for (let i = 0; i < rooms[socket.room].meleeX2.length; i++) {
+                //         rooms[socket.room].meleehp2.push(meleehp);
+                //     }
+                //     for (let i = 0; i < rooms[socket.room].archerX2.length; i++) {
+                //         rooms[socket.room].archerhp2.push(archerhp);
+                //     }
+                //     for (let i = 0; i < rooms[socket.room].tankX2.length; i++) {
+                //         rooms[socket.room].tankhp2.push(tankhp);
+                //     }
+                //
+                //     for (let i = 0; i < rooms[socket.room].meleeX1.length; i++) {
+                //         rooms[socket.room].meleehp1.push(meleehp);
+                //     }
+                //     for (let i = 0; i < rooms[socket.room].archerX1.length; i++) {
+                //         rooms[socket.room].archerhp1.push(archerhp);
+                //     }
+                //     for (let i = 0; i < rooms[socket.room].tankX1.length; i++) {
+                //         rooms[socket.room].tankhp1.push(tankhp);
+                //     }
+                //     console.log(  "!!!!!!!!!!!!!!!"+rooms[socket.room].meleehp1.length+"  "+rooms[socket.room].meleehp2.length)
+                //
+                //     rooms[socket.room].max = max;
+                //     let i;
+                //     for (i = 0; i < max; i++) {
+                //         rooms[socket.room].meleeTime1.push(0);
+                //         rooms[socket.room].archerTime1.push(0);
+                //         rooms[socket.room].tankTime1.push(0);
+                //         rooms[socket.room].meleeTime2.push(0);
+                //         rooms[socket.room].archerTime2.push(0);
+                //         rooms[socket.room].tankTime2.push(0);
+                //     }
+                //
+                //
+                // });
 
 
                 rooms[socket.room].game_state = 2;
                 console.log("a11: " + rooms[socket.room].archerX1);
                 console.log("a12: " + rooms[socket.room].archerX2);
                 socket.broadcast.to(socket.server).emit("start_spec");//for spectating
-                updateGame(socket.room);
+                startGame(socket.room);
+                //updateGame(socket.room);
                 //console.log("sim "+rooms[socket.server].simulation);
                 io.to(socket.server).emit("game_ready", rooms[socket.room].players_ids.indexOf(socket.id));
             }
@@ -547,48 +601,45 @@ io.sockets.on('connection', function (socket) {
                 rooms[socket.room].archerY1 = archerY;
                 rooms[socket.room].tankX1 = tankX;
                 rooms[socket.room].tankY1 = tankY;
-                socket.emit("request max");
-                socket.on("max", function (max) {
-                    let temp_player = new Player();
-                    let meleehp = temp_player.MELEEHP;
-                    let archerhp = temp_player.ARCHERHP;
-                    let tankhp = temp_player.TANKHP;
-                    for (let i = 0; i < rooms[socket.room].meleeX2.length; i++) {
-                        rooms[socket.room].meleehp2.push(meleehp);
-                    }
-                    for (let i = 0; i < rooms[socket.room].archerX2.length; i++) {
-                        rooms[socket.room].archerhp2.push(archerhp);
-                    }
-                    for (let i = 0; i < rooms[socket.room].tankX2.length; i++) {
-                        rooms[socket.room].tankhp2.push(tankhp);
-                    }
-                    for (let i = 0; i < rooms[socket.room].meleeX1.length; i++) {
-                        rooms[socket.room].meleehp1.push(meleehp);
-                    }
-                    for (let i = 0; i < rooms[socket.room].archerX1.length; i++) {
-                        rooms[socket.room].archerhp1.push(archerhp);
-                    }
-                    for (let i = 0; i < rooms[socket.room].tankX1.length; i++) {
-                        rooms[socket.room].tankhp1.push(tankhp);
-                    }
-                    console.log(  "!!!!!!!!!!!!!!!"+rooms[socket.room].meleehp1.length+"  "+rooms[socket.room].meleehp2.length)
-                    rooms[socket.room].max = max;
-                    let i;
-                    for (i = 0; i < max; i++) {
-                        rooms[socket.room].meleeTime1.push(0);
-                        rooms[socket.room].archerTime1.push(0);
-                        rooms[socket.room].tankTime1.push(0);
-                        rooms[socket.room].meleeTime2.push(0);
-                        rooms[socket.room].archerTime2.push(0);
-                        rooms[socket.room].tankTime2.push(0);
-                    }
-                });
+                // socket.emit("request max");
+                // socket.on("max", function (max) {
+                //     let temp_player = new Player();
+                //
+                //     for (let i = 0; i < rooms[socket.room].meleeX2.length; i++) {
+                //         rooms[socket.room].meleehp2.push(meleehp);
+                //     }
+                //     for (let i = 0; i < rooms[socket.room].archerX2.length; i++) {
+                //         rooms[socket.room].archerhp2.push(archerhp);
+                //     }
+                //     for (let i = 0; i < rooms[socket.room].tankX2.length; i++) {
+                //         rooms[socket.room].tankhp2.push(tankhp);
+                //     }
+                //     for (let i = 0; i < rooms[socket.room].meleeX1.length; i++) {
+                //         rooms[socket.room].meleehp1.push(meleehp);
+                //     }
+                //     for (let i = 0; i < rooms[socket.room].archerX1.length; i++) {
+                //         rooms[socket.room].archerhp1.push(archerhp);
+                //     }
+                //     for (let i = 0; i < rooms[socket.room].tankX1.length; i++) {
+                //         rooms[socket.room].tankhp1.push(tankhp);
+                //     }
+                //     console.log(  "!!!!!!!!!!!!!!!"+rooms[socket.room].meleehp1.length+"  "+rooms[socket.room].meleehp2.length)
+                //     rooms[socket.room].max = max;
+                //     let i;
+                //     for (i = 0; i < max; i++) {
+                //         rooms[socket.room].meleeTime1.push(0);
+                //         rooms[socket.room].archerTime1.push(0);
+                //         rooms[socket.room].tankTime1.push(0);
+                //         rooms[socket.room].meleeTime2.push(0);
+                //         rooms[socket.room].archerTime2.push(0);
+                //         rooms[socket.room].tankTime2.push(0);
+                //     }
+                //});
 
-                console.log("a21: " + rooms[socket.room].archerX1);
-                console.log("a22: " + rooms[socket.room].archerX2);
                 socket.broadcast.to(socket.server).emit("start_spec");//for spectating
                 rooms[socket.room].game_state = 2;
-                updateGame(socket.room);
+                startGame(socket.room);
+                //updateGame(socket.room);
                 //console.log("s "+rooms[socket.room].simulation);
                 io.to(socket.server).emit("game_ready", rooms[socket.room].players_ids.indexOf(socket.id));
             }
@@ -609,9 +660,7 @@ io.sockets.on('connection', function (socket) {
     });
     socket.on("request_update", function () {
         //console.log("update request");
-        socket.emit("updated_draw", rooms[socket.room].meleeX1, rooms[socket.room].meleeY1, rooms[socket.room].archerX1, rooms[socket.room].archerY1, rooms[socket.room].tankX1, rooms[socket.room].tankY1, rooms[socket.room].meleeX2, rooms[socket.room].meleeY2, rooms[socket.room].archerX2, rooms[socket.room].archerY2, rooms[socket.room].tankX2, rooms[socket.room].tankY2, rooms[socket.room].players_ids.indexOf(socket.id), rooms[socket.room].players_names[0], rooms[socket.room].players_names[1],
-            rooms[socket.room].attack_linex1, rooms[socket.room].attack_liney1, rooms[socket.room].attack_lineEx1, rooms[socket.room].attack_lineEy1,rooms[socket.room].attack_linex2, rooms[socket.room].attack_liney2, rooms[socket.room].attack_lineEx2, rooms[socket.room].attack_lineEy2
-        );
+        socket.emit("updated_draw", rooms[socket.room].PLAYERS,rooms[socket.room].BULLETS);
     });
     socket.on("request_spec", function () {
         console.log("maybe " + rooms[socket.room].simulation);

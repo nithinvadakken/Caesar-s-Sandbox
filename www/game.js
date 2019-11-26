@@ -1,10 +1,17 @@
-
+var c = 0;
+var ctx = 0;
+// var canvas = document.createElement('canvas');
+// canvas.id = 'myCanvas';
+// canvas.height =  window.innerHeight;
+// canvas.width =  window.innerWidth;
+// document.body.appendChild(canvas);
 let player;
 
 function setup() {
     noLoop();
-    //console.log("here");
-    player = new Player(0, 'green');
+    console.log("here");
+    player = new temp();
+    player.init();
 }
 
 let game_btn;
@@ -17,6 +24,7 @@ archerX = [];
 archerY = [];
 tankX = [];
 tankY = [];
+army = [];
 let game_started = false;
 let which_player;
 let clear_btn;
@@ -40,9 +48,6 @@ function add_armies(x) {
     which_player = x;
     //console.log("here1");
     army_edit = true;
-    createCanvas(window.innerWidth, window.innerHeight);
-    background(0);
-    translate(window.innerWidth / 2 - player.position.x, window.innerHeight / 2 - player.position.y);
 
     clear_btn = document.createElement("BUTTON");
     clear_btn.innerHTML = "Clear";
@@ -53,7 +58,6 @@ function add_armies(x) {
         translate(window.innerWidth / 2 - player.position.x, window.innerHeight / 2 - player.position.y);
         document.body.appendChild(clear_btn);
         document.body.appendChild(submit_btn);
-        player.army = [];
         current = 0;
         meleeX = [];
         meleeY = [];
@@ -73,136 +77,236 @@ function add_armies(x) {
 
 function keyPressed() {
     if (army_edit === true) {
+        player.draw(1);
         if (keyCode === 81) {
             console.log("mouse: " + mouseX + "  window: " + window.innerWidth + "  player:" + which_player);
             if (which_player === 0 && mouseX < window.innerWidth / 2 && current < max) {
-                player.addArmyOnClick(mouseX, mouseY, 0);
                 meleeX.push(mouseX);
                 meleeY.push(mouseY);
                 meleeId.push(troopId);
                 troopId++;
-                player.drawArmy();
+                player.addtroop(mouseX,mouseY,0,0);
                 console.log("melee");
                 current++;
             }
             if (which_player === 1 && mouseX > window.innerWidth / 2 && current < max) {//TODO make a line so it splits screen
-                player.addArmyOnClick(mouseX, mouseY, 0);
                 meleeX.push(mouseX);
                 meleeY.push(mouseY);
                 meleeId.push(troopId);
                 troopId++;
-                player.drawArmy();
+                player.addtroop(mouseX,mouseY,0,1);
                 console.log("melee");
                 current++;
             }
 
         } else if (keyCode === 87) {
             if (which_player === 0 && mouseX < window.innerWidth / 2 && current < max) {
-                player.addArmyOnClick(mouseX, mouseY, 1);
                 archerX.push(mouseX);
                 archerY.push(mouseY);
                 archerId.pop(troopId);
                 troopId++;
-                player.drawArmy();
+                player.addtroop(mouseX,mouseY,1,0);
                 console.log("archer");
                 current++;
             }
             if (which_player === 1 && mouseX > window.innerWidth / 2 && current < max) {
-                player.addArmyOnClick(mouseX, mouseY, 1);
                 archerX.push(mouseX);
                 archerY.push(mouseY);
                 archerId.pop(troopId);
                 troopId++;
-                player.drawArmy();
+                player.addtroop(mouseX,mouseY,1,1);
                 console.log("archer");
                 current++;
             }
 
         } else if (keyCode === 69) {
             if (which_player === 0 && mouseX < window.innerWidth / 2 && current < max) {
-                player.addArmyOnClick(mouseX, mouseY, 2);
                 tankX.push(mouseX);
                 tankY.push(mouseY);
                 tankId.push(troopId);
                 troopId++;
-                player.drawArmy();
+                player.addtroop(mouseX,mouseY,2,0);
                 console.log("tank");
                 current++;
             }
             if (which_player === 1 && mouseX > window.innerWidth / 2 && current < max) {
-                player.addArmyOnClick(mouseX, mouseY, 2);
                 tankX.push(mouseX);
                 tankY.push(mouseY);
                 tankId.push(troopId);
                 troopId++;
-                player.drawArmy();
+                player.addtroop(mouseX,mouseY,2,1);
                 console.log("tank");
                 current++;
             }
         }
     }
 }
+
+setInterval(function () {
+    if(army_edit === 1) {
+        c = document.getElementById("defaultCanvas0");
+        ctx = c.getContext("2d");
+        ctx.fillStyle = '#000000'
+        ctx.fillRect(0, 0, c.width, c.height);
+            for (let z = 0; z < PLAYERS[i].army.length; z++) {
+                ctx.strokeStyle = '#ffffff'
+                if (z === 0) {//TODO HERE
+                    for (let a = 0; a < PLAYERS[i].army[z].xs.length; a++) {
+                        ctx.beginPath();
+                        let temp;
+                        Game.socket.emit('colors');
+                        temp = PLAYERS[i].color;
+                        ctx.fillStyle = temp;
+                        ctx.arc(PLAYERS[i].army[z].xs[a], PLAYERS[i].army[z].ys[a], 10, 0, 2 * Math.PI);
+                        //ctx.strokeStyle = temp;
+                        ctx.fill();
+                        ctx.closePath();
+                        ctx.stroke();
+                    }
+                }
+                else if (z === 1) {
+                    for (let a = 0; a < PLAYERS[i].army[z].xs.length; a++) {
+                        let temp = PLAYERS[i].color;
+                        ctx.beginPath();
+                        ctx.fillStyle = temp;
+                        ctx.moveTo(PLAYERS[i].army[z].xs[a], PLAYERS[i].army[z].ys[a] - 10);
+                        ctx.lineTo(PLAYERS[i].army[z].xs[a] + 10, PLAYERS[i].army[z].ys[a] + 10);
+                        ctx.lineTo(PLAYERS[i].army[z].xs[a] - 10, PLAYERS[i].army[z].ys[a] + 10);
+                        // ctx.arc(PLAYERS[i].army[z].xs[a], PLAYERS[i].army[z].ys[a], 10, 0, 2 * Math.PI);
+                        ctx.fill();
+                        ctx.closePath();
+                        ctx.stroke();
+                    }
+                }
+                else if (z === 2) {
+                    for (let a = 0; a < PLAYERS[i].army[z].xs.length; a++) {
+                        let temp = PLAYERS[i].color;
+                        ctx.beginPath();
+                        ctx.fillStyle = temp;
+                        ctx.fillRect(PLAYERS[i].army[z].xs[a] - 10, PLAYERS[i].army[z].ys[a] - 10, 20, 20);
+                        ctx.strokeStyle = '#000000'
+                        ctx.strokeStyle = '#ffffff'
+                        ctx.rect(PLAYERS[i].army[z].xs[a] - 10, PLAYERS[i].army[z].ys[a] - 10, 20, 20);
+
+                        // ctx.arc(PLAYERS[i].army[z].xs[a], PLAYERS[i].army[z].ys[a], 10, 0, 2 * Math.PI);
+                        ctx.fill();
+                        ctx.closePath();
+                        ctx.stroke();
+                    }
+                }
+            }
+        
+    }
+},1000/60);
 
 function clear_canvas() {
     clear();
 }
 
-let player1;
-let player2;
 let thisname;
 
-function draw_please(id1, id2, name1, name2, troops, color1, color2, meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2, linex1,liney1,lineEx1,lineEy1,linex2,liney2,lineEx2,lineEy2,index) {
+function draw_please(PLAYERS,BULLETS) {
+
     //console.log("tank " + tankX2);
    // console.log("first");
-    createCanvas(window.innerWidth, window.innerHeight);
-    if(index === 1) {
-        player1 = new Player(id1, color1);
-        player2 = new Player(id2, color2);
-    }
-    else{
-        player2 = new Player(id1, color1);
-        player1 = new Player(id2, color2);
-    }
-    background(0);
-    translate(window.innerWidth / 2 - player1.position.x, window.innerHeight / 2 - player1.position.y);
-    army1 = player1.createArmy(meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1);
-    army2 = player1.createArmy(meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2);
-    //console.log("army1 " + army1);
-    //console.log("army2 " + army2);
-    player1.name = name1;
-    player2.name = name2;
-    player1.numTroops = troops;
-    player1.army = army1;
-    player1.enemies = army2;
-    player2.numTroops = troops;
-    player2.army = army2;
-    player2.enemies = army1;
-    player1.show();
-    player2.show();
-    console.log(lineEx1.length +"  ,   "+lineEx2.length);
-    //console.log("importatny"+lineEx1)
-    if(linex1 !==undefined) {
-        for (let i = 0; i < linex1.length; i++) {
-            console.log("drawing line: "+linex1[i]);
-            if(index ===0)
-                stroke(color(200, 30, 0));
-            else
-                stroke(color(0, 255, 0));
-            strokeWeight(1);
-            line(parseInt(linex1[i]), parseInt(liney1[i]), parseInt(lineEx1[i]), parseInt(lineEy1[i]));
+   //  var c = 0;
+   //  var ctx = 0;
+   //  var canvas = document.createElement('canvas');
+   //  canvas.id = 'myCanvas';
+   //  canvas.height =  window.innerHeight;
+   //  canvas.width =  window.innerWidth;
+
+
+    c = document.getElementById("defaultCanvas0");
+    ctx = c.getContext("2d");
+    ctx.fillStyle = '#000000'
+    ctx.fillRect(0,0, c.width,c.height);
+    for (let i = 0; i < PLAYERS.length; i++) {
+        for (let z = 0; z < PLAYERS[i].army.length; z++) {
+            ctx.strokeStyle = '#ffffff'
+            if (z === 0) {//TODO HERE
+                for (let a = 0; a < PLAYERS[i].army[z].xs.length; a++) {
+                    let temp = PLAYERS[i].color;
+                    ctx.beginPath();
+
+                    ctx.fillStyle = temp;
+                    ctx.arc(PLAYERS[i].army[z].xs[a], PLAYERS[i].army[z].ys[a], 10, 0, 2 * Math.PI);
+                    //ctx.strokeStyle = temp;
+                    ctx.fill();
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+                if(BULLETS !== undefined) {
+                    console.log("not undefined")
+                    for (let z = 0; z < BULLETS.length; z++) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = '#800080'
+                        ctx.lineWidth = 5;
+                        ctx.moveTo(BULLETS[z].x, BULLETS[z].y);
+                        ctx.lineTo(BULLETS[z].Ax, BULLETS[z].Ay);
+                        ctx.stroke();//TODO MAKE BULLETS KOOL
+                    }
+                }
+                else{
+                    console.log("undefined ")
+                }
+            }
+            else if (z === 1) {
+                for (let a = 0; a < PLAYERS[i].army[z].xs.length; a++) {
+                    let temp = PLAYERS[i].color;
+                    ctx.beginPath();
+                    ctx.fillStyle = temp;
+                    ctx.moveTo(PLAYERS[i].army[z].xs[a], PLAYERS[i].army[z].ys[a] - 10);
+                    ctx.lineTo(PLAYERS[i].army[z].xs[a] + 10, PLAYERS[i].army[z].ys[a] + 10);
+                    ctx.lineTo(PLAYERS[i].army[z].xs[a] - 10, PLAYERS[i].army[z].ys[a] + 10);
+                    // ctx.arc(PLAYERS[i].army[z].xs[a], PLAYERS[i].army[z].ys[a], 10, 0, 2 * Math.PI);
+                    ctx.fill();
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+                if(BULLETS !== undefined) {
+                    for (let z = 0; z < BULLETS.length; z++) {
+                        ctx.beginPath();
+
+                        ctx.strokeStyle = '#0000ff'
+                        ctx.lineWidth = 5;
+                        ctx.moveTo(BULLETS[z].x, BULLETS[z].y);
+                        ctx.lineTo(BULLETS[z].Ax, BULLETS[z].Ay);
+                        ctx.stroke();
+                    }
+                }
+            }
+            else if (z === 2) {
+                for (let a = 0; a < PLAYERS[i].army[z].xs.length; a++) {
+                    let temp = PLAYERS[i].color;
+                    ctx.beginPath();
+                    ctx.fillStyle = temp;
+                    ctx.fillRect(PLAYERS[i].army[z].xs[a] - 10, PLAYERS[i].army[z].ys[a] - 10, 20, 20);
+                    ctx.strokeStyle = '#000000'
+                    ctx.strokeStyle = '#ffffff'
+                    ctx.rect(PLAYERS[i].army[z].xs[a] - 10, PLAYERS[i].army[z].ys[a] - 10, 20, 20);
+
+                    // ctx.arc(PLAYERS[i].army[z].xs[a], PLAYERS[i].army[z].ys[a], 10, 0, 2 * Math.PI);
+                    ctx.fill();
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+                if(BULLETS !== undefined) {
+                    for (let z = 0; z < BULLETS.length; z++) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = '#0000ff'
+                        ctx.lineWidth = 5;
+                        ctx.moveTo(BULLETS[z].x, BULLETS[z].y);
+                        ctx.lineTo(BULLETS[z].Ax, BULLETS[z].Ay);
+                        ctx.stroke();
+                    }
+                }
+            }
+            else {
+                console.log("what")
+            }
         }
     }
-    if(linex2 !==undefined) {
-        for (let i = 0; i < linex2.length; i++) {
-            console.log("drawing line: "+linex2[i]);
-            if(index ===1)
-                stroke(color(200, 30, 0));
-            else
-                stroke(color(0, 255, 0));
-            strokeWeight(1);
-            line(parseInt(linex2[i]), parseInt(liney2[i]), parseInt(lineEx2[i]), parseInt(lineEy2[i]));
-        }
-    } 
 }
 
 //
@@ -611,17 +715,17 @@ Game.prototype = {
            // console.log("start1")
             let keep_drawing = true;
             if (index < 2) {
+                player.reset();
                 army_edit = false;
                 //console.log("start2")
                 draw_loop();
                 function draw_loop() {
                     that.socket.emit("request_update");
                     //console.log("start3")
-
-                    that.socket.on("updated_draw", function (meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2, index, name1, name2, linex1,liney1,lineEx1,lineEy1,linex2,liney2,lineEx2,lineEy2) {
+                    //x,y,type,Ex,Ey,Etype,bullet
+                    that.socket.on("updated_draw", function (players,bullets) {
                         //console.log(linex1+" "+liney1+" "+lineEx1+" "+lineEy1);
-                        console.log("0: "+lineEx1.length+ "   1:"+lineEx2.length);
-                        draw_please(0, 1, name1, name2, max, 'green', 'red', meleeX1, meleeY1, archerX1, archerY1, tankX1, tankY1, meleeX2, meleeY2, archerX2, archerY2, tankX2, tankY2,linex1,liney1,lineEx1,lineEy1,linex2,liney2,lineEx2,lineEy2,index);
+                        draw_please(players,bullets);
                         if(keep_drawing===true){
                             let a = requestAnimationFrame(draw_loop());
                             console.log(a);
