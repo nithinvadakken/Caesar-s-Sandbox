@@ -176,6 +176,7 @@ setInterval(function () {
                         ctx.fill();
                         ctx.closePath();
                         ctx.stroke();
+                        
                     }
                 }
                 else if (z === 2) {
