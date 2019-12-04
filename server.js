@@ -7,8 +7,8 @@ users_id = [];
 //specify the html we will use
 app.use('/', express.static(__dirname + '/www'));
 //bind the server to the 80 port
-server.listen(3000);//local
-//server.listen(process.env.PORT);//publish to heroku
+//server.listen(3000);//local
+server.listen(process.env.PORT);//publish to heroku
 //server.listen(process.env.OPENSHIFT_NODEJS_PORT || 3000);//publish to openshift
 console.log('server started on port'/*+process.env.PORT ||*/ + 3000);
 //handle the socket
@@ -307,6 +307,7 @@ function table(room) {
         }
     }, 1000 / 1);
 }
+
 setInterval(function () {
     for (i = 0; i < amount_of_rooms; i++) {
         if (rooms[i].players_ids.length === 0) {
@@ -316,6 +317,7 @@ setInterval(function () {
         }
     }
 }, 1000);
+
 io.sockets.on('connection', function (socket) {
     //new user login
     socket.on('login', function (nickname, choice) {

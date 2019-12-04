@@ -184,14 +184,14 @@ setInterval(function () {
                         let temp = PLAYERS[i].color;
                         ctx.beginPath();
                         ctx.fillStyle = temp;
-                        ctx.fillRect(PLAYERS[i].army[z].xs[a] - 10, PLAYERS[i].army[z].ys[a] - 10, 20, 20);
+                        ctx.fillRect(PLAYERS[i].army[z].xs[a] - 10, PLAYERS[i].army[z].ys[a] - 10, 20, 20) ctx.arc(PLAYERS[i].army[z].xs[a], PLAYERS[i].army[z].ys[a], 10, 0, 2 * Math.PI);
+                        ctx.fill();
+                        ctx.closePath();;
                         ctx.strokeStyle = '#000000'
                         ctx.strokeStyle = '#ffffff'
                         ctx.rect(PLAYERS[i].army[z].xs[a] - 10, PLAYERS[i].army[z].ys[a] - 10, 20, 20);
 
-                        // ctx.arc(PLAYERS[i].army[z].xs[a], PLAYERS[i].army[z].ys[a], 10, 0, 2 * Math.PI);
-                        ctx.fill();
-                        ctx.closePath();
+                        //
                         ctx.stroke();
                     }
                 }
