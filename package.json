@@ -6,7 +6,7 @@
   "dependencies": {
     "common": "^0.2.5",
     "debug": "^4.1.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "heroku": "^7.25.0",
     "materialize-css": "^1.0.0-rc.2",
     "p5": "^0.9.0",
